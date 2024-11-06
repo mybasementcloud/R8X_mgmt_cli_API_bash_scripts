@@ -1,0 +1,30 @@
+From:	Yosef Teitz
+Sent:	Monday, October 2, 2023 05:05
+To:	api_tech
+Subject:	TIP: Getting data from rules in show-access-rulebase
+
+Follow Up Flag:	Follow up
+Flag Status:	Flagged
+
+This is more a tip than a question. We fielded a question in a task regarding fetching rule 
+content with jq and I felt that I should share the knowledge. 
+
+The problem is that rules are above all section headers (or there are no sections), they are 
+accessible with .rulebase[]. On the other hand, rules below section headers are accessible with 
+.rulebase[].rulebase[].
+
+How do you have one script that handles both situation, which can even happen in the same 
+rulebase?
+
+The answer is to flatten the rulebase and select what you need. 
+
+Here’s an example:
+mgmt_cli -r true show-access-rulebase name "$layerName" limit 500 | jq 
+-r '. | recurse(.rulebase[]?) | select(.type == "access-rule")'
+
+recurse(.rulebase[]?)  flattens the rulebase to a bunch of rulebase contents: access-rule, 
+access-section, place-holder. 
+select(.type == "access-rule") filters the access-rules whose data we wish to access.
+
+Hope this helps!
+

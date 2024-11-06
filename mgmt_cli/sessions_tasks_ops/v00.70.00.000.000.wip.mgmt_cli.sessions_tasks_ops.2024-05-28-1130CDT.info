@@ -1,0 +1,121 @@
+#!/bin/bash
+#
+# (C) 2016-2024+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
+#
+# ALL SCRIPTS ARE PROVIDED AS IS WITHOUT EXPRESS OR IMPLIED WARRANTY OF FUNCTION OR POTENTIAL FOR 
+# DAMAGE Or ABUSE.  AUTHOR DOES NOT ACCEPT ANY RESPONSIBILITY FOR THE USE OF THESE SCRIPTS OR THE 
+# RESULTS OF USING THESE SCRIPTS.  USING THESE SCRIPTS STIPULATES A CLEAR UNDERSTANDING OF RESPECTIVE
+# TECHNOLOGIES AND UNDERLYING PROGRAMMING CONCEPTS AND STRUCTURES AND IMPLIES CORRECT IMPLEMENTATION
+# OF RESPECTIVE BASELINE TECHNOLOGIES FOR PLATFORM UTILIZING THE SCRIPTS.  THIRD PARTY LIMITATIONS
+# APPLY WITHIN THE SPECIFICS THEIR RESPECTIVE UTILIZATION AGREEMENTS AND LICENSES.  AUTHOR DOES NOT
+# AUTHORIZE RESALE, LEASE, OR CHARGE FOR UTILIZATION OF THESE SCRIPTS BY ANY THIRD PARTY.
+#
+#
+# -#- Start Making Changes Here -#- 
+#
+# SCRIPT Base Template for API CLI Operations with command line parameters
+#
+#
+ScriptVersion=00.70.00
+ScriptRevision=000
+ScriptSubRevision=000
+ScriptDate=2024-05-20
+TemplateVersion=00.70.00
+APISubscriptsLevel=020
+APISubscriptsVersion=00.70.00
+APISubscriptsRevision=000
+
+#
+{
+"file_meta_info" : {
+	"filetype" : "solution_info.api_scripts",
+	"fileversion" : "08.01.00",
+	"filerevision" : "000",
+	"filesubrevision" : "000",
+	"filedate" : "2024-05-01",
+	"fileinformationlevel" : "000",
+	"MinCMDTemplateVersion" : "08.01.00"
+	}, 
+"solution_info" : {
+	"ScriptSeries" : "\"devops.mgmt_cli.objects - R8X mgmt_cli API bash Script - Objects Examples\"",
+	"ScriptSeriesShort" : "devops.mgmt_cli.objects"
+	},
+"CMD_template_script_details" : { 
+	"ScriptType" : {
+		"Language" : "Windows_CMD",
+		"Extension" : "CMD"
+		},
+	"TemplateDate" : "2023-04-30",
+	"TemplateVersion" : "08.01.00",
+	"TemplateRevision" : "000",
+	"TemplateSubRevision" : "000",
+	"TemplateTweak" : "100"
+	},
+"CMD_script_details" : { 
+	"ScriptType" : {
+		"Language" : "Windows_CMD",
+		"Extension" : "CMD"
+		},
+	"ScriptDate" : "2023-04-30",
+	"ScriptVersion" : "08.01.00",
+	"ScriptRevision" : "000",
+	"ScriptSubRevision" : "000",
+	"ScriptTweak" : "100",
+	"TemplateVersion" : "08.01.00",
+	"TemplateRevision" : "000"
+	},
+"script_details" : { 
+	"ScriptType" : {
+		"Language" : "bash",
+		"Extension" : "sh"
+		},
+	"ScriptDate" : "2024-05-01",
+	"ScriptVersion" : "00.70.00",
+	"ScriptRevision" : "000",
+	"ScriptSubRevision" : "000",
+	"ScriptTweak" : "000",
+	"TemplateVersion" : "00.70.00",
+	"TemplateLevel" : "@NA",
+	"SubScriptsLevel" : "@NA",
+	"SubScriptsVersion" : "@NA"
+	},
+"api_script_details" : {
+	"ScriptType" : {
+		"Language" : "bash",
+		"Extension" : "sh"
+		},
+	"ScriptDate" : "2024-05-01",
+	"ScriptVersion" : "00.70.00",
+	"ScriptRevision" : "000",
+	"ScriptSubRevision" : "000",
+	"TemplateVersion" : "00.70.00",
+	"APISubScriptsLevel" : "020",
+	"APISubScriptsVersion" : "00.70.00",
+	"APISubScriptsRevision" : "000"
+	}
+}
+#"
+#
+
+export APIScriptVersion=v${ScriptVersion}
+export APIScriptTemplateVersion=v${TemplateVersion}
+
+export APIScriptVersionX=v${ScriptVersion//./x}
+export APIScriptTemplateVersionX=v${TemplateVersion//./x}
+
+export APIActionsScriptVersion=v${ScriptVersion}
+export APIActionScriptTemplateVersion=v${TemplateVersion}
+export APIExpectedActionScriptsVersion=v${ScriptVersion}
+
+export APIActionsScriptVersionX=v${ScriptVersion//./x}
+export APIActionScriptTemplateVersionX=v${TemplateVersion//./x}
+export APIExpectedActionScriptsVersionX=v${ScriptVersion//./x}
+
+export APISubscriptsScriptVersion=v${ScriptVersion}
+export APISubscriptsScriptTemplateVersion=v${TemplateVersion}
+export APIExpectedAPISubscriptsVersion=v${APISubscriptsVersion}
+
+export APISubscriptsScriptVersionX=v${ScriptVersion//./x}
+export APISubscriptsScriptTemplateVersionX=v${TemplateVersion//./x}
+export APIExpectedAPISubscriptsVersionX=v${APISubscriptsVersion//./x}
+

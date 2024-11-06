@@ -1,0 +1,56 @@
+{ "file_meta_info" : {
+	"filetype" : "solution_info.api_scripts",
+	"fileversion" : "07.00.00",
+	"filerevision" : "000",
+	"filesubrevision" : "000",
+	"filedate" : "2023-01-17",
+	"fileinformationlevel" : "000",
+	"MinCMDTemplateVersion" : "07.00.00"
+	}, 
+"solution_info" : {
+	"ScriptSeries" : "\"R8X-API-scripts-4-policy-import-export\"",
+	"ScriptSeriesShort" : "devops.dev - Policy_and_Layers"
+	},
+"CMD_script_details" : { 
+	"ScriptType" : {
+		"Language" : "Windows_CMD",
+		"Extension" : "CMD"
+		},
+	"ScriptDate" : "2023-01-17",
+	"ScriptVersion" : "07.00.00",
+	"ScriptRevision" : "000",
+	"ScriptSubRevision" : "000",
+	"ScriptTweak" : "000",
+	"TemplateVersion" : "07.00.00"
+	},
+"script_details" : { 
+	"ScriptType" : {
+		"Language" : "bash",
+		"Extension" : "sh"
+		},
+	"ScriptDate" : "2023-01-17",
+	"ScriptVersion" : "00.00.10",
+	"ScriptRevision" : "000",
+	"ScriptSubRevision" : "000",
+	"ScriptTweak" : "000",
+	"TemplateVersion" : "00.60.12",
+	"TemplateLevel" : "@NA",
+	"SubScriptsLevel" : "@NA",
+	"SubScriptsVersion" : "@NA"
+	},
+"api_script_details" : {
+	"ScriptType" : {
+		"Language" : "bash",
+		"Extension" : "sh"
+		},
+	"ScriptDate" : "2023-01-17",
+	"ScriptVersion" : "00.00.10",
+	"ScriptRevision" : "000",
+	"ScriptSubRevision" : "000",
+	"ScriptTweak" : "000",
+	"TemplateVersion" : "00.60.12",
+	"APISubScriptsLevel" : "010",
+	"APISubScriptsVersion" : "00.60.12",
+	"APISubScriptsRevision" : "100"
+	}
+}
