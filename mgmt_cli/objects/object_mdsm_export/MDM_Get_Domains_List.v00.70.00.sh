@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# (C) 2016-2024+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
+# (C) 2016-2026+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
 #
 # ALL SCRIPTS ARE PROVIDED AS IS WITHOUT EXPRESS OR IMPLIED WARRANTY OF FUNCTION OR POTENTIAL FOR 
 # DAMAGE Or ABUSE.  AUTHOR DOES NOT ACCEPT ANY RESPONSIBILITY FOR THE USE OF THESE SCRIPTS OR THE 
@@ -10,6 +10,9 @@
 # APPLY WITHIN THE SPECIFICS THEIR RESPECTIVE UTILIZATION AGREEMENTS AND LICENSES.  AUTHOR DOES NOT
 # AUTHORIZE RESALE, LEASE, OR CHARGE FOR UTILIZATION OF THESE SCRIPTS BY ANY THIRD PARTY.
 #
+# AUTHOR REQUIRES ALL UTILIZATION FOR TRAINING OF AI OF ANY TYPE TO BE REQUESTED IN WRITING AND
+# APPROVED IN WRITING VERIFIABLY BEFORE ANY SUCH AI TRAINING SHALL COMMENCE.
+#
 #
 # -#- Start Making Changes Here -#- 
 #
@@ -18,8 +21,8 @@
 #
 ScriptVersion=00.70.00
 ScriptRevision=000
-ScriptSubRevision=100
-ScriptDate=2024-05-30
+ScriptSubRevision=450
+ScriptDate=2026-08-19
 TemplateVersion=00.70.00
 APISubscriptsLevel=020
 APISubscriptsVersion=00.70.00
@@ -395,7 +398,10 @@ export UseJSONJQ=true
 # ADDED 2020-02-07 -
 export UseJSONJQ16=true
 
-# MODIFIED 2024-05-01 -
+# ADDED 2025-12-12 -
+export UseJSONJQ181=true
+
+# MODIFIED 2025-12-12 -
 # R80           version 1.0
 # R80.10        version 1.1
 # R80.20.M1     version 1.2
@@ -411,6 +417,8 @@ export UseJSONJQ16=true
 # R81.20        version 1.9
 # R81.20 JHF 43 version 1.9.1
 # R82.00        version 2.0
+# R82.00 JHF 41 version 2.0.1
+# R82.10        version 2.1
 #
 # For common scripts minimum API version at 1.0 should suffice, otherwise get explicit
 #
@@ -429,18 +437,21 @@ export MinAPIVersionRequired=1.1
 #
 export APICLIconntimeout=600
 
-# MODIFIED 2024-05-01 -
+# MODIFIED 2026-02-13 -
 # MaaS (Smart-1 Cloud) current versions
 # R81           version 1.7
 # R81 JHF 34    version 1.7.1  !! ????
 # R81.10        version 1.8
 # R81.20        version 1.9
 # R81.20 JHF 43 version 1.9.1
+# R82.00        version 2.0
+# R82.00 JHF 41 version 2.0.1
+# R82.10        version 2.1
 #
 # for MaaS (Smart-1 Cloud) operation assume at least the minimum API version as 1.7 for R81
 #
 export MinMaaSAPIVersion=1.7
-export MaxMaaSAPIVersion=1.9.1
+export MaxMaaSAPIVersion=2.1
 
 # If the API version needs to be enforced in commands set this to true
 # NOTE not currently used!
@@ -456,21 +467,29 @@ export WAITTIME=15
 # Configure location for api subscripts
 # -------------------------------------------------------------------------------------------------
 
-# ADDED 2021-11-09 - MODIFIED 2024-05-09:01 -
+# ADDED 2021-11-09 - MODIFIED 2025-12-12:01 -
 #
 # Presumptive folder structure for R8X mgmt_cli API bash scripts Template based scripts
 #
 # <root_home_folder> is the folder containing the script set, generally /var/log/__customer
-# <script_home_folder> is the folder containing the script set, generally /var/log/__customer/[_testing/]mgmt_cli
+# <script_home_folder> is the folder containing the script set, generally /var/log/__customer[/_testing/]mgmt_cli
 # DEPRECATED:  <script_home_folder> is the folder containing the script set, Legacy /var/log/__customer/devops|devops.dev|devops.dev.test
 # DEPRECATED:  [.wip] named folders are for development operations
 #
 # ...<root_home_folder>/devops.my_data                     ## my_data folder for all scripts, folder for all customer provided csv folders
 # ...<root_home_folder>/devops.results                     ## results folder for all scripts, default home of ${script_json_repo_folder}
 # ...<root_home_folder>/tools                              ## tools folder for all scripts with additional tools not assumed on system
+# ...<root_home_folder>/mgmt_cli                           ## root folder for all mgmt_cli scripts and templates
+# ...<root_home_folder>/_testing/mgmt_cli                  ## root folder for all mgmt_cli testing of scripts and templates
+#
+# ...<root_home_folder>/mgmt_cli = <script_home_folder>    ## for normal operations
+# ...<root_home_folder>/_testing/mgmt_cli = <script_home_folder>  ## for testing operations
+#
+# ...<script_home_folder>/                                 ## root folder for all mgmt_cli scripts and templates
 # ...<script_home_folder>/_common/                         ## _common root folder for all common scripts and templates
 # ...<script_home_folder>/_common/_api_subscripts          ## _api_subscripts folder for all api subscripts scripts
 # ...<script_home_folder>/_common/_templates               ## _templates folder for all script templates
+# ...<script_home_folder>/logs                             ## logs root folder for logs focused scripts (future development)
 # ...<script_home_folder>/objects                          ## objects root folder for objects focused scripts
 # ...<script_home_folder>/objects/object_csv_tools         ## object_csv_tools folder for csv file handling for objects focused scripts
 # ...<script_home_folder>/objects/object_export_import     ## object_export_import folder for object export, import, set, rename, and delete operations focused scripts
@@ -493,6 +512,7 @@ export WAITTIME=15
 #    /var/log/__customer/mgmt_cli/_common
 #    /var/log/__customer/mgmt_cli/_common/_api_subscripts
 #    /var/log/__customer/mgmt_cli/_common/_templates
+#    /var/log/__customer/mgmt_cli/logs
 #    /var/log/__customer/mgmt_cli/objects
 #    /var/log/__customer/mgmt_cli/objects/object_csv_tool
 #    /var/log/__customer/mgmt_cli/objects/object_export_import
@@ -511,6 +531,7 @@ export WAITTIME=15
 #    /var/log/__customer/_testing/mgmt_cli/_common
 #    /var/log/__customer/_testing/mgmt_cli/_common/_api_subscripts
 #    /var/log/__customer/_testing/mgmt_cli/_common/_templates
+#    /var/log/__customer/_testing/mgmt_cli/logs
 #    /var/log/__customer/_testing/mgmt_cli/objects
 #    /var/log/__customer/_testing/mgmt_cli/objects/object_csv_tool
 #    /var/log/__customer/_testing/mgmt_cli/objects/object_export_import
@@ -529,6 +550,11 @@ export WAITTIME=15
 #
 
 
+# ADDED 2025-12-12:01 -
+# Configure default expected location for _common folder
+export _expected_mgmt_cli_default_root=/var/log/__customer/mgmt_cli
+export _expected_common_default_root=${_expected_mgmt_cli_default_root}/_common
+
 # MODIFIED 2024-05-10:01 -
 # Configure basic location for _common folder
 export _common_default_folder=_common
@@ -543,7 +569,7 @@ export api_subscripts_checkfile=api_subscripts_version.${APISubscriptsLevel}.v${
 #
 # Check for whether the subscripts are present where expected, if not hard EXIT
 #
-# MODIFIED 2024-05-09:01 -
+# MODIFIED 2025-12-12:01 -
 
 echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
 echo `${dtzs}`${dtzsep} 'Current Path : "'`pwd`'"' | tee -a -i ${logfilepath}
@@ -647,6 +673,26 @@ elif [ -r "../../../${api_subscripts_default_folder}/${api_subscripts_checkfile}
     # Return to the script operations folder
     echo -n `${dtzs}`${dtzsep}' ' >> ${logfilepath}
     popd >> ${logfilepath}
+elif [ -r "${_expected_common_default_root}/${api_subscripts_default_folder}/${api_subscripts_checkfile}" ]; then
+    # OK, didn't find the api subscripts in the default root, or in the working folder, but they were in the default normal folder
+    export api_subscripts_root=${_expected_common_default_root}
+    echo -n `${dtzs}`${dtzsep}' ' >> ${logfilepath}
+    pushd ${api_subscripts_root} >> ${logfilepath}
+    errorreturn=$?
+    
+    if [ ${errorreturn} -ne 0 ] ; then
+        # we apparently didn't start where expected, so dumping
+        echo `${dtzs}`${dtzsep} 'Required target folder '"${api_subscripts_root}"' not found, exiting!' | tee -a -i ${logfilepath}
+        #popd >> ${logfilepath}
+        exit 254
+    else
+        #OK, so we are where we want to be relative to the script targets
+        export api_subscripts_root=`pwd`
+    fi
+    
+    # Return to the script operations folder
+    echo -n `${dtzs}`${dtzsep}' ' >> ${logfilepath}
+    popd >> ${logfilepath}
 else
     # OK, didn't find the api subscripts where we expect to find them, so this is bad!
     echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
@@ -656,6 +702,7 @@ else
     echo `${dtzs}`${dtzsep} ' ALTERNATE Location 2 :  '"./${api_subscripts_default_folder}/${api_subscripts_checkfile}" | tee -a -i ${logfilepath}
     echo `${dtzs}`${dtzsep} ' ALTERNATE Location 3 :  '"../../../${_common_default_folder}/${api_subscripts_default_folder}/${api_subscripts_checkfile}" | tee -a -i ${logfilepath}
     echo `${dtzs}`${dtzsep} ' ALTERNATE Location 4 :  '"../../../${api_subscripts_default_folder}/${api_subscripts_checkfile}" | tee -a -i ${logfilepath}
+    echo `${dtzs}`${dtzsep} ' ALTERNATE Location 5 :  '"${_expected_common_default_root}/${api_subscripts_default_folder}/${api_subscripts_checkfile}" | tee -a -i ${logfilepath}
     echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
     echo `${dtzs}`${dtzsep} 'Unable to continue without these api subscript files, so exiting!!!' | tee -a -i ${logfilepath}
     echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
@@ -1523,11 +1570,13 @@ export localCLIparms=false
 # processcliremains - Local command line parameter processor
 # -------------------------------------------------------------------------------------------------
 
-# MODIFIED 2021-01-31 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# MODIFIED 2026-02-13 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #
 
 processcliremains () {
     #
+    
+    error_return=0
     
     # -------------------------------------------------------------------------------------------------
     # Process command line parameters from the REMAINS returned from the standard handler
@@ -1538,7 +1587,7 @@ processcliremains () {
         OPT="$1"
         
         # testing
-        echo 'OPT = '${OPT}
+        echo `${dtzs}`${dtzsep} 'OPT = '${OPT}
         #
             
         # Detect argument termination
@@ -1594,11 +1643,11 @@ processcliremains () {
     
     export CLIparm_local1=${CLIparm_local1}
     
-    return 0
+    return ${error_return}
 }
 
 #
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2021-01-31
+# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2026-02-13
 
 # -------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------
@@ -1666,11 +1715,13 @@ dumpcliparmparselocalresults () {
 # dumprawcliremains
 # -------------------------------------------------------------------------------------------------
 
-# MODIFIED 2021-10-21 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# MODIFIED 2026-02-13 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #
 
 dumprawcliremains () {
     #
+    error_return=0
+    
     if ${APISCRIPTVERBOSE} ; then
         # Verbose mode ON
         
@@ -1704,11 +1755,12 @@ dumprawcliremains () {
         echo `${dtzs}`${dtzsep} >> ${logfilepath}
         
     fi
-
+    
+    return ${error_return}
 }
 
 #
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2021-10-21
+# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2026-02-13
 
 # -------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------
@@ -2497,7 +2549,7 @@ doshowhelp () {
 # Process command line parameters for enabling verbose output
 # -------------------------------------------------------------------------------------------------
 
-ProcessCommandLIneParameterVerboseEnable () {
+ProcessCommandLineParameterVerboseEnable () {
     
     while [ -n "$1" ]; do
         # Copy so we can modify it (can't modify $1)
@@ -2541,7 +2593,7 @@ ProcessCommandLIneParameterVerboseEnable () {
 # Procedure Call:  Process command line parameters for enabling verbose output
 # -------------------------------------------------------------------------------------------------
 
-#ProcessCommandLIneParameterVerboseEnable $@
+#ProcessCommandLineParameterVerboseEnable $@
 
 # -------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------
@@ -3508,7 +3560,7 @@ ProcessCommandLineParametersAndSetValues () {
 #echo `${dtzs}`${dtzsep} 'Process Command Line Parameter Verbose Enabled' | tee -a -i ${templogfilepath}
 echo `${dtzs}`${dtzsep} 'Process Command Line Parameter Verbose Enabled' >> ${templogfilepath}
 echo `${dtzs}`${dtzsep} >> ${templogfilepath}
-ProcessCommandLIneParameterVerboseEnable "$@"
+ProcessCommandLineParameterVerboseEnable "$@"
 
 #echo `${dtzs}`${dtzsep} 'Process Command Line Parameters and Set Values' | tee -a -i ${templogfilepath}
 echo `${dtzs}`${dtzsep} 'Process Command Line Parameters and Set Values' >> ${templogfilepath}
@@ -3722,58 +3774,10 @@ GetGaiaVersionAndInstallationType "$@"
 # =================================================================================================
 
 
-# REMOVED 2020-11-16 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
-#
-
-# =================================================================================================
-# =================================================================================================
-# START:  Setup Login Parameters and mgmt_cli handler procedures
-# =================================================================================================
-
-
-# Moved to mgmt_cli_api_operations.subscript.common.${APISubscriptsLevel}.v${APISubscriptsVersion}.sh script
-#
-#HandleMgmtCLIPublish
-#HandleMgmtCLILogout
-#HandleMgmtCLILogin
-#SetupLogin2MgmtCLI
-#Login2MgmtCLI
-
-
-# =================================================================================================
-# END:  Setup Login Parameters and mgmt_cli handler procedures
-# =================================================================================================
-# =================================================================================================
-
-#
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ REMOVED 2020-11-16
-
-# =================================================================================================
-# =================================================================================================
-# START:  Setup CLI Parameter based values
-# =================================================================================================
-
 # =================================================================================================
 # =================================================================================================
 # START:  Common Procedures
 # -------------------------------------------------------------------------------------------------
-
-
-# REMOVED 2020-11-16 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
-#
-
-# Moved to script_output_paths_and_folders_API_scripts.subscript.common.${APISubscriptsLevel}.v${APISubscriptsVersion}.sh script
-#
-#localrootscriptconfiguration
-#HandleRootScriptConfiguration
-#HandleLaunchInHomeFolder
-#ShowFinalOutputAndLogPaths
-#ConfigureRootPath
-#ConfigureLogPath
-#ConfigureCommonCLIParameterValues
-
-#
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ REMOVED 2020-11-16
 
 
 # -------------------------------------------------------------------------------------------------
@@ -4441,9 +4445,11 @@ if ${script_dump_standard} ; then
 fi
 
 
+# -------------------------------------------------------------------------------------------------
+
 
 # =================================================================================================
-# START:  Main operations
+# - Main operations
 # =================================================================================================
 
 

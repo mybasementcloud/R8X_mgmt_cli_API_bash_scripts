@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# (C) 2016-2024+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
+# (C) 2016-2026+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
 #
 # ALL SCRIPTS ARE PROVIDED AS IS WITHOUT EXPRESS OR IMPLIED WARRANTY OF FUNCTION OR POTENTIAL FOR 
 # DAMAGE Or ABUSE.  AUTHOR DOES NOT ACCEPT ANY RESPONSIBILITY FOR THE USE OF THESE SCRIPTS OR THE 
@@ -10,6 +10,9 @@
 # APPLY WITHIN THE SPECIFICS THEIR RESPECTIVE UTILIZATION AGREEMENTS AND LICENSES.  AUTHOR DOES NOT
 # AUTHORIZE RESALE, LEASE, OR CHARGE FOR UTILIZATION OF THESE SCRIPTS BY ANY THIRD PARTY.
 #
+# AUTHOR REQUIRES ALL UTILIZATION FOR TRAINING OF AI OF ANY TYPE TO BE REQUESTED IN WRITING AND
+# APPROVED IN WRITING VERIFIABLY BEFORE ANY SUCH AI TRAINING SHALL COMMENCE.
+#
 #
 # -#- Start Making Changes Here -#- 
 #
@@ -18,8 +21,8 @@
 #
 ScriptVersion=00.70.00
 ScriptRevision=000
-ScriptSubRevision=100
-ScriptDate=2024-05-30
+ScriptSubRevision=450
+ScriptDate=2026-08-19
 TemplateVersion=00.70.00
 APISubscriptsLevel=020
 APISubscriptsVersion=00.70.00
@@ -303,14 +306,14 @@ CheckAPIScriptVerboseOutput () {
 # ConfigureJQLocation - Configure the value of JQ based on installation
 # -------------------------------------------------------------------------------------------------
 
-# MODIFIED 2020-11-16 -\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# MODIFIED 2025-12-12 -\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #
 
 #
 # ConfigureJQLocation - Configure the value of JQ based on installation
 #
 
-# MODIFIED 2020-02-07 -
+# MODIFIED 2025-12-12 -
 ConfigureJQLocation () {
     #
     # Configure JQ variable value for JSON parsing
@@ -329,23 +332,77 @@ ConfigureJQLocation () {
     export JQNotFound=true
     export UseJSONJQ=false
     
+    # As of template version v04.21.00 we also added jq version 1.6 to the mix and it lives in the customer path root /tools/JQ folder by default
+    # As of template version v00.70.00.000.275 jq is in /tools/JQ as jq=linux64 and is version 1.8.1
+    #export JQPATH=${customerpathroot}/_tools/JQ
+    export JQPATH=${customerpathroot}/_tools/JQ
+    export JQFILE=jq-linux64
+    export JQFQFN=${JQPATH}/${JQFILE}
+    
     # JQ points to where the default jq is installed, probably version 1.4
-    if [ -r ${CPDIR}/jq/jq ] ; then
+    if [ -r ${JQFQFN} ] ; then
+        # OK we have the easy-button alternative
+        export JQFILE=jq-linux64
+        export JQ=${JQFQFN}
+        export JQNotFound=false
+        export UseJSONJQ=true
+        export JQFQFN=${JQFQFN}
+        echo `${dtzs}`${dtzsep} "jq-linux64 or jq, found as ${JQFQFN}" | tee -a -i ${logfilepath}
+    elif [ -r "./_tools/JQ/${JQFILE}" ] ; then
+        # OK we have the local folder alternative
+        export JQFILE=jq-linux64
+        export JQ=./_tools/JQ/${JQFILE}
+        export JQNotFound=false
+        export UseJSONJQ=true
+        export JQFQFN=./_tools/JQ/${JQFILE}
+        echo `${dtzs}`${dtzsep} "jq-linux64 or jq, found as ${JQFQFN}" | tee -a -i ${logfilepath}
+    elif [ -r "../_tools/JQ/${JQFILE}" ] ; then
+        # OK we have the parent folder alternative
+        export JQFILE=jq-linux64
+        export JQ=../_tools/JQ/${JQFILE}
+        export JQNotFound=false
+        export UseJSONJQ=true
+        export JQFQFN=../_tools/JQ/${JQFILE}
+        echo `${dtzs}`${dtzsep} "jq-linux64 or jq, found as ${JQFQFN}" | tee -a -i ${logfilepath}
+    elif [ -r "../../_tools/JQ/${JQFILE}" ] ; then
+        # OK we have the parent folder alternative
+        export JQFILE=jq-linux64
+        export JQ=../../_tools/JQ/${JQFILE}
+        export JQNotFound=false
+        export UseJSONJQ=true
+        export JQFQFN=../../_tools/JQ/${JQFILE}
+        echo `${dtzs}`${dtzsep} "jq-linux64 or jq, found as ${JQFQFN}" | tee -a -i ${logfilepath}
+    elif [ -r ${CPDIR}/jq/jq ] ; then
+        export JQFILE=jq
+        #export JQ=${CPDIR}/jq/${JQFILE}
         export JQ=${CPDIR}/jq/jq
         export JQNotFound=false
         export UseJSONJQ=true
+        export JQFQFN=${CPDIR}/jq/${JQFILE}
+        echo `${dtzs}`${dtzsep} "jq-linux64 or jq, found as ${JQFQFN}" | tee -a -i ${logfilepath}
     elif [ -r ${CPDIR_PATH}/jq/jq ] ; then
+        export JQFILE=jq
+        #export JQ=${CPDIR_PATH}/jq/${JQFILE}
         export JQ=${CPDIR_PATH}/jq/jq
         export JQNotFound=false
         export UseJSONJQ=true
+        export JQFQFN=${CPDIR_PATH}/jq/${JQFILE}
+        echo `${dtzs}`${dtzsep} "jq-linux64 or jq, found as ${JQFQFN}" | tee -a -i ${logfilepath}
     elif [ -r ${MDS_CPDIR}/jq/jq ] ; then
+        export JQFILE=jq
+        #export JQ=${MDS_CPDIR}/jq/${JQFILE}
         export JQ=${MDS_CPDIR}/jq/jq
         export JQNotFound=false
         export UseJSONJQ=true
+        export JQFQFN=${MDS_CPDIR}/jq/${JQFILE}
+        echo `${dtzs}`${dtzsep} "jq-linux64 or jq, found as ${JQFQFN}" | tee -a -i ${logfilepath}
     else
+        export JQFILE=jq
         export JQ=
         export JQNotFound=true
         export UseJSONJQ=false
+        export JQFQFN=
+        echo `${dtzs}`${dtzsep} "JQ NOT found!" | tee -a -i ${logfilepath}
     fi
     
     # JQ16 points to where jq 1.6 is installed, which is not generally part of Gaia, even R80.40EA (2020-01-20)
@@ -353,34 +410,101 @@ ConfigureJQLocation () {
     export UseJSONJQ16=false
     
     # As of template version v04.21.00 we also added jq version 1.6 to the mix and it lives in the customer path root /tools/JQ folder by default
-    export JQ16PATH=${customerpathroot}/_tools/JQ
+    # As of template version v00.70.00.000.275 JQ 1.6 is in /tools/JQ_v01.06.00
+    #export JQ16PATH=${customerpathroot}/_tools/JQ
+    export JQ16PATH=${customerpathroot}/_tools/JQ_v01.06.00
     export JQ16FILE=jq-linux64
-    export JQ16FQFN=$JQ16PATH$JQ16FILE
+    export JQ16FQFN=${JQ16PATH}/${JQ16FILE}
     
     if [ -r ${JQ16FQFN} ] ; then
         # OK we have the easy-button alternative
         export JQ16=${JQ16FQFN}
         export JQ16NotFound=false
         export UseJSONJQ16=true
-    elif [ -r "./_tools/JQ/${JQ16FILE}" ] ; then
+        export JQ16FQFN=${JQ16FQFN}
+        echo `${dtzs}`${dtzsep} "JQ v 1.6 found as jq-linux64 or jq, at ${JQ16FQFN}" | tee -a -i ${logfilepath}
+    elif [ -r "./_tools/JQ_v01.06.00/${JQ16FILE}" ] ; then
         # OK we have the local folder alternative
-        export JQ16=./_tools/JQ/${JQ16FILE}
+        export JQ16=./_tools/JQ_v01.06.00/${JQ16FILE}
         export JQ16NotFound=false
         export UseJSONJQ16=true
-    elif [ -r "../_tools/JQ/${JQ16FILE}" ] ; then
+        export JQ16FQFN=./_tools/JQ_v01.06.00/${JQ16FILE}
+        echo `${dtzs}`${dtzsep} "JQ v 1.6 found as jq-linux64 or jq, at ${JQ16FQFN}" | tee -a -i ${logfilepath}
+    elif [ -r "../_tools/JQ_v01.06.00/${JQ16FILE}" ] ; then
         # OK we have the parent folder alternative
-        export JQ16=../_tools/JQ/${JQ16FILE}
+        export JQ16=../_tools/JQ_v01.06.00/${JQ16FILE}
         export JQ16NotFound=false
         export UseJSONJQ16=true
+        export JQ16FQFN=../_tools/JQ_v01.06.00/${JQ16FILE}
+        echo `${dtzs}`${dtzsep} "JQ v 1.6 found as jq-linux64 or jq, at ${JQ16FQFN}" | tee -a -i ${logfilepath}
+    elif [ -r "../../_tools/JQ_v01.06.00/${JQ16FILE}" ] ; then
+        # OK we have the parent folder alternative
+        export JQ16=../../_tools/JQ_v01.06.00/${JQ16FILE}
+        export JQ16NotFound=false
+        export UseJSONJQ16=true
+        export JQ16FQFN=../../_tools/JQ_v01.06.00/${JQ16FILE}
+        echo `${dtzs}`${dtzsep} "JQ v 1.6 found as jq-linux64 or jq, at ${JQ16FQFN}" | tee -a -i ${logfilepath}
     else
         # nope, not part of the package, so clear the values
         export JQ16=
         export JQ16NotFound=true
         export UseJSONJQ16=false
+        export JQ16FQFN=
+        echo `${dtzs}`${dtzsep} "JQ v 1.6 NOT found!" | tee -a -i ${logfilepath}
+    fi
+    
+    # ADDED 2025-12-12 -
+    
+    # JQ181 points to where jq 1.8.1 is installed, which is not generally part of Gaia, even R82
+    export JQ181NotFound=true
+    export UseJSONJQ181=false
+    
+    # As of template version v00.70.00.000.275 JQ 1.8.1 is in /tools/JQ_v01.08.01
+    #export JQ181PATH=${customerpathroot}/_tools/JQ_v01.08.01
+    export JQ181PATH=${customerpathroot}/_tools/JQ_v01.08.01
+    export JQ181FILE=jq-linux64
+    export JQ181FQFN=${JQ181PATH}/${JQ181FILE}
+    
+    if [ -r ${JQ181FQFN} ] ; then
+        # OK we have the easy-button alternative
+        export JQ181=${JQ181FQFN}
+        export JQ181NotFound=false
+        export UseJSONJQ181=true
+        export JQ181FQFN=${JQ181FQFN}
+        echo `${dtzs}`${dtzsep} "JQ v 1.8.1 found as jq-linux64 or jq, at ${JQ181FILE}" | tee -a -i ${logfilepath}
+    elif [ -r "./_tools/JQ_v01.06.00/${JQ181FILE}" ] ; then
+        # OK we have the local folder alternative
+        export JQ181=./_tools/JQ_v01.06.00/${JQ181FILE}
+        export JQ181NotFound=false
+        export UseJSONJQ181=true
+        export JQ181FQFN=./_tools/JQ_v01.06.00/${JQ181FILE}
+        echo `${dtzs}`${dtzsep} "JQ v 1.8.1 found as jq-linux64 or jq, at ${JQ181FILE}" | tee -a -i ${logfilepath}
+    elif [ -r "../_tools/JQ_v01.06.00/${JQ181FILE}" ] ; then
+        # OK we have the parent folder alternative
+        export JQ181=../_tools/JQ_v01.06.00/${JQ181FILE}
+        export JQ181NotFound=false
+        export UseJSONJQ181=true
+        export JQ181FQFN=../_tools/JQ_v01.06.00/${JQ181FILE}
+        echo `${dtzs}`${dtzsep} "JQ v 1.8.1 found as jq-linux64 or jq, at ${JQ181FILE}" | tee -a -i ${logfilepath}
+    elif [ -r "../../_tools/JQ_v01.06.00/${JQ181FILE}" ] ; then
+        # OK we have the parent folder alternative
+        export JQ181=../../_tools/JQ_v01.06.00/${JQ181FILE}
+        export JQ181NotFound=false
+        export UseJSONJQ181=true
+        export JQ181FQFN=../../_tools/JQ_v01.06.00/${JQ181FILE}
+        echo `${dtzs}`${dtzsep} "JQ v 1.8.1 found as jq-linux64 or jq, at ${JQ181FILE}" | tee -a -i ${logfilepath}
+    else
+        # nope, not part of the package, so clear the values
+        export JQ181=
+        export JQ181NotFound=true
+        export UseJSONJQ181=false
+        export JQ181FQFN=
+        echo `${dtzs}`${dtzsep} "JQ v 1.8.1 NOT found!" | tee -a -i ${logfilepath}
     fi
     
     if ${JQNotFound} ; then
-        echo `${dtzs}`${dtzsep} "Missing jq, not found in ${CPDIR}/jq/jq, ${CPDIR_PATH}/jq/jq, or ${MDS_CPDIR}/jq/jq" | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} "Missing jq-linux64 or jq, not found in ${JQPATH}, ${CPDIR}/jq, ${CPDIR_PATH}/jq, or ${MDS_CPDIR}/jq" | tee -a -i ${logfilepath}
         echo `${dtzs}`${dtzsep} 'Critical Error - Exiting Script !!!!' | tee -a -i ${logfilepath}
         echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
         echo `${dtzs}`${dtzsep} "Log output in file ${logfilepath}" | tee -a -i ${logfilepath}
@@ -392,7 +516,7 @@ ConfigureJQLocation () {
 }
 
 #
-# \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/-  MODIFIED 2020-11-16
+# \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/-  MODIFIED 2025-12-12
 
 
 # -------------------------------------------------------------------------------------------------

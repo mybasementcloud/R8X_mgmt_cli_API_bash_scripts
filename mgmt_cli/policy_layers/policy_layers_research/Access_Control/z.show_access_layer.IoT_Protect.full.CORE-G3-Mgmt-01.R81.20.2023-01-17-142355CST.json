@@ -1,0 +1,74 @@
+{
+  "uid" : "d2d5661d-d309-4b5c-a78b-0b666a069fb7",
+  "name" : "IoT Protect",
+  "type" : "access-layer",
+  "domain" : {
+    "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+    "name" : "SMC User",
+    "domain-type" : "domain"
+  },
+  "shared" : true,
+  "applications-and-url-filtering" : true,
+  "content-awareness" : true,
+  "mobile-access" : false,
+  "detect-using-x-forward-for" : false,
+  "firewall" : true,
+  "implicit-cleanup-action" : "drop",
+  "comments" : "",
+  "color" : "black",
+  "icon" : "ApplicationFirewall/sharedrulebase",
+  "tags" : [ {
+    "uid" : "27b40e0a-103c-435f-83db-88c2b948377d",
+    "name" : "read-only: IoT Next",
+    "type" : "tag",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "comments" : "",
+    "color" : "black",
+    "icon" : "Tags/Tag",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1673879284489,
+        "iso-8601" : "2023-01-16T08:28-0600"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1673879284489,
+        "iso-8601" : "2023-01-16T08:28-0600"
+      },
+      "creator" : "WEB_API"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  } ],
+  "meta-info" : {
+    "lock" : "unlocked",
+    "validation-state" : "ok",
+    "last-modify-time" : {
+      "posix" : 1673879284606,
+      "iso-8601" : "2023-01-16T08:28-0600"
+    },
+    "last-modifier" : "WEB_API",
+    "creation-time" : {
+      "posix" : 1673879283930,
+      "iso-8601" : "2023-01-16T08:28-0600"
+    },
+    "creator" : "WEB_API"
+  },
+  "read-only" : false,
+  "available-actions" : {
+    "edit" : "true",
+    "delete" : "true",
+    "clone" : "true"
+  }
+}

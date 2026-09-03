@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# (C) 2016-2024+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
+# (C) 2016-2026+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
 #
 # ALL SCRIPTS ARE PROVIDED AS IS WITHOUT EXPRESS OR IMPLIED WARRANTY OF FUNCTION OR POTENTIAL FOR 
 # DAMAGE Or ABUSE.  AUTHOR DOES NOT ACCEPT ANY RESPONSIBILITY FOR THE USE OF THESE SCRIPTS OR THE 
@@ -10,6 +10,9 @@
 # APPLY WITHIN THE SPECIFICS THEIR RESPECTIVE UTILIZATION AGREEMENTS AND LICENSES.  AUTHOR DOES NOT
 # AUTHORIZE RESALE, LEASE, OR CHARGE FOR UTILIZATION OF THESE SCRIPTS BY ANY THIRD PARTY.
 #
+# AUTHOR REQUIRES ALL UTILIZATION FOR TRAINING OF AI OF ANY TYPE TO BE REQUESTED IN WRITING AND
+# APPROVED IN WRITING VERIFIABLY BEFORE ANY SUCH AI TRAINING SHALL COMMENCE.
+#
 #
 # -#- Start Making Changes Here -#- 
 #
@@ -18,8 +21,8 @@
 #
 ScriptVersion=00.70.00
 ScriptRevision=000
-ScriptSubRevision=100
-ScriptDate=2024-05-30
+ScriptSubRevision=450
+ScriptDate=2026-08-19
 TemplateVersion=00.70.00
 APISubscriptsLevel=020
 APISubscriptsVersion=00.70.00
@@ -910,10 +913,34 @@ ConfigureMgmtCLIOperationalParametersExport () {
         export MgmtCLI_IgnoreErr_OpParms='ignore-warnings true '${MgmtCLI_IgnoreErr_OpParms}
     fi
     
+    # MODIFIED 20260709 -
     if ${APIobjectusesdetailslevel} ; then
+        echo `${dtzs}`${dtzsep} 'Object uses details-level' >> ${logfilepath}
+        echo `${dtzs}`${dtzsep} 'Current working details-level ="'${WorkingAPICLIdetaillvl}'"' >> ${logfilepath}
         #export MgmtCLI_Show_OpParms='details-level "'${WorkingAPICLIdetaillvl}'" '${MgmtCLI_IgnoreErr_OpParms}' '${MgmtCLI_Base_OpParms}
-        export MgmtCLI_Show_OpParms='details-level "'${WorkingAPICLIdetaillvl}'" '${MgmtCLI_Base_OpParms}
+        #export MgmtCLI_Show_OpParms='details-level "'${WorkingAPICLIdetaillvl}'" '${MgmtCLI_Base_OpParms}
+        if [ "${WorkingAPICLIdetaillvl}" = "standard" ] ; then
+            echo `${dtzs}`${dtzsep} 'Handle working details-level ="standard"' >> ${logfilepath}
+            if ${APIobjectcandetailslevelstandard} ; then
+                export MgmtCLI_Show_OpParms='details-level "'${WorkingAPICLIdetaillvl}'" '${MgmtCLI_Base_OpParms}
+            else
+                export MgmtCLI_Show_OpParms='details-level "full" '${MgmtCLI_Base_OpParms}
+            fi
+        elif [ x"${WorkingAPICLIdetaillvl}" = x"full" ] ; then
+            echo `${dtzs}`${dtzsep} 'Handle working details-level ="full"' >> ${logfilepath}
+            if ${APIobjectcandetailslevelfull} ; then
+                export MgmtCLI_Show_OpParms='details-level "'${WorkingAPICLIdetaillvl}'" '${MgmtCLI_Base_OpParms}
+            else
+                export MgmtCLI_Show_OpParms='details-level "standard" '${MgmtCLI_Base_OpParms}
+            fi
+        else
+            # Not sure what the deal is but we don't have a recognized value for the ${WorkingAPICLIdetaillvl} set, so not using it
+            echo `${dtzs}`${dtzsep} 'Handle whatever this is' >> ${logfilepath}
+            export MgmtCLI_Show_OpParms=${MgmtCLI_Base_OpParms}
+        fi
+        
     else
+        echo `${dtzs}`${dtzsep} 'Object does not use details-level' >> ${logfilepath}
         #export MgmtCLI_Show_OpParms=${MgmtCLI_IgnoreErr_OpParms}' '${MgmtCLI_Base_OpParms}
         export MgmtCLI_Show_OpParms=${MgmtCLI_Base_OpParms}
     fi
@@ -949,7 +976,7 @@ ConfigureMgmtCLIOperationalParametersExport () {
 # ClearObjectDefinitionData
 # -------------------------------------------------------------------------------------------------
 
-# MODIFIED 2023-03-08:01 - \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# MODIFIED 2026-07-07:01 - \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #
 
 # The ClearObjectDefinitionData clear the data associated with objects to zero and start clean.
@@ -1026,6 +1053,10 @@ ClearObjectDefinitionData () {
     #export APIobjecttypehastags=true
     #export APIobjecttypehasmeta=true
     #export APIobjecttypeimportname=true
+    
+    #export APIobjectcandetailslevel=true
+    #export APIobjectcandetailslevelfull=true
+    #export APIobjectcandetailslevelstandard=true
     
     #export APIobjectCSVFileHeaderAbsoluteBase=false
     #export APIobjectCSVJQparmsAbsoluteBase=false
@@ -1149,6 +1180,10 @@ ClearObjectDefinitionData () {
     export APIobjecttypehasmeta=
     export APIobjecttypeimportname=
     
+    export APIobjectcandetailslevel=
+    export APIobjectcandetailslevelfull=
+    export APIobjectcandetailslevelstandard=
+    
     export APIobjectCSVFileHeaderAbsoluteBase=
     export APIobjectCSVJQparmsAbsoluteBase=
     
@@ -1168,7 +1203,7 @@ ClearObjectDefinitionData () {
 }
 
 #
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ - MODIFIED 2023-03-08:01
+# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ - MODIFIED 2026-07-07:01
 
 
 # -------------------------------------------------------------------------------------------------
@@ -1179,7 +1214,7 @@ ClearObjectDefinitionData () {
 # DumpObjectDefinitionData
 # -------------------------------------------------------------------------------------------------
 
-# MODIFIED 2023-03-08:01 - \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# MODIFIED 20260709:01 - \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #
 
 # The DumpObjectDefinitionData dump the content of the current object definition data to terminal and/or log.
@@ -1247,27 +1282,31 @@ DumpObjectDefinitionData () {
         printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectdoupdate' "${APIobjectdoupdate}" | tee -a -i ${logfilepath}
         printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectdodelete' "${APIobjectdodelete}" | tee -a -i ${logfilepath}
         
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectusesdetailslevel' "${APIobjectusesdetailslevel}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcanignorewarning' "${APIobjectcanignorewarning}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcanignoreerror' "${APIobjectcanignoreerror}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcansetifexists' "${APIobjectcansetifexists}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectderefgrpmem' "${APIobjectderefgrpmem}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasname' "${APIobjecttypehasname}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasuid' "${APIobjecttypehasuid}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasdomain' "${APIobjecttypehasdomain}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehastags' "${APIobjecttypehastags}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasmeta' "${APIobjecttypehasmeta}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypeimportname' "${APIobjecttypeimportname}" >> ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectusesdetailslevel' "${APIobjectusesdetailslevel}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcanignorewarning' "${APIobjectcanignorewarning}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcanignoreerror' "${APIobjectcanignoreerror}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcansetifexists' "${APIobjectcansetifexists}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectderefgrpmem' "${APIobjectderefgrpmem}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasname' "${APIobjecttypehasname}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasuid' "${APIobjecttypehasuid}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasdomain' "${APIobjecttypehasdomain}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehastags' "${APIobjecttypehastags}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasmeta' "${APIobjecttypehasmeta}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypeimportname' "${APIobjecttypeimportname}" | tee -a -i ${logfilepath}
         
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectCSVFileHeaderAbsoluteBase' "${APIobjectCSVFileHeaderAbsoluteBase}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectCSVJQparmsAbsoluteBase' "${APIobjectCSVJQparmsAbsoluteBase}" >> ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcandetailslevel' "${APIobjectcandetailslevel}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcandetailslevelfull' "${APIobjectcandetailslevelfull}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcandetailslevelstandard' "${APIobjectcandetailslevelstandard}" | tee -a -i ${logfilepath}
         
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectCSVexportWIP' "${APIobjectCSVexportWIP}" >> ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectCSVFileHeaderAbsoluteBase' "${APIobjectCSVFileHeaderAbsoluteBase}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectCSVJQparmsAbsoluteBase' "${APIobjectCSVJQparmsAbsoluteBase}" | tee -a -i ${logfilepath}
         
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'AugmentExportedFields' "${AugmentExportedFields}" >> ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectCSVexportWIP' "${APIobjectCSVexportWIP}" | tee -a -i ${logfilepath}
         
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'CSVFileHeader' "${CSVFileHeader}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'CSVJQparms' "${CSVJQparms}" >> ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'AugmentExportedFields' "${AugmentExportedFields}" | tee -a -i ${logfilepath}
+        
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'CSVFileHeader' "${CSVFileHeader}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'CSVJQparms' "${CSVJQparms}" | tee -a -i ${logfilepath}
         
         # +-------------------------------------------------------------------------------------------------
         # +-------------------------------------------------------------------------------------------------
@@ -1341,6 +1380,10 @@ DumpObjectDefinitionData () {
         printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasmeta' "${APIobjecttypehasmeta}" >> ${logfilepath}
         printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypeimportname' "${APIobjecttypeimportname}" >> ${logfilepath}
         
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcandetailslevel' "${APIobjectcandetailslevel}" >> ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcandetailslevelfull' "${APIobjectcandetailslevelfull}" >> ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcandetailslevelstandard' "${APIobjectcandetailslevelstandard}" >> ${logfilepath}
+        
         printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectCSVFileHeaderAbsoluteBase' "${APIobjectCSVFileHeaderAbsoluteBase}" >> ${logfilepath}
         printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectCSVJQparmsAbsoluteBase' "${APIobjectCSVJQparmsAbsoluteBase}" >> ${logfilepath}
         
@@ -1365,7 +1408,7 @@ DumpObjectDefinitionData () {
 }
 
 #
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ - MODIFIED 2023-03-08:01
+# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ - MODIFIED 20260709:01
 
 
 # -------------------------------------------------------------------------------------------------
@@ -3471,7 +3514,7 @@ ExportRAWObjectToJSON () {
     
     # -------------------------------------------------------------------------------------------------
     
-    export objectstotal=$(mgmt_cli show ${APICLIobjectstype} limit 1 offset 0 details-level standard -f json -s ${APICLIsessionfile} | ${JQ} ".total")
+    export objectstotal=$(mgmt_cli show ${APICLIobjectstype} details-level standard -f json -s ${APICLIsessionfile} | ${JQ} ".total")
     
     export objectstoshow=${objectstotal}
     
@@ -3651,6 +3694,8 @@ CheckAPIVersionAndExecuteOperation () {
     if [ $(expr ${APIobjectminversion} '<=' ${CurrentAPIVersion}) -eq 1 ] ; then
         # API is sufficient version
         echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} 'Current API Version ( '${CurrentAPIVersion}' ) meets minimum API version expected requirement ( '${APIobjectminversion}' )' | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} 'Handling object '${APICLIobjectstype}' ( '${APICLIexportnameaddon}' ) !' | tee -a -i ${logfilepath}
         
         ExportRAWObjectToJSON
         errorreturn=$?
@@ -4074,6 +4119,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -4130,6 +4179,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -4182,7 +4235,7 @@ echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
 echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
 echo `${dtzs}`${dtzsep} '*------------------------------------------------------------------------------------------------*' | tee -a -i ${logfilepath}
 echo `${dtzs}`${dtzsep} '*------------------------------------------------------------------------------------------------*' | tee -a -i ${logfilepath}
-echo `${dtzs}`${dtzsep} 'Data Center Objectsö' | tee -a -i ${logfilepath}
+echo `${dtzs}`${dtzsep} 'Data Center Objects' | tee -a -i ${logfilepath}
 echo `${dtzs}`${dtzsep} '*------------------------------------------------------------------------------------------------*' | tee -a -i ${logfilepath}
 echo `${dtzs}`${dtzsep} '*------------------------------------------------------------------------------------------------*' | tee -a -i ${logfilepath}
 echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
@@ -6074,6 +6127,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -6368,6 +6425,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -6435,6 +6496,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -6551,6 +6616,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -7723,6 +7792,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -7858,6 +7931,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -7943,6 +8020,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -8096,6 +8177,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false

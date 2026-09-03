@@ -1,0 +1,4 @@
+{
+  "code" : "generic_err_invalid_parameter",
+  "message" : "Invalid parameter for [details-level]. details-level full not supported"
+}

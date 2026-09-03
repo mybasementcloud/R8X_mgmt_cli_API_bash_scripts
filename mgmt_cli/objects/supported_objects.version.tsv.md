@@ -1,6 +1,6 @@
 # supported_objects.version.tsv - Overview
 
-## UPDATED:  2023-03-08
+## UPDATED:  2026-06-23
 
 ## Document Overview
 
@@ -52,7 +52,7 @@ The columns contents are as follows:
     Does the object type support the error handling operation "set-if-exists" (true/false)?
 
 - Supports dereference-group-members :  
-    Does the object type support the handling for dereferencing group members, such that more than just the UIDs of group members are shown.
+    Does the object type support/require the handling for dereferencing group members, such that more than just the UIDs of group members are shown.
 
 - CSV Details :  
     Does the object type have additional object elements available via the API exported to CSV, beyond just name, color, and comments

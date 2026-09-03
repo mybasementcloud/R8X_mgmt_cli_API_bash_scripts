@@ -1,0 +1,2239 @@
+{
+  "uid" : "7655deb7-09e3-48ad-b6f6-24150242a8bd",
+  "name" : "CORE_G3_Main Network",
+  "type" : "access-layer",
+  "domain" : {
+    "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+    "name" : "SMC User",
+    "domain-type" : "domain"
+  },
+  "root-section" : {
+    "uid" : "1873b3f6-09cf-4fef-86da-fac60886cdb9",
+    "children" : [ {
+      "uid" : "c1b85f7b-b3a6-4ae8-95f4-fedd824278ed",
+      "name" : "VPN Remote Access",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "25f299bf-3d58-475b-b826-76b3f993dc84",
+        "name" : "RemoteAccess VPN Clients Other",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 1,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 1,
+      "to-rule" : 1,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617818323947,
+          "iso-8601" : "2021-04-07T12:58-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617818323947,
+          "iso-8601" : "2021-04-07T12:58-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "15e97863-46fe-407a-ad9b-b91c1ed736a9",
+      "name" : "Laboratory Protective Measures",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "17dee351-4d60-46aa-be36-98337d3f8808",
+        "name" : "Laborator Networks Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 2,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "be81c179-e3c7-4dce-97fc-4d4390fc6d02",
+        "name" : "Laborator Networks Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 3,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "dfead10d-8928-4f6d-aaac-8f8e4ad5b3de",
+        "name" : "LABCHANNEL Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 4,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "5f396d4c-f402-424a-8421-7be5bb9f4c78",
+        "name" : "LABCHANNEL Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 5,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 2,
+      "to-rule" : 5,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617818468805,
+          "iso-8601" : "2021-04-07T13:01-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617818468805,
+          "iso-8601" : "2021-04-07T13:01-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "51e2116c-9e76-4b72-8ef2-eef405c592d3",
+      "name" : "DHCP, DHCP Relay, BOOTP",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "d5244da2-c7be-47db-9a49-b624d64e74c6",
+        "name" : "DHCP Protocols",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 6,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 6,
+      "to-rule" : 6,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617818490767,
+          "iso-8601" : "2021-04-07T13:01-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617818490767,
+          "iso-8601" : "2021-04-07T13:01-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "cb46f7f3-66bb-4a21-b3cc-f33d76dffe8e",
+      "name" : "Multicast Handling",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "21be4dcd-8863-4b06-a819-800a2097c96a",
+        "name" : "Multicast Handling",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 7,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 7,
+      "to-rule" : 7,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1669856134537,
+          "iso-8601" : "2022-11-30T18:55-0600"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1669856132772,
+          "iso-8601" : "2022-11-30T18:55-0600"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "be0f4d60-8a67-4d12-a409-34f21f5843e4",
+      "name" : "General Protective Measures",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "1a67f48e-d207-425a-bd72-840cc269ff1d",
+        "name" : "Block Bad IP Addressess",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 8,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "7e40f564-e4ee-4be1-8961-bea1e848ca88",
+        "name" : "Block Bad Application Sites",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 9,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 8,
+      "to-rule" : 9,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1661189524684,
+          "iso-8601" : "2022-08-22T12:32-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1661189524684,
+          "iso-8601" : "2022-08-22T12:32-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "12ad2aa8-c7f3-44a5-b67f-0dd735c7033c",
+      "name" : "Mobile Access Rules",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "97af47c4-e017-4ce4-8280-c568c7ac5642",
+        "name" : "Mobile Access Applications",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 10,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 10,
+      "to-rule" : 10,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1624638281895,
+          "iso-8601" : "2021-06-25T11:24-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1624638281895,
+          "iso-8601" : "2021-06-25T11:24-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "8a5b9ce5-edaf-412b-b304-bd7e70c3527e",
+      "name" : "Check Point Network Management and Gateway Access",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "258d454b-5c8b-472d-907d-335806b4599c",
+        "name" : "Management and Gateway Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 11,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "9b751e67-2252-429a-842b-abc792bc7add",
+        "name" : "Management and Gateway Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 12,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 11,
+      "to-rule" : 12,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617818573012,
+          "iso-8601" : "2021-04-07T13:02-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617818573012,
+          "iso-8601" : "2021-04-07T13:02-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "c34b9b18-4df3-4ded-9308-f9089f8409b6",
+      "name" : "IOT (Internet Of Things) Devices:  Ring, WEMO, ecobee, etc",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "ed1747fa-5c6e-4443-b26a-4994e6d8c6a1",
+        "name" : "IoT Home Automation Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 13,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "120b6440-7b15-4956-9585-422c929f9818",
+        "name" : "IoT Home Automation Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 14,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 13,
+      "to-rule" : 14,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617818659596,
+          "iso-8601" : "2021-04-07T13:04-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617818659596,
+          "iso-8601" : "2021-04-07T13:04-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "0275b6d6-4c61-4562-ae11-7fb156b44448",
+      "name" : "Multimedia and Game Systems:  DirecTV, Tivo, PS-3, Wii, and Game System Rules",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "8e9e3c98-e678-4e1a-92a2-d0592f07153f",
+        "name" : "Multimedia Devices Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 15,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "50e625b1-46c1-43c7-a06e-6b1607d16cd2",
+        "name" : "Multimedia Devices Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 16,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 15,
+      "to-rule" : 16,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617818752278,
+          "iso-8601" : "2021-04-07T13:05-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617818752278,
+          "iso-8601" : "2021-04-07T13:05-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "8d906d18-6ed7-4899-beb4-22369c789f07",
+      "name" : "VOIP Devices",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "d5471da2-ea12-4da3-8541-9739e7bc77d4",
+        "name" : "VOIP Gateways Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 17,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "f4503fc6-9f8e-4e83-83e2-07af63ce7863",
+        "name" : "VOIP Gateways Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 18,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 17,
+      "to-rule" : 18,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617818755878,
+          "iso-8601" : "2021-04-07T13:05-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617818755878,
+          "iso-8601" : "2021-04-07T13:05-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "4a2c1e0a-65c6-4273-9d29-7cf8e8cfecd7",
+      "name" : "Lab Honey Pot Environments",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "e4ad9680-5a55-429c-b6d0-38cc7e9480f7",
+        "name" : "Lab Honey Pot Environments Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 19,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "8e459609-33f4-4737-9f9f-ccf0cf092805",
+        "name" : "Lab Honey Pot Environments Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 20,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 19,
+      "to-rule" : 20,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617818763131,
+          "iso-8601" : "2021-04-07T13:06-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617818763131,
+          "iso-8601" : "2021-04-07T13:06-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "d32a628e-d03a-40ff-acd6-68c76041c96a",
+      "name" : "DMZ Web Servers",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "6fe539b6-7f4a-4435-9671-65e937167356",
+        "name" : "DMZ Web Servers Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 21,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "080844e8-5fad-45a4-a928-b990fdf45338",
+        "name" : "DMZ Web Servers Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 22,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 21,
+      "to-rule" : 22,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617819005258,
+          "iso-8601" : "2021-04-07T13:10-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617819005258,
+          "iso-8601" : "2021-04-07T13:10-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "f08f62a2-2a5f-427a-9f58-7b2e2667956d",
+      "name" : "CORE AD Domain Controller Servers",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "e6709306-4784-407f-a324-a53d10d38ca7",
+        "name" : "AD DCs Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 23,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "a8eea7e3-ac27-4603-949d-864ae0022a90",
+        "name" : "AD DCs Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 24,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 23,
+      "to-rule" : 24,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617818998783,
+          "iso-8601" : "2021-04-07T13:09-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617818998783,
+          "iso-8601" : "2021-04-07T13:09-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "5ce202b6-4572-4bce-aa33-1c81fb66fdb0",
+      "name" : "CORE MAIL Servers",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "9f6d4b2e-d994-4c3a-8c74-6824eb2cb2ce",
+        "name" : "MAIL Servers Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 25,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "e0434844-74bd-46d9-844a-5ebab7aa10f9",
+        "name" : "MAIL Servers Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 26,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 25,
+      "to-rule" : 26,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617818993849,
+          "iso-8601" : "2021-04-07T13:09-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617818993849,
+          "iso-8601" : "2021-04-07T13:09-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "85da71b0-691d-4267-bb01-884c40ac3dc1",
+      "name" : "CORE Servers",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "c34ba4a4-e24b-4132-b09c-a36fbdd1c309",
+        "name" : "CORE Servers Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 27,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "a23ac330-f82c-4ec0-9e8c-652f11773281",
+        "name" : "CORE Servers Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 28,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 27,
+      "to-rule" : 28,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617818775602,
+          "iso-8601" : "2021-04-07T13:06-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617818775602,
+          "iso-8601" : "2021-04-07T13:06-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "611aa043-23c2-483c-ab07-9cbe9553e365",
+      "name" : "Management Workstations",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "32cd2682-34b2-4f66-b417-f75fe8966ead",
+        "name" : "Management Workstations Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 29,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "6b82a10f-29fa-4b8b-b28f-0024c0a65b88",
+        "name" : "Management Workstations Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 30,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 29,
+      "to-rule" : 30,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617819272596,
+          "iso-8601" : "2021-04-07T13:14-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617819272596,
+          "iso-8601" : "2021-04-07T13:14-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "80ab97af-4fe1-44e9-9f6c-88d4cc249aa3",
+      "name" : "Linux Servers",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "ad5a352b-2dff-41a3-8c7c-21fc80b59f27",
+        "name" : "Linux Servers Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 31,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "29f43b78-9b6c-42d6-944d-be948a3348d7",
+        "name" : "Linux Servers Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 32,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 31,
+      "to-rule" : 32,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1628795844218,
+          "iso-8601" : "2021-08-12T14:17-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1628795844218,
+          "iso-8601" : "2021-08-12T14:17-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "700c5474-c16d-42c0-9d02-97f769c3fbe4",
+      "name" : "Infrastructure",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "bf0dc04c-39ec-4b92-810d-3b47949b7c15",
+        "name" : "Infrastructure Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 33,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "17bb474e-f2ad-4c8d-a8eb-2b76f2ddd653",
+        "name" : "Infrastructure Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 34,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 33,
+      "to-rule" : 34,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617819268551,
+          "iso-8601" : "2021-04-07T13:14-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617819268551,
+          "iso-8601" : "2021-04-07T13:14-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "27addb15-b7a2-47b1-b3ec-88725c90c1a6",
+      "name" : "Untrusted DMZs",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "4333e522-bd83-4a4a-a5ba-5483bb29ebc8",
+        "name" : "DMZ-2 Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 35,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "43750421-9f25-4686-a1a5-cb872d5f2640",
+        "name" : "DMZ-2 Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 36,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 35,
+      "to-rule" : 36,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617819243618,
+          "iso-8601" : "2021-04-07T13:14-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617819243618,
+          "iso-8601" : "2021-04-07T13:14-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "710d612a-78cf-4840-88c8-b09e13024ba0",
+      "name" : "Handle Common-Setup Network",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "1dd336de-3398-45da-a1db-980a46504503",
+        "name" : "Internal to Common Setup Networks Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 37,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "74b88dc9-9b3c-4f4b-a33b-b2f3bb2ab1f7",
+        "name" : "Common Setup Networks Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 38,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 37,
+      "to-rule" : 38,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1640713537690,
+          "iso-8601" : "2021-12-28T11:45-0600"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1640713537690,
+          "iso-8601" : "2021-12-28T11:45-0600"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "a61d7c89-cb10-49a0-a6df-7eca123fe449",
+      "name" : "Guest Workstations",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "ee95818b-6f0b-4507-8f46-d7451486c223",
+        "name" : "Guest Workstations Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 39,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "f505e23c-dfef-4245-bb38-1113e3edba57",
+        "name" : "Guest Workstations Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 40,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 39,
+      "to-rule" : 40,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1657035887271,
+          "iso-8601" : "2022-07-05T10:44-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1657035887271,
+          "iso-8601" : "2022-07-05T10:44-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "d2f363a5-580c-4686-9566-1035a281718b",
+      "name" : "DNS",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "2751cfb4-2853-43eb-9322-b7b06fc62c19",
+        "name" : "DNS Standard Protocols",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 41,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 41,
+      "to-rule" : 41,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617846662654,
+          "iso-8601" : "2021-04-07T20:51-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617846662654,
+          "iso-8601" : "2021-04-07T20:51-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "3cd1fa92-0d8d-488d-8aef-a823d8d22931",
+      "name" : "Multicast Handling 2",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "ee3a4744-5d3d-4cc0-beb3-d9691defd74f",
+        "name" : "Multicast Handling",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 42,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 42,
+      "to-rule" : 42,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1669856189137,
+          "iso-8601" : "2022-11-30T18:56-0600"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1644856874130,
+          "iso-8601" : "2022-02-14T10:41-0600"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "7e8af4eb-a47b-4de6-b2b1-79445e481558",
+      "name" : "SSDP and UPnP Noise",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "b0c4c9fa-4674-418a-9f1e-4bb546d9a2b8",
+        "name" : "SSDP Noise",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 43,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 43,
+      "to-rule" : 43,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1644857048258,
+          "iso-8601" : "2022-02-14T10:44-0600"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1644857048258,
+          "iso-8601" : "2022-02-14T10:44-0600"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "d67e7595-3877-4d86-ab7f-ec9769911066",
+      "name" : "HTTP2",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "ac68a3e5-b1d0-4a5e-8635-200ae25ab931",
+        "name" : "HTTP2",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 44,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 44,
+      "to-rule" : 44,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617846677705,
+          "iso-8601" : "2021-04-07T20:51-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617846677705,
+          "iso-8601" : "2021-04-07T20:51-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "046f37bd-08d6-4325-8acd-8923dca2634e",
+      "name" : "Critical Update Services",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "65b8ba0f-3510-4509-ab8d-5f24fb227df6",
+        "name" : "Kaspersky Updates",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 45,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 45,
+      "to-rule" : 45,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617846740744,
+          "iso-8601" : "2021-04-07T20:52-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617846740744,
+          "iso-8601" : "2021-04-07T20:52-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "be6aa734-4ed5-4fdc-b4e6-79dc5000524d",
+      "name" : "HTTP, HTTPS, HTTP and HTTPS on other ports",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "a3665c22-2ba8-4765-b6aa-b9c75fddfc45",
+        "name" : "Web Protocols",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 46,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 46,
+      "to-rule" : 46,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617819225991,
+          "iso-8601" : "2021-04-07T13:13-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617819225991,
+          "iso-8601" : "2021-04-07T13:13-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "a4275558-9776-4865-8422-1147584f1fc1",
+      "name" : "QUIC (udp/80, udp/443)",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "e1f43c50-7545-4e86-af51-b1f646d94a20",
+        "name" : "QUIC Protocol Internal",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 47,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "ac908735-a8e2-41a5-9eb6-1d2dd6367024",
+        "name" : "QUIC Protocol",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 48,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 47,
+      "to-rule" : 48,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617846785105,
+          "iso-8601" : "2021-04-07T20:53-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617846785105,
+          "iso-8601" : "2021-04-07T20:53-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "da233992-3033-4750-8c43-570dd0377cf5",
+      "name" : "ICMP, IGMP",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "6e407d0f-2581-4c65-9cbc-48b5ce6df275",
+        "name" : "ICMP, IGMP Inbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 49,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "e3eb447a-98d6-4065-bbbb-ed0f11ea5eaf",
+        "name" : "ICMP, IGMP Outbound",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 50,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 49,
+      "to-rule" : 50,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617846836863,
+          "iso-8601" : "2021-04-07T20:53-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617846836863,
+          "iso-8601" : "2021-04-07T20:53-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "3696a3af-6d16-40e1-bd53-759e6bbb0e1d",
+      "name" : "NetBIOUS (NBT)",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "c7350753-8ec2-4505-b2d3-88996e07fa23",
+        "name" : "NetBIOS",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 51,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 51,
+      "to-rule" : 51,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617846920554,
+          "iso-8601" : "2021-04-07T20:55-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617846920554,
+          "iso-8601" : "2021-04-07T20:55-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "0699b8b2-2fd6-4260-bbfd-6c9df80b7bbe",
+      "name" : "FTP",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "63696742-f400-40cb-b982-1d46e55a67d8",
+        "name" : "FTP to Internal Networks",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 52,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "9d65b845-9451-44e2-83e8-bc0aba5df3d1",
+        "name" : "FTP",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 53,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 52,
+      "to-rule" : 53,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617846934352,
+          "iso-8601" : "2021-04-07T20:55-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617846934352,
+          "iso-8601" : "2021-04-07T20:55-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "3d7d4d7a-aa04-40fa-903e-40c066d54009",
+      "name" : "SSH Protocol Handling",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "a5376b45-50d8-4fcf-ab68-5355a55d55e7",
+        "name" : "SSH Handler",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 54,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 54,
+      "to-rule" : 54,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1640712727411,
+          "iso-8601" : "2021-12-28T11:32-0600"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1640712727411,
+          "iso-8601" : "2021-12-28T11:32-0600"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "9cda2720-fdc1-4bd0-a9cb-73e6fa15823a",
+      "name" : "E-Mail Handling",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "2b379dbf-c5c0-4ffd-b072-b18580a55f08",
+        "name" : "E-Mail Handler",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 55,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 55,
+      "to-rule" : 55,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617847409076,
+          "iso-8601" : "2021-04-07T21:03-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617847409076,
+          "iso-8601" : "2021-04-07T21:03-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "9bb92398-8f3f-492e-ae98-beedab156fd0",
+      "name" : "Accept Rules, Silent, no Logging, not Clean-Up",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "70512837-f512-4158-8b65-3993fa4145cb",
+        "name" : "Log Noise that we drop anyway to global Broadcast",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 56,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "29f85354-89a8-49a4-b91e-36755acb4817",
+        "name" : "Log Noise that we drop anyway Multicast Broadcast",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 57,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "ecaf7546-cbb0-4da8-9fd3-5fbf210ba7d3",
+        "name" : "Identify Internal Sources of IP139",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 58,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "fc4102e2-1538-4e72-ac5e-a6e04b82b013",
+        "name" : "Protocol Background Noise",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 59,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 56,
+      "to-rule" : 59,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617847643731,
+          "iso-8601" : "2021-04-07T21:07-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617847643731,
+          "iso-8601" : "2021-04-07T21:07-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "230cb845-5673-44af-8c6b-0f0941a28717",
+      "name" : "APIPA Network Handling",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "c0cb1696-ab05-4803-8bc2-5c97c1c8b89c",
+        "name" : "APIPA, why are we talking to this",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 60,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "24564c40-e260-4fbd-a165-e87d1257ea39",
+        "name" : "APIPA to APIPA",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 61,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "0d243db8-b3a6-4543-a816-a387226d98c2",
+        "name" : "APIPA, destination kill",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 62,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      }, {
+        "uid" : "abf24482-3397-4fd3-adf4-0288e932ce59",
+        "name" : "APIPA source kill",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 63,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 60,
+      "to-rule" : 63,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617847637976,
+          "iso-8601" : "2021-04-07T21:07-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617847637976,
+          "iso-8601" : "2021-04-07T21:07-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "56a7a750-5d1c-4a8c-aac9-89ef8eeec2a7",
+      "name" : "Research and Special Rules",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ ],
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617847431749,
+          "iso-8601" : "2021-04-07T21:03-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617847431749,
+          "iso-8601" : "2021-04-07T21:03-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "13c85ef9-e962-4a34-89c4-2df80c2bd0d8",
+      "name" : "Outbound Internal Traffic",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "a56f6879-0225-455b-b7c8-a0f1107aaa37",
+        "name" : "Internal Traffic as Source",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 64,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 64,
+      "to-rule" : 64,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617848396788,
+          "iso-8601" : "2021-04-07T21:19-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617848396788,
+          "iso-8601" : "2021-04-07T21:19-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "96200c29-355d-4de7-aa43-d98793d742cd",
+      "name" : "Drop Rules, Silent, no Logging, not Clean-Up",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "473849bb-f0df-4954-81b0-92abc8a0b701",
+        "name" : "Dropped Hosts",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 65,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 65,
+      "to-rule" : 65,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617848560613,
+          "iso-8601" : "2021-04-07T21:22-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617848560613,
+          "iso-8601" : "2021-04-07T21:22-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    }, {
+      "uid" : "ddecd982-546c-414b-943e-90527db00dd8",
+      "name" : "Access Policy Clean-up Rules",
+      "type" : "access-section",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "children" : [ {
+        "uid" : "855dc568-e0d4-4a91-beca-c6aa3e0b8f2f",
+        "name" : "Cleanup rule",
+        "type" : "access-rule",
+        "domain" : {
+          "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+          "name" : "SMC User",
+          "domain-type" : "domain"
+        },
+        "rule-number" : 66,
+        "icon" : "Objects/accessRule",
+        "color" : "black"
+      } ],
+      "from-rule" : 66,
+      "to-rule" : 66,
+      "tags" : [ ],
+      "comments" : "",
+      "color" : "black",
+      "icon" : "General/globalsNa",
+      "meta-info" : {
+        "lock" : "unlocked",
+        "validation-state" : "ok",
+        "last-modify-time" : {
+          "posix" : 1617735646704,
+          "iso-8601" : "2021-04-06T14:00-0500"
+        },
+        "last-modifier" : "administrator",
+        "creation-time" : {
+          "posix" : 1617735646704,
+          "iso-8601" : "2021-04-06T14:00-0500"
+        },
+        "creator" : "administrator"
+      },
+      "read-only" : false,
+      "available-actions" : {
+        "edit" : "true",
+        "delete" : "true",
+        "clone" : "true"
+      }
+    } ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1617735646704,
+        "iso-8601" : "2021-04-06T14:00-0500"
+      },
+      "last-modifier" : "administrator",
+      "creation-time" : {
+        "posix" : 1617735646704,
+        "iso-8601" : "2021-04-06T14:00-0500"
+      },
+      "creator" : "administrator"
+    }
+  },
+  "meta-info" : {
+    "lock" : "unlocked",
+    "validation-state" : "ok",
+    "last-modify-time" : {
+      "posix" : 1617735646704,
+      "iso-8601" : "2021-04-06T14:00-0500"
+    },
+    "last-modifier" : "administrator",
+    "creation-time" : {
+      "posix" : 1617735646704,
+      "iso-8601" : "2021-04-06T14:00-0500"
+    },
+    "creator" : "administrator"
+  },
+  "from" : 1,
+  "to" : 66,
+  "total" : 66
+}

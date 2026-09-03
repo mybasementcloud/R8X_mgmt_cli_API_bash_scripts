@@ -1,0 +1,511 @@
+{
+    "uid" : "a251e6d6-7f8d-4bd0-adb3-86f274bd195d",
+    "name" : "MTA traffic to Gateway BeasleySMCIAS01",
+    "type" : "threat-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 1,
+    "source" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      }
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      }
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "97aeb3d9-9aea-11d5-bd16-0090272ccb30",
+      "name" : "smtp",
+      "type" : "service-tcp",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "port" : "25"
+    } ],
+    "service-negate" : false,
+    "protected-scope" : [ {
+      "uid" : "7c166aad-f4fc-4205-bf1a-3cdaa1af7fd8",
+      "name" : "BeasleySMCIAS01",
+      "type" : "simple-gateway",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    } ],
+    "protected-scope-negate" : false,
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      }
+    },
+    "track-settings" : {
+      "packet-capture" : true
+    },
+    "action" : {
+      "uid" : "6403d8d6-a78b-44e7-a5dd-c5cc7dab42cd",
+      "name" : "CORE_MAIL_Servers_Recommended",
+      "type" : "threat-profile",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    },
+    "exceptions" : [ {
+      "uid" : "8f3928c4-576b-4a78-972c-a7b8151c4d55",
+      "name" : "DNS Server protection",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "f5221572-1ed7-469f-b8fb-09379b5435ad",
+      "name" : "Check Point Management and Gateway Exception to TEX",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "0233ce7e-9a30-4e11-9a7d-f15736ae4d9f",
+      "name" : "Exempt Well Known Update Services",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "c9302c80-2569-4de6-a479-9355ee0bdaf1",
+      "name" : "Exempt Well Known Update Services",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "877262ef-36e1-489c-9d3b-d4b4aa51679a",
+      "name" : "Windows Update - authrootstl.cab",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "327d5c0a-fc49-4240-a61a-f6f9b5e52f1e",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "9546ce08-6b2c-4b64-a6a4-dc0b33c63773",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "67ec122c-9ecc-4f8b-82ac-ce7e12e5f4a2",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "25015188-d421-417c-9daa-577b3f38b85f",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "625ea0b5-f7a0-43b3-9ad0-f77ccb5654f5",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "1ef6feec-c2f7-4b0a-a381-4af1024b0428",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "51c86ebc-d10c-4d82-8308-9f7ab5ea39f8",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "4a34d996-ea60-4562-83d5-0981e134ecd6",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "df93198a-ae87-4277-93c8-75af4bfc3503",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "3fe1ce2c-4d67-4399-a932-b58b1f7314b5",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "a617dc4f-7d36-431b-9d45-b68c3fe43ecc",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "8653158f-6567-474b-8a45-72b6e87cdfe6",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "246c7809-da63-4343-8e39-10f4c3539448",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "7ec65b5a-9767-4bf9-934e-7f1c209ed8fb",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "979636f1-4eef-4270-9e56-40d2797d6973",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "0601c07e-9ae3-49cb-a7b1-520694d865f9",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "d6dd1fd3-b793-4132-98f9-8d5b3d43ce29",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "44db03ea-ebc4-4e37-8df9-7665d563e885",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "6ccbb763-68ac-497c-92fe-ada2ef4e53d3",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "a2a93993-356b-4539-abbd-955ba1b373ba",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "76cb995a-e56f-4543-9960-0ca073c4431d",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "8b36eb4a-e289-44dc-b470-b4e9698d9869",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "12e408be-7200-43bb-b1e6-0f8d9d9e243b",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "d0d79205-b2eb-49ac-b681-2f1af178cc2f",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "d43e5947-8a87-4783-b20f-510dbc126a1d",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "c5b8382a-c499-465f-89d7-d5fc63a37d66",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "a1396820-4822-4fa5-85c4-1666943fe026",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "a882dbf4-4a2a-4c74-a840-c84a632f5ff0",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "e6b0cc19-871a-478d-8a57-9e837aacabf6",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "7e7d743d-81f5-461d-b62e-78b475c9b2af",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "9ec6e473-ee38-4af6-b5e0-23125f1c57bb",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "0fa3ef6b-c1db-4d5e-b86c-9575cf60f2fb",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "dfa285db-9d0f-499b-8a31-74571e494c4a",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "e09bcc8e-ff42-450a-9875-0182317d14d4",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "86bb9d82-9b86-48ed-b731-47e69c0e7ddc",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "fe344997-242c-460e-8bc8-30697bbafb7c",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "5e7f4b5e-addc-45d8-9cad-ae4ff4b587ec",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "b0f0892c-f27a-460d-85b0-599f4bfbe09b",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "32fd514e-1cee-4ae4-a0b1-2c3bc9f883ee",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "2b4bd55b-779a-480e-92fb-65c3017a80a5",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "54394645-c912-4646-9590-835777f4f4da",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "651815bc-0332-4ed3-816b-c124a23f0996",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "56cecfbc-5003-4af2-a82f-b44eb7101ece",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "6af7ee67-10c6-4735-932a-dec529e7bc86",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    }, {
+      "uid" : "889ff524-5471-40bb-8ca8-64ba222df448",
+      "type" : "threat-exception",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    } ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1571494085735,
+        "iso-8601" : "2019-10-19T09:08-0500"
+      },
+      "last-modifier" : "administrator",
+      "creation-time" : {
+        "posix" : 1571494085735,
+        "iso-8601" : "2019-10-19T09:08-0500"
+      },
+      "creator" : "administrator"
+    },
+    "comments" : "Automatic rule for MTA traffic",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "7c166aad-f4fc-4205-bf1a-3cdaa1af7fd8",
+      "name" : "BeasleySMCIAS01",
+      "type" : "simple-gateway",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    } ]
+  }

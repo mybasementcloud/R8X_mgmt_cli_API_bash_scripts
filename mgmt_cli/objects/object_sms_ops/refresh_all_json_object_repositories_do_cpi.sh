@@ -1,22 +1,28 @@
 #!/bin/bash
 #
-# (C) 2016-2024+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
+# (C) 2016-2026+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
 #
-# ALL SCRIPTS ARE PROVIDED AS IS WITHOUT EXPRESS OR IMPLIED WARRANTY OF FUNCTION OR POTENTIAL FOR
-# DAMAGE Or ABUSE.  AUTHOR DOES NOT ACCEPT ANY RESPONSIBILITY FOR THE USE OF THESE SCRIPTS OR THE
+# ALL SCRIPTS ARE PROVIDED AS IS WITHOUT EXPRESS OR IMPLIED WARRANTY OF FUNCTION OR POTENTIAL FOR 
+# DAMAGE Or ABUSE.  AUTHOR DOES NOT ACCEPT ANY RESPONSIBILITY FOR THE USE OF THESE SCRIPTS OR THE 
 # RESULTS OF USING THESE SCRIPTS.  USING THESE SCRIPTS STIPULATES A CLEAR UNDERSTANDING OF RESPECTIVE
 # TECHNOLOGIES AND UNDERLYING PROGRAMMING CONCEPTS AND STRUCTURES AND IMPLIES CORRECT IMPLEMENTATION
 # OF RESPECTIVE BASELINE TECHNOLOGIES FOR PLATFORM UTILIZING THE SCRIPTS.  THIRD PARTY LIMITATIONS
 # APPLY WITHIN THE SPECIFICS THEIR RESPECTIVE UTILIZATION AGREEMENTS AND LICENSES.  AUTHOR DOES NOT
 # AUTHORIZE RESALE, LEASE, OR CHARGE FOR UTILIZATION OF THESE SCRIPTS BY ANY THIRD PARTY.
 #
+# AUTHOR REQUIRES ALL UTILIZATION FOR TRAINING OF AI OF ANY TYPE TO BE REQUESTED IN WRITING AND
+# APPROVED IN WRITING VERIFIABLY BEFORE ANY SUCH AI TRAINING SHALL COMMENCE.
+#
+#
+# -#- Start Making Changes Here -#- 
+#
 # Refresh JSON Object Repository - SMS
 #
 #
 ScriptVersion=00.70.00
 ScriptRevision=000
-ScriptSubRevision=100
-ScriptDate=2024-05-30
+ScriptSubRevision=450
+ScriptDate=2026-08-19
 TemplateVersion=00.70.00
 APISubscriptsLevel=020
 APISubscriptsVersion=00.70.00
@@ -176,21 +182,29 @@ echo `${cexdtzs}`${cexdtzsep} | tee -a -i ${cexlogfilepath}
 # -------------------------------------------------------------------------------------------------
 
 
-# ADDED 2021-11-09 - MODIFIED 2024-05-09:01 -
+# ADDED 2021-11-09 - MODIFIED 2025-12-12:01 -
 #
 # Presumptive folder structure for R8X mgmt_cli API bash scripts Template based scripts
 #
 # <root_home_folder> is the folder containing the script set, generally /var/log/__customer
-# <script_home_folder> is the folder containing the script set, generally /var/log/__customer/[_testing/]mgmt_cli
+# <script_home_folder> is the folder containing the script set, generally /var/log/__customer[/_testing/]mgmt_cli
 # DEPRECATED:  <script_home_folder> is the folder containing the script set, Legacy /var/log/__customer/devops|devops.dev|devops.dev.test
 # DEPRECATED:  [.wip] named folders are for development operations
 #
 # ...<root_home_folder>/devops.my_data                     ## my_data folder for all scripts, folder for all customer provided csv folders
 # ...<root_home_folder>/devops.results                     ## results folder for all scripts, default home of ${script_json_repo_folder}
 # ...<root_home_folder>/tools                              ## tools folder for all scripts with additional tools not assumed on system
+# ...<root_home_folder>/mgmt_cli                           ## root folder for all mgmt_cli scripts and templates
+# ...<root_home_folder>/_testing/mgmt_cli                  ## root folder for all mgmt_cli testing of scripts and templates
+#
+# ...<root_home_folder>/mgmt_cli = <script_home_folder>    ## for normal operations
+# ...<root_home_folder>/_testing/mgmt_cli = <script_home_folder>  ## for testing operations
+#
+# ...<script_home_folder>/                                 ## root folder for all mgmt_cli scripts and templates
 # ...<script_home_folder>/_common/                         ## _common root folder for all common scripts and templates
 # ...<script_home_folder>/_common/_api_subscripts          ## _api_subscripts folder for all api subscripts scripts
 # ...<script_home_folder>/_common/_templates               ## _templates folder for all script templates
+# ...<script_home_folder>/logs                             ## logs root folder for logs focused scripts (future development)
 # ...<script_home_folder>/objects                          ## objects root folder for objects focused scripts
 # ...<script_home_folder>/objects/object_csv_tools         ## object_csv_tools folder for csv file handling for objects focused scripts
 # ...<script_home_folder>/objects/object_export_import     ## object_export_import folder for object export, import, set, rename, and delete operations focused scripts
@@ -213,6 +227,7 @@ echo `${cexdtzs}`${cexdtzsep} | tee -a -i ${cexlogfilepath}
 #    /var/log/__customer/mgmt_cli/_common
 #    /var/log/__customer/mgmt_cli/_common/_api_subscripts
 #    /var/log/__customer/mgmt_cli/_common/_templates
+#    /var/log/__customer/mgmt_cli/logs
 #    /var/log/__customer/mgmt_cli/objects
 #    /var/log/__customer/mgmt_cli/objects/object_csv_tool
 #    /var/log/__customer/mgmt_cli/objects/object_export_import
@@ -231,6 +246,7 @@ echo `${cexdtzs}`${cexdtzsep} | tee -a -i ${cexlogfilepath}
 #    /var/log/__customer/_testing/mgmt_cli/_common
 #    /var/log/__customer/_testing/mgmt_cli/_common/_api_subscripts
 #    /var/log/__customer/_testing/mgmt_cli/_common/_templates
+#    /var/log/__customer/_testing/mgmt_cli/logs
 #    /var/log/__customer/_testing/mgmt_cli/objects
 #    /var/log/__customer/_testing/mgmt_cli/objects/object_csv_tool
 #    /var/log/__customer/_testing/mgmt_cli/objects/object_export_import
@@ -249,16 +265,56 @@ echo `${cexdtzs}`${cexdtzsep} | tee -a -i ${cexlogfilepath}
 #
 
 
-# MODIFIED 2024-05-01:01 -
+# MODIFIED 2025-06-18:02 -
 
-export test_script_work_folder=../object_export_import
+export test_script_work_dir_exp=object_export_import
+export test_script_work_folder=./${test_script_work_dir_exp}
 
 if [ -r "cli_api_export_objects.sh" ] ; then
     # found the script in the local directory, use that
     #export test_script_work_folder=.
     export test_script_work_folder=`pwd`
+elif [ -r "./${test_script_work_dir_exp}/cli_api_export_objects.sh" ] ; then
+    # found the script in the local directory, use that
+    #export test_script_work_folder=.
+    echo `${cexdtzs}`${cexdtzsep} 'Current folder '`pwd` | tee -a -i ${cexlogfilepath}
+    pushd "./${test_script_work_dir_exp}" >> ${cexlogfilepath}
+    errorreturn=$?
+    
+    if [ ${errorreturn} -ne 0 ] ; then
+        # we apparently didn't start where expected, so dumping
+        echo `${cexdtzs}`${cexdtzsep} 'Required target folder '"./${test_script_work_dir_exp}"' not found, exiting!' | tee -a -i ${cexlogfilepath}
+        #popd >> ${cexlogfilepath}
+        exit 254
+    else
+        #OK, so we are where we want to be relative to the script targets
+        export test_script_work_folder=`pwd`
+    fi
+    
+    # Return to the script operations folder
+    popd >> ${cexlogfilepath}
+elif [ -r "../${test_script_work_dir_exp}/cli_api_export_objects.sh" ] ; then
+    # found the script in the local directory, use that
+    #export test_script_work_folder=.
+    echo `${cexdtzs}`${cexdtzsep} 'Current folder '`pwd` | tee -a -i ${cexlogfilepath}
+    pushd "../${test_script_work_dir_exp}" >> ${cexlogfilepath}
+    errorreturn=$?
+    
+    if [ ${errorreturn} -ne 0 ] ; then
+        # we apparently didn't start where expected, so dumping
+        echo `${cexdtzs}`${cexdtzsep} 'Required target folder '"../${test_script_work_dir_exp}"' not found, exiting!' | tee -a -i ${cexlogfilepath}
+        #popd >> ${cexlogfilepath}
+        exit 254
+    else
+        #OK, so we are where we want to be relative to the script targets
+        export test_script_work_folder=`pwd`
+    fi
+    
+    # Return to the script operations folder
+    popd >> ${cexlogfilepath}
 else
     # DID NOT find the script in the local directory, use the standard assumption
+    echo `${cexdtzs}`${cexdtzsep} 'Current folder '`pwd` | tee -a -i ${cexlogfilepath}
     pushd ${test_script_work_folder} >> ${cexlogfilepath}
     errorreturn=$?
     

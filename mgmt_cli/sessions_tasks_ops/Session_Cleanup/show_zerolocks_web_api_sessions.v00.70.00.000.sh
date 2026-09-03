@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# (C) 2016-2024+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
+# (C) 2016-2026+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
 #
 # ALL SCRIPTS ARE PROVIDED AS IS WITHOUT EXPRESS OR IMPLIED WARRANTY OF FUNCTION OR POTENTIAL FOR 
 # DAMAGE Or ABUSE.  AUTHOR DOES NOT ACCEPT ANY RESPONSIBILITY FOR THE USE OF THESE SCRIPTS OR THE 
@@ -10,6 +10,9 @@
 # APPLY WITHIN THE SPECIFICS THEIR RESPECTIVE UTILIZATION AGREEMENTS AND LICENSES.  AUTHOR DOES NOT
 # AUTHORIZE RESALE, LEASE, OR CHARGE FOR UTILIZATION OF THESE SCRIPTS BY ANY THIRD PARTY.
 #
+# AUTHOR REQUIRES ALL UTILIZATION FOR TRAINING OF AI OF ANY TYPE TO BE REQUESTED IN WRITING AND
+# APPROVED IN WRITING VERIFIABLY BEFORE ANY SUCH AI TRAINING SHALL COMMENCE.
+#
 #
 # -#- Start Making Changes Here -#- 
 #
@@ -18,8 +21,8 @@
 #
 ScriptVersion=00.70.00
 ScriptRevision=000
-ScriptSubRevision=000
-ScriptDate=2024-05-20
+ScriptSubRevision=400
+ScriptDate=2026-07-07
 TemplateVersion=00.70.00
 APISubscriptsLevel=020
 APISubscriptsVersion=00.70.00
@@ -386,7 +389,10 @@ export UseJSONJQ=true
 # ADDED 2020-02-07 -
 export UseJSONJQ16=true
 
-# MODIFIED 2022-10-27 -
+# ADDED 2025-12-12 -
+export UseJSONJQ181=true
+
+# MODIFIED 2025-12-12 -
 # R80           version 1.0
 # R80.10        version 1.1
 # R80.20.M1     version 1.2
@@ -400,6 +406,10 @@ export UseJSONJQ16=true
 # R81.10        version 1.8
 # R81.10 JHF 79 version 1.8.1
 # R81.20        version 1.9
+# R81.20 JHF 43 version 1.9.1
+# R82.00        version 2.0
+# R82.00 JHF 41 version 2.0.1
+# R82.10        version 2.1
 #
 # For common scripts minimum API version at 1.0 should suffice, otherwise get explicit
 #
@@ -418,16 +428,21 @@ export MinAPIVersionRequired=1.1
 #
 export APICLIconntimeout=600
 
-# ADDED 2021-11-09 - 
+# MODIFIED 2026-02-13 -
 # MaaS (Smart-1 Cloud) current versions
 # R81           version 1.7
 # R81 JHF 34    version 1.7.1  !! ????
 # R81.10        version 1.8
+# R81.20        version 1.9
+# R81.20 JHF 43 version 1.9.1
+# R82.00        version 2.0
+# R82.00 JHF 41 version 2.0.1
+# R82.10        version 2.1
 #
 # for MaaS (Smart-1 Cloud) operation assume at least the minimum API version as 1.7 for R81
 #
 export MinMaaSAPIVersion=1.7
-export MaxMaaSAPIVersion=1.8
+export MaxMaaSAPIVersion=2.1
 
 # If the API version needs to be enforced in commands set this to true
 # NOTE not currently used!
@@ -1387,11 +1402,13 @@ export localCLIparms=false
 # processcliremains - Local command line parameter processor
 # -------------------------------------------------------------------------------------------------
 
-# MODIFIED 2021-01-31 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# MODIFIED 2026-02-13 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #
 
 processcliremains () {
     #
+    
+    error_return=0
     
     # -------------------------------------------------------------------------------------------------
     # Process command line parameters from the REMAINS returned from the standard handler
@@ -1402,7 +1419,7 @@ processcliremains () {
         OPT="$1"
         
         # testing
-        echo 'OPT = '${OPT}
+        echo `${dtzs}`${dtzsep} 'OPT = '${OPT}
         #
             
         # Detect argument termination
@@ -1458,11 +1475,11 @@ processcliremains () {
     
     export CLIparm_local1=${CLIparm_local1}
     
-    return 0
+    return ${error_return}
 }
 
 #
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2021-01-31
+# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2026-02-13
 
 # -------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------
@@ -1472,76 +1489,80 @@ processcliremains () {
 # dumpcliparmparselocalresults
 # -------------------------------------------------------------------------------------------------
 
-# MODIFIED 2020-09-30 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# MODIFIED 2026-02-13 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #
 
 dumpcliparmparselocalresults () {
+    
+    error_return=0
     
     #
     # Testing - Dump acquired local values
     #
     #
     workoutputfile=/var/tmp/workoutputfile.2.${DATEDTGS}.txt
-    echo > ${workoutputfile}
+    echo `${dtzs}`${dtzsep} > ${workoutputfile}
     
     # Screen width template for sizing, default width of 80 characters assumed
     #
     #              1111111111222222222233333333334444444444555555555566666666667777777777888888888899999999990
     #    01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
     
-    echo 'Local CLI Parameters :' >> ${workoutputfile}
-    echo >> ${workoutputfile}
+    echo `${dtzs}`${dtzsep} 'Local CLI Parameters :' >> ${workoutputfile}
+    echo `${dtzs}`${dtzsep} >> ${workoutputfile}
     
-    #echo 'CLIparm_local1          = '${CLIparm_local1} >> ${workoutputfile}
-    #echo 'CLIparm_local2          = '$CLIparm_local2 >> ${workoutputfile}
+    #echo `${dtzs}`${dtzsep} 'CLIparm_local1          = '${CLIparm_local1} >> ${workoutputfile}
+    #echo `${dtzs}`${dtzsep} 'CLIparm_local2          = '$CLIparm_local2 >> ${workoutputfile}
     
     #                  1111111111222222222233333333334444444444555555555566666666667777777777888888888899999999990
     #       01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
     
-    echo  >> ${workoutputfile}
-    echo 'LOCALREMAINS            = '${LOCALREMAINS} >> ${workoutputfile}
+    echo `${dtzs}`${dtzsep} >> ${workoutputfile}
+    echo `${dtzs}`${dtzsep} 'LOCALREMAINS            = '${LOCALREMAINS} >> ${workoutputfile}
     
     if ${APISCRIPTVERBOSE} ; then
         # Verbose mode ON
         
-        echo | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
         cat ${workoutputfile} | tee -a -i ${logfilepath}
-        echo | tee -a -i ${logfilepath}
-        for i ; do echo - $i | tee -a -i ${logfilepath} ; done
-        echo | tee -a -i ${logfilepath}
-        echo 'CLI parms - number :  '"$#"' parms :  >'"$@"'<' | tee -a -i ${logfilepath}
-        echo | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
+        for i ; do echo `${dtzs}`${dtzsep} - $i | tee -a -i ${logfilepath} ; done
+        echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} 'CLI parms - number :  '"$#"' parms :  >'"$@"'<' | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
         
         if ! ${NOWAIT} ; then
             read -t ${WAITTIME} -n 1 -p "Any key to continue.  Automatic continue after ${WAITTIME} seconds : " anykey
             echo
         fi
         
-        echo | tee -a -i ${logfilepath}
-        echo "End of local execution" | tee -a -i ${logfilepath}
-        echo | tee -a -i ${logfilepath}
-        echo '--------------------------------------------------------------------------' | tee -a -i ${logfilepath}
-        echo | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} "End of local execution" | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} '--------------------------------------------------------------------------' | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
     
     else
         # Verbose mode OFF
         
-        echo >> ${logfilepath}
+        echo `${dtzs}`${dtzsep} >> ${logfilepath}
         cat ${workoutputfile} >> ${logfilepath}
-        echo >> ${logfilepath}
-        for i ; do echo - $i >> ${logfilepath} ; done
-        echo >> ${logfilepath}
-        echo 'CLI parms - number :  '"$#"' parms :  >'"$@"'<' >> ${logfilepath}
-        echo >> ${logfilepath}
+        echo `${dtzs}`${dtzsep} >> ${logfilepath}
+        for i ; do echo `${dtzs}`${dtzsep} - $i >> ${logfilepath} ; done
+        echo `${dtzs}`${dtzsep} >> ${logfilepath}
+        echo `${dtzs}`${dtzsep} 'CLI parms - number :  '"$#"' parms :  >'"$@"'<' >> ${logfilepath}
+        echo `${dtzs}`${dtzsep} >> ${logfilepath}
         
     fi
     
     rm ${workoutputfile}
+    
+    return ${error_return}
 }
 
 
 #
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2020-09-30
+# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2026-02-13
 
 
 # -------------------------------------------------------------------------------------------------
@@ -1552,11 +1573,13 @@ dumpcliparmparselocalresults () {
 # dumprawcliremains
 # -------------------------------------------------------------------------------------------------
 
-# MODIFIED 2021-10-21 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# MODIFIED 2026-02-13 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #
 
 dumprawcliremains () {
     #
+    error_return=0
+    
     if ${APISCRIPTVERBOSE} ; then
         # Verbose mode ON
         
@@ -1590,11 +1613,12 @@ dumprawcliremains () {
         echo `${dtzs}`${dtzsep} >> ${logfilepath}
         
     fi
-
+    
+    return ${error_return}
 }
 
 #
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2021-10-21
+# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2026-02-13
 
 # -------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------
@@ -1964,58 +1988,10 @@ GetGaiaVersionAndInstallationType "$@"
 # =================================================================================================
 
 
-# REMOVED 2020-11-16 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
-#
-
-# =================================================================================================
-# =================================================================================================
-# START:  Setup Login Parameters and Mgmt_CLI handler procedures
-# =================================================================================================
-
-
-# Moved to mgmt_cli_api_operations.subscript.common.${APISubscriptsLevel}.v${APISubscriptsVersion}.sh script
-#
-#HandleMgmtCLIPublish
-#HandleMgmtCLILogout
-#HandleMgmtCLILogin
-#SetupLogin2MgmtCLI
-#Login2MgmtCLI
-
-
-# =================================================================================================
-# END:  Setup Login Parameters and Mgmt_CLI handler procedures
-# =================================================================================================
-# =================================================================================================
-
-#
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ REMOVED 2020-11-16
-
-# =================================================================================================
-# =================================================================================================
-# START:  Setup CLI Parameter based values
-# =================================================================================================
-
 # =================================================================================================
 # =================================================================================================
 # START:  Common Procedures
 # -------------------------------------------------------------------------------------------------
-
-
-# REMOVED 2020-11-16 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
-#
-
-# Moved to script_output_paths_and_folders_API_scripts.subscript.common.${APISubscriptsLevel}.v${APISubscriptsVersion}.sh script
-#
-#localrootscriptconfiguration
-#HandleRootScriptConfiguration
-#HandleLaunchInHomeFolder
-#ShowFinalOutputAndLogPaths
-#ConfigureRootPath
-#ConfigureLogPath
-#ConfigureCommonCLIParameterValues
-
-#
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ REMOVED 2020-11-16
 
 
 # -------------------------------------------------------------------------------------------------
@@ -2687,9 +2663,11 @@ if ${script_dump_standard} ; then
 fi
 
 
+# -------------------------------------------------------------------------------------------------
+
 
 # =================================================================================================
-# START:  Main operations
+# - Main operations
 # =================================================================================================
 
 

@@ -1,0 +1,152 @@
+{
+    "uid" : "d95c56a3-4b7b-44ee-b62e-e619a18d02fa",
+    "name" : "Exempt Check Point Infra",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 1,
+    "layer" : {
+      "uid" : "5510bd57-7d35-46db-b557-9303817fa16f",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    },
+    "source" : [ {
+      "uid" : "8e0739a7-4afb-416a-b382-2d572493f4e6",
+      "name" : "CP_Mgmt_GWs_CORE_G2",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      }
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      }
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "97aeb443-9aea-11d5-bd16-0090272ccb30",
+      "name" : "https",
+      "type" : "service-tcp",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "port" : "443"
+    }, {
+      "uid" : "2a2ca572-fbe7-4e7f-92e4-164f5b4fded1",
+      "name" : "HTTP_and_HTTPS_proxy",
+      "type" : "service-tcp",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "port" : "8080"
+    }, {
+      "uid" : "05a31fa4-4115-4e07-bf3d-61b9c0dc35d8",
+      "name" : "https_CP_SPLAT_4434",
+      "type" : "service-tcp",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "port" : "4434"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      }
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      }
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      }
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      }
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      }
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1618437698171,
+        "iso-8601" : "2021-04-14T17:01-0500"
+      },
+      "last-modifier" : "administrator",
+      "creation-time" : {
+        "posix" : 1580760386546,
+        "iso-8601" : "2020-02-03T14:06-0600"
+      },
+      "creator" : "System"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      }
+    } ]
+  }

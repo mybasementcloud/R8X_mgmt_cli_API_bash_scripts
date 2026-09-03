@@ -1,0 +1,147 @@
+{
+    "uid" : "cf675e34-cb74-444c-92c5-65d4ca8d2c8d",
+    "name" : "CORE_CP-Infra_Recommended",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 4096,
+      "max-links" : 10
+    },
+    "threat-emulation" : false,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ {
+      "protection" : "IPv6 In IPv4 Tunneling",
+      "protection-uid" : "0741ecf6-689e-b248-b0b2-f1d5018e7420",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    }, {
+      "protection" : "DNS Tunneling",
+      "protection-uid" : "5132f221-d010-cb4b-94c2-777eb93b011c",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    } ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      }, {
+        "name" : "Rare",
+        "uid" : "221a358f-9f79-40e4-8ada-71b171d60cc7"
+      } ]
+    }, {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "59a392e8-5266-9d4c-b3ea-d7fce73e8dec"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Vendor",
+      "uid" : "9649e1b3-17b5-6b4d-852c-38c4bf702ffe",
+      "values" : [ {
+        "name" : "Check Point",
+        "uid" : "c24514e8-f67d-2e44-8e1f-67e11684ee07"
+      } ]
+    }, {
+      "name" : "Product",
+      "uid" : "5f6e62e6-198c-7d4d-83ef-535056478eb5",
+      "values" : [ {
+        "name" : "Check Point",
+        "uid" : "7e6e082d-5013-0c4d-9082-953b66fe4656"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      } ]
+    }, {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Recommended Protections for ericjbeasley.net",
+    "color" : "pink",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1498687973155,
+        "iso-8601" : "2017-06-28T17:12-0500"
+      },
+      "last-modifier" : "administrator",
+      "creation-time" : {
+        "posix" : 1498687973155,
+        "iso-8601" : "2017-06-28T17:12-0500"
+      },
+      "creator" : "administrator"
+    },
+    "read-only" : false
+  }

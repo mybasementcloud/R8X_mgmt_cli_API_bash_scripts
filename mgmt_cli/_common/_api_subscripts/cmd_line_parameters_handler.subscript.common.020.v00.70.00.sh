@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# (C) 2016-2024+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
+# (C) 2016-2026+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
 #
 # ALL SCRIPTS ARE PROVIDED AS IS WITHOUT EXPRESS OR IMPLIED WARRANTY OF FUNCTION OR POTENTIAL FOR 
 # DAMAGE Or ABUSE.  AUTHOR DOES NOT ACCEPT ANY RESPONSIBILITY FOR THE USE OF THESE SCRIPTS OR THE 
@@ -10,6 +10,9 @@
 # APPLY WITHIN THE SPECIFICS THEIR RESPECTIVE UTILIZATION AGREEMENTS AND LICENSES.  AUTHOR DOES NOT
 # AUTHORIZE RESALE, LEASE, OR CHARGE FOR UTILIZATION OF THESE SCRIPTS BY ANY THIRD PARTY.
 #
+# AUTHOR REQUIRES ALL UTILIZATION FOR TRAINING OF AI OF ANY TYPE TO BE REQUESTED IN WRITING AND
+# APPROVED IN WRITING VERIFIABLY BEFORE ANY SUCH AI TRAINING SHALL COMMENCE.
+#
 #
 # -#- Start Making Changes Here -#- 
 #
@@ -18,8 +21,8 @@
 #
 ScriptVersion=00.70.00
 ScriptRevision=000
-ScriptSubRevision=100
-ScriptDate=2024-05-30
+ScriptSubRevision=450
+ScriptDate=2026-08-19
 TemplateVersion=00.70.00
 APISubscriptsLevel=020
 APISubscriptsVersion=00.70.00
@@ -1046,7 +1049,7 @@ doshowhelp () {
 # -------------------------------------------------------------------------------------------------
 
 
-ProcessCommandLIneParameterVerboseEnable () {
+ProcessCommandLineParameterVerboseEnable () {
     
     while [ -n "$1" ]; do
         # Copy so we can modify it (can't modify $1)
@@ -1090,7 +1093,7 @@ ProcessCommandLIneParameterVerboseEnable () {
 # Procedure Call:  Process command line parameters for enabling verbose output
 # -------------------------------------------------------------------------------------------------
 
-#ProcessCommandLIneParameterVerboseEnable $@
+#ProcessCommandLineParameterVerboseEnable $@
 
 # -------------------------------------------------------------------------------------------------
 # END Procedure:  Process command line parameters for enabling verbose output
@@ -2494,7 +2497,7 @@ export CLIparm_deletepath=
 
 
 #echo `${dtzs}`${dtzsep} 'Process Command Line Parameter Verbose Enabled' >> ${templogfilepath}
-ProcessCommandLIneParameterVerboseEnable "$@"
+ProcessCommandLineParameterVerboseEnable "$@"
 
 #echo `${dtzs}`${dtzsep} 'Process Command Line Parameters and Set Values' >> ${templogfilepath}
 ProcessCommandLineParametersAndSetValues "$@"

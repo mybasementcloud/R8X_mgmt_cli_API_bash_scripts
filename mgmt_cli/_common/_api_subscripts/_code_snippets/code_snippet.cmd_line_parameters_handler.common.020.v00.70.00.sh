@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# (C) 2016-2024+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
+# (C) 2016-2026+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
 #
 # ALL SCRIPTS ARE PROVIDED AS IS WITHOUT EXPRESS OR IMPLIED WARRANTY OF FUNCTION OR POTENTIAL FOR 
 # DAMAGE Or ABUSE.  AUTHOR DOES NOT ACCEPT ANY RESPONSIBILITY FOR THE USE OF THESE SCRIPTS OR THE 
@@ -10,6 +10,9 @@
 # APPLY WITHIN THE SPECIFICS THEIR RESPECTIVE UTILIZATION AGREEMENTS AND LICENSES.  AUTHOR DOES NOT
 # AUTHORIZE RESALE, LEASE, OR CHARGE FOR UTILIZATION OF THESE SCRIPTS BY ANY THIRD PARTY.
 #
+# AUTHOR REQUIRES ALL UTILIZATION FOR TRAINING OF AI OF ANY TYPE TO BE REQUESTED IN WRITING AND
+# APPROVED IN WRITING VERIFIABLY BEFORE ANY SUCH AI TRAINING SHALL COMMENCE.
+#
 #
 # -#- Start Making Changes Here -#- 
 #
@@ -18,8 +21,8 @@
 #
 ScriptVersion=00.70.00
 ScriptRevision=000
-ScriptSubRevision=100
-ScriptDate=2024-05-30
+ScriptSubRevision=450
+ScriptDate=2026-08-19
 TemplateVersion=00.70.00
 APISubscriptsLevel=020
 APISubscriptsVersion=00.70.00
@@ -551,11 +554,13 @@ export localCLIparms=false
 # processcliremains - Local command line parameter processor
 # -------------------------------------------------------------------------------------------------
 
-# MODIFIED 2021-01-31 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# MODIFIED 2026-02-13 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #
 
 processcliremains () {
     #
+    
+    error_return=0
     
     # -------------------------------------------------------------------------------------------------
     # Process command line parameters from the REMAINS returned from the standard handler
@@ -622,11 +627,11 @@ processcliremains () {
     
     export CLIparm_local1=${CLIparm_local1}
     
-    return 0
+    return ${error_return}
 }
 
 #
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2021-01-31
+# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2026-02-13
 
 # -------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------
@@ -636,34 +641,36 @@ processcliremains () {
 # dumpcliparmparselocalresults
 # -------------------------------------------------------------------------------------------------
 
-# MODIFIED 2020-09-30 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# MODIFIED 2026-02-13 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #
 
 dumpcliparmparselocalresults () {
+    
+    error_return=0
     
     #
     # Testing - Dump acquired local values
     #
     #
     workoutputfile=/var/tmp/workoutputfile.2.${DATEDTGS}.txt
-    echo > ${workoutputfile}
+    echo `${dtzs}`${dtzsep} > ${workoutputfile}
     
     # Screen width template for sizing, default width of 80 characters assumed
     #
     #              1111111111222222222233333333334444444444555555555566666666667777777777888888888899999999990
     #    01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
     
-    echo 'Local CLI Parameters :' >> ${workoutputfile}
-    echo >> ${workoutputfile}
+    echo `${dtzs}`${dtzsep} 'Local CLI Parameters :' >> ${workoutputfile}
+    echo `${dtzs}`${dtzsep} >> ${workoutputfile}
     
-    #echo 'CLIparm_local1          = '${CLIparm_local1} >> ${workoutputfile}
-    #echo 'CLIparm_local2          = '$CLIparm_local2 >> ${workoutputfile}
+    #echo `${dtzs}`${dtzsep} 'CLIparm_local1          = '${CLIparm_local1} >> ${workoutputfile}
+    #echo `${dtzs}`${dtzsep} 'CLIparm_local2          = '$CLIparm_local2 >> ${workoutputfile}
     
     #                  1111111111222222222233333333334444444444555555555566666666667777777777888888888899999999990
     #       01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
     
-    echo  >> ${workoutputfile}
-    echo 'LOCALREMAINS            = '${LOCALREMAINS} >> ${workoutputfile}
+    echo `${dtzs}`${dtzsep} >> ${workoutputfile}
+    echo `${dtzs}`${dtzsep} 'LOCALREMAINS            = '${LOCALREMAINS} >> ${workoutputfile}
     
     if ${APISCRIPTVERBOSE} ; then
         # Verbose mode ON
@@ -701,11 +708,13 @@ dumpcliparmparselocalresults () {
     fi
     
     rm ${workoutputfile}
+    
+    return ${error_return}
 }
 
 
 #
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2020-09-30
+# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2026-02-13
 
 
 # -------------------------------------------------------------------------------------------------
@@ -716,11 +725,13 @@ dumpcliparmparselocalresults () {
 # dumprawcliremains
 # -------------------------------------------------------------------------------------------------
 
-# MODIFIED 2021-10-21 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# MODIFIED 2026-02-13 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #
 
 dumprawcliremains () {
     #
+    error_return=0
+    
     if ${APISCRIPTVERBOSE} ; then
         # Verbose mode ON
         
@@ -754,11 +765,12 @@ dumprawcliremains () {
         echo `${dtzs}`${dtzsep} >> ${logfilepath}
         
     fi
-
+    
+    return ${error_return}
 }
 
 #
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2021-10-21
+# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2026-02-13
 
 # -------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------

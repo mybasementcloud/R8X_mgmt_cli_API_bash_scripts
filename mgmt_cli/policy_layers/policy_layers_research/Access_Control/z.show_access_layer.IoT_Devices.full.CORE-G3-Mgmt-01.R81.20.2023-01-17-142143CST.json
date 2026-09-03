@@ -1,0 +1,75 @@
+{
+  "uid" : "44a63eef-f3ba-4dda-8ec2-41ffd410bd44",
+  "name" : "IoT Devices",
+  "type" : "access-layer",
+  "domain" : {
+    "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+    "name" : "SMC User",
+    "domain-type" : "domain"
+  },
+  "shared" : true,
+  "parent-layer" : "5fdf6e16-3a6b-4bf5-a468-d158942ae59e",
+  "applications-and-url-filtering" : true,
+  "content-awareness" : true,
+  "mobile-access" : false,
+  "detect-using-x-forward-for" : false,
+  "firewall" : true,
+  "implicit-cleanup-action" : "drop",
+  "comments" : "Main Layer for IoT Device Policy",
+  "color" : "lemon chiffon",
+  "icon" : "ApplicationFirewall/sharedrulebase",
+  "tags" : [ {
+    "uid" : "898da349-6107-48d0-84d0-c6a75a0a7362",
+    "name" : "IoT_Technology",
+    "type" : "tag",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "comments" : "",
+    "color" : "black",
+    "icon" : "Tags/Tag",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1617721482771,
+        "iso-8601" : "2021-04-06T10:04-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1617721482771,
+        "iso-8601" : "2021-04-06T10:04-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  } ],
+  "meta-info" : {
+    "lock" : "unlocked",
+    "validation-state" : "ok",
+    "last-modify-time" : {
+      "posix" : 1617816115400,
+      "iso-8601" : "2021-04-07T12:21-0500"
+    },
+    "last-modifier" : "administrator",
+    "creation-time" : {
+      "posix" : 1617816115400,
+      "iso-8601" : "2021-04-07T12:21-0500"
+    },
+    "creator" : "administrator"
+  },
+  "read-only" : false,
+  "available-actions" : {
+    "edit" : "true",
+    "delete" : "true",
+    "clone" : "true"
+  }
+}

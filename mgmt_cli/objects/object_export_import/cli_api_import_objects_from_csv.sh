@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# (C) 2016-2024+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
+# (C) 2016-2026+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
 #
 # ALL SCRIPTS ARE PROVIDED AS IS WITHOUT EXPRESS OR IMPLIED WARRANTY OF FUNCTION OR POTENTIAL FOR 
 # DAMAGE Or ABUSE.  AUTHOR DOES NOT ACCEPT ANY RESPONSIBILITY FOR THE USE OF THESE SCRIPTS OR THE 
@@ -10,6 +10,9 @@
 # APPLY WITHIN THE SPECIFICS THEIR RESPECTIVE UTILIZATION AGREEMENTS AND LICENSES.  AUTHOR DOES NOT
 # AUTHORIZE RESALE, LEASE, OR CHARGE FOR UTILIZATION OF THESE SCRIPTS BY ANY THIRD PARTY.
 #
+# AUTHOR REQUIRES ALL UTILIZATION FOR TRAINING OF AI OF ANY TYPE TO BE REQUESTED IN WRITING AND
+# APPROVED IN WRITING VERIFIABLY BEFORE ANY SUCH AI TRAINING SHALL COMMENCE.
+#
 #
 # -#- Start Making Changes Here -#- 
 #
@@ -18,8 +21,8 @@
 #
 ScriptVersion=00.70.00
 ScriptRevision=000
-ScriptSubRevision=100
-ScriptDate=2024-05-30
+ScriptSubRevision=450
+ScriptDate=2026-08-19
 TemplateVersion=00.70.00
 APISubscriptsLevel=020
 APISubscriptsVersion=00.70.00
@@ -396,7 +399,10 @@ export UseJSONJQ=true
 # ADDED 2020-02-07 -
 export UseJSONJQ16=true
 
-# MODIFIED 2024-05-01 -
+# ADDED 2025-12-12 -
+export UseJSONJQ181=true
+
+# MODIFIED 2025-12-12 -
 # R80           version 1.0
 # R80.10        version 1.1
 # R80.20.M1     version 1.2
@@ -412,6 +418,8 @@ export UseJSONJQ16=true
 # R81.20        version 1.9
 # R81.20 JHF 43 version 1.9.1
 # R82.00        version 2.0
+# R82.00 JHF 41 version 2.0.1
+# R82.10        version 2.1
 #
 # For common scripts minimum API version at 1.0 should suffice, otherwise get explicit
 #
@@ -430,18 +438,21 @@ export MinAPIVersionRequired=1.1
 #
 export APICLIconntimeout=600
 
-# MODIFIED 2024-05-01 -
+# MODIFIED 2026-02-13 -
 # MaaS (Smart-1 Cloud) current versions
 # R81           version 1.7
 # R81 JHF 34    version 1.7.1  !! ????
 # R81.10        version 1.8
 # R81.20        version 1.9
 # R81.20 JHF 43 version 1.9.1
+# R82.00        version 2.0
+# R82.00 JHF 41 version 2.0.1
+# R82.10        version 2.1
 #
 # for MaaS (Smart-1 Cloud) operation assume at least the minimum API version as 1.7 for R81
 #
 export MinMaaSAPIVersion=1.7
-export MaxMaaSAPIVersion=1.9.1
+export MaxMaaSAPIVersion=2.1
 
 # If the API version needs to be enforced in commands set this to true
 # NOTE not currently used!
@@ -457,21 +468,29 @@ export WAITTIME=15
 # Configure location for api subscripts
 # -------------------------------------------------------------------------------------------------
 
-# ADDED 2021-11-09 - MODIFIED 2024-05-09:01 -
+# ADDED 2021-11-09 - MODIFIED 2025-12-12:01 -
 #
 # Presumptive folder structure for R8X mgmt_cli API bash scripts Template based scripts
 #
 # <root_home_folder> is the folder containing the script set, generally /var/log/__customer
-# <script_home_folder> is the folder containing the script set, generally /var/log/__customer/[_testing/]mgmt_cli
+# <script_home_folder> is the folder containing the script set, generally /var/log/__customer[/_testing/]mgmt_cli
 # DEPRECATED:  <script_home_folder> is the folder containing the script set, Legacy /var/log/__customer/devops|devops.dev|devops.dev.test
 # DEPRECATED:  [.wip] named folders are for development operations
 #
 # ...<root_home_folder>/devops.my_data                     ## my_data folder for all scripts, folder for all customer provided csv folders
 # ...<root_home_folder>/devops.results                     ## results folder for all scripts, default home of ${script_json_repo_folder}
 # ...<root_home_folder>/tools                              ## tools folder for all scripts with additional tools not assumed on system
+# ...<root_home_folder>/mgmt_cli                           ## root folder for all mgmt_cli scripts and templates
+# ...<root_home_folder>/_testing/mgmt_cli                  ## root folder for all mgmt_cli testing of scripts and templates
+#
+# ...<root_home_folder>/mgmt_cli = <script_home_folder>    ## for normal operations
+# ...<root_home_folder>/_testing/mgmt_cli = <script_home_folder>  ## for testing operations
+#
+# ...<script_home_folder>/                                 ## root folder for all mgmt_cli scripts and templates
 # ...<script_home_folder>/_common/                         ## _common root folder for all common scripts and templates
 # ...<script_home_folder>/_common/_api_subscripts          ## _api_subscripts folder for all api subscripts scripts
 # ...<script_home_folder>/_common/_templates               ## _templates folder for all script templates
+# ...<script_home_folder>/logs                             ## logs root folder for logs focused scripts (future development)
 # ...<script_home_folder>/objects                          ## objects root folder for objects focused scripts
 # ...<script_home_folder>/objects/object_csv_tools         ## object_csv_tools folder for csv file handling for objects focused scripts
 # ...<script_home_folder>/objects/object_export_import     ## object_export_import folder for object export, import, set, rename, and delete operations focused scripts
@@ -494,6 +513,7 @@ export WAITTIME=15
 #    /var/log/__customer/mgmt_cli/_common
 #    /var/log/__customer/mgmt_cli/_common/_api_subscripts
 #    /var/log/__customer/mgmt_cli/_common/_templates
+#    /var/log/__customer/mgmt_cli/logs
 #    /var/log/__customer/mgmt_cli/objects
 #    /var/log/__customer/mgmt_cli/objects/object_csv_tool
 #    /var/log/__customer/mgmt_cli/objects/object_export_import
@@ -512,6 +532,7 @@ export WAITTIME=15
 #    /var/log/__customer/_testing/mgmt_cli/_common
 #    /var/log/__customer/_testing/mgmt_cli/_common/_api_subscripts
 #    /var/log/__customer/_testing/mgmt_cli/_common/_templates
+#    /var/log/__customer/_testing/mgmt_cli/logs
 #    /var/log/__customer/_testing/mgmt_cli/objects
 #    /var/log/__customer/_testing/mgmt_cli/objects/object_csv_tool
 #    /var/log/__customer/_testing/mgmt_cli/objects/object_export_import
@@ -530,6 +551,11 @@ export WAITTIME=15
 #
 
 
+# ADDED 2025-12-12:01 -
+# Configure default expected location for _common folder
+export _expected_mgmt_cli_default_root=/var/log/__customer/mgmt_cli
+export _expected_common_default_root=${_expected_mgmt_cli_default_root}/_common
+
 # MODIFIED 2024-05-10:01 -
 # Configure basic location for _common folder
 export _common_default_folder=_common
@@ -544,7 +570,7 @@ export api_subscripts_checkfile=api_subscripts_version.${APISubscriptsLevel}.v${
 #
 # Check for whether the subscripts are present where expected, if not hard EXIT
 #
-# MODIFIED 2024-05-09:01 -
+# MODIFIED 2025-12-12:01 -
 
 echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
 echo `${dtzs}`${dtzsep} 'Current Path : "'`pwd`'"' | tee -a -i ${logfilepath}
@@ -648,6 +674,26 @@ elif [ -r "../../../${api_subscripts_default_folder}/${api_subscripts_checkfile}
     # Return to the script operations folder
     echo -n `${dtzs}`${dtzsep}' ' >> ${logfilepath}
     popd >> ${logfilepath}
+elif [ -r "${_expected_common_default_root}/${api_subscripts_default_folder}/${api_subscripts_checkfile}" ]; then
+    # OK, didn't find the api subscripts in the default root, or in the working folder, but they were in the default normal folder
+    export api_subscripts_root=${_expected_common_default_root}
+    echo -n `${dtzs}`${dtzsep}' ' >> ${logfilepath}
+    pushd ${api_subscripts_root} >> ${logfilepath}
+    errorreturn=$?
+    
+    if [ ${errorreturn} -ne 0 ] ; then
+        # we apparently didn't start where expected, so dumping
+        echo `${dtzs}`${dtzsep} 'Required target folder '"${api_subscripts_root}"' not found, exiting!' | tee -a -i ${logfilepath}
+        #popd >> ${logfilepath}
+        exit 254
+    else
+        #OK, so we are where we want to be relative to the script targets
+        export api_subscripts_root=`pwd`
+    fi
+    
+    # Return to the script operations folder
+    echo -n `${dtzs}`${dtzsep}' ' >> ${logfilepath}
+    popd >> ${logfilepath}
 else
     # OK, didn't find the api subscripts where we expect to find them, so this is bad!
     echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
@@ -657,6 +703,7 @@ else
     echo `${dtzs}`${dtzsep} ' ALTERNATE Location 2 :  '"./${api_subscripts_default_folder}/${api_subscripts_checkfile}" | tee -a -i ${logfilepath}
     echo `${dtzs}`${dtzsep} ' ALTERNATE Location 3 :  '"../../../${_common_default_folder}/${api_subscripts_default_folder}/${api_subscripts_checkfile}" | tee -a -i ${logfilepath}
     echo `${dtzs}`${dtzsep} ' ALTERNATE Location 4 :  '"../../../${api_subscripts_default_folder}/${api_subscripts_checkfile}" | tee -a -i ${logfilepath}
+    echo `${dtzs}`${dtzsep} ' ALTERNATE Location 5 :  '"${_expected_common_default_root}/${api_subscripts_default_folder}/${api_subscripts_checkfile}" | tee -a -i ${logfilepath}
     echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
     echo `${dtzs}`${dtzsep} 'Unable to continue without these api subscript files, so exiting!!!' | tee -a -i ${logfilepath}
     echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
@@ -809,7 +856,7 @@ export DefaultAPIObjectLimitMDSMSlowObjects=${SlowObjectAPIObjectLimitMDSMSlow}
 # -------------------------------------------------------------------------------------------------
 
 
-# MODIFIED 2023-02-24:01 -
+# MODIFIED 2025-06-18:04 -
 
 # Configure basic information for formation of file path for action handler scripts
 #
@@ -835,6 +882,110 @@ export APIScriptCSVActionFilename=${APIScriptActionFilePrefix}.'export_objects_t
 
 export APIScriptCSVSpecialActionFilename=${APIScriptActionFilePrefix}.'export_special_objects_to_csv'.sh
 #export APIScriptCSVSpecialActionFilename=${APIScriptActionFilePrefix}'_actions_to_csv_'${APIScriptVersion}.sh
+
+export expected_script_work_dir=object_export_import
+export expected_script_work_folder=${customermgmtclipathroot}/objects/object_export_import
+
+echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
+echo `${cexdtzs}`${cexdtzsep} 'Current APIScriptActionFileRoot '"${APIScriptActionFileRoot}" | tee -a -i ${logfilepath}
+echo `${cexdtzs}`${cexdtzsep} 'Current expected_script_work_dir '"${expected_script_work_dir}" | tee -a -i ${logfilepath}
+echo `${cexdtzs}`${cexdtzsep} 'Current expected_script_work_folder '"${expected_script_work_folder}" | tee -a -i ${logfilepath}
+echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
+
+if [ -r "${APIScriptJSONActionFilename}" ] ; then
+    # found the script in the local directory, use that
+    #export test_script_work_folder=.
+    echo `${cexdtzs}`${cexdtzsep} 'Current folder '`pwd` | tee -a -i ${logfilepath}
+    export APIScriptActionFileRoot=`pwd`
+elif [ -r "./${expected_script_work_dir}/${APIScriptJSONActionFilename}" ] ; then
+    # found the script in the local directory, use that
+    #export APIScriptActionFileRoot=.
+    echo `${cexdtzs}`${cexdtzsep} 'Current folder '`pwd` | tee -a -i ${logfilepath}
+    pushd "./${expected_script_work_dir}" >> ${logfilepath}
+    errorreturn=$?
+    
+    if [ ${errorreturn} -ne 0 ] ; then
+        # we apparently didn't start where expected, so dumping
+        echo `${cexdtzs}`${cexdtzsep} 'Required target folder '"./${expected_script_work_dir}"' not found, exiting!' | tee -a -i ${logfilepath}
+        #popd >> ${logfilepath}
+        exit 254
+    else
+        #OK, so we are where we want to be relative to the script targets
+        export APIScriptActionFileRoot=`pwd`
+    fi
+    
+    # Return to the script operations folder
+    popd >> ${logfilepath}
+elif [ -r "../${expected_script_work_dir}/${APIScriptJSONActionFilename}" ] ; then
+    # found the script in the local directory, use that
+    #export APIScriptActionFileRoot=.
+    echo `${cexdtzs}`${cexdtzsep} 'Current folder '`pwd` | tee -a -i ${logfilepath}
+    pushd "../${expected_script_work_dir}" >> ${logfilepath}
+    errorreturn=$?
+    
+    if [ ${errorreturn} -ne 0 ] ; then
+        # we apparently didn't start where expected, so dumping
+        echo `${cexdtzs}`${cexdtzsep} 'Required target folder '"../${expected_script_work_dir}"' not found, exiting!' | tee -a -i ${logfilepath}
+        #popd >> ${logfilepath}
+        exit 254
+    else
+        #OK, so we are where we want to be relative to the script targets
+        export APIScriptActionFileRoot=`pwd`
+    fi
+    
+    # Return to the script operations folder
+    popd >> ${logfilepath}
+elif [ -r "${expected_script_work_folder}/${APIScriptJSONActionFilename}" ] ; then
+    # found the script in the local directory, use that
+    #export APIScriptActionFileRoot=.
+    echo `${cexdtzs}`${cexdtzsep} 'Current folder '`pwd` | tee -a -i ${logfilepath}
+    pushd "${expected_script_work_folder}" >> ${logfilepath}
+    errorreturn=$?
+    
+    if [ ${errorreturn} -ne 0 ] ; then
+        # we apparently didn't start where expected, so dumping
+        echo `${cexdtzs}`${cexdtzsep} 'Required target folder '"${expected_script_work_folder}"' not found, exiting!' | tee -a -i ${logfilepath}
+        #popd >> ${logfilepath}
+        exit 254
+    else
+        #OK, so we are where we want to be relative to the script targets
+        export APIScriptActionFileRoot=`pwd`
+    fi
+    
+    # Return to the script operations folder
+    popd >> ${logfilepath}
+else
+    # DID NOT find the script in the local directory, use the standard assumption
+    echo `${cexdtzs}`${cexdtzsep} 'Current folder '`pwd` | tee -a -i ${logfilepath}
+    pushd ${APIScriptActionFileRoot} >> ${logfilepath}
+    errorreturn=$?
+    
+    if [ ${errorreturn} -ne 0 ] ; then
+        # we apparently didn't start where expected, so dumping
+        echo `${cexdtzs}`${cexdtzsep} 'Required target folder '"${APIScriptActionFileRoot}"' not found, exiting!' | tee -a -i ${logfilepath}
+        #popd >> ${logfilepath}
+        exit 254
+    else
+        #OK, so we are where we want to be relative to the script targets
+        if [ -r "${APIScriptJSONActionFilename}" ] ; then
+            # found the script in the local directory, use that
+            #export test_script_work_folder=.
+            echo `${cexdtzs}`${cexdtzsep} 'Current folder '`pwd` | tee -a -i ${logfilepath}
+            export APIScriptActionFileRoot=`pwd`
+        else
+            echo `${cexdtzs}`${cexdtzsep} 'Required target file '"${APIScriptActionFileRoot}/${APIScriptJSONActionFilename}"' not found, exiting!' | tee -a -i ${logfilepath}
+            #popd >> ${logfilepath}
+            exit 254
+        fi
+    fi
+    
+    # Return to the script operations folder
+    popd >> ${logfilepath}
+fi
+
+echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
+echo `${cexdtzs}`${cexdtzsep} 'Final APIScriptActionFileRoot '"${APIScriptActionFileRoot}" | tee -a -i ${logfilepath}
+echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
 
 
 # -------------------------------------------------------------------------------------------------
@@ -1571,11 +1722,13 @@ export localCLIparms=false
 # processcliremains - Local command line parameter processor
 # -------------------------------------------------------------------------------------------------
 
-# MODIFIED 2021-01-31 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# MODIFIED 2026-02-13 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #
 
 processcliremains () {
     #
+    
+    error_return=0
     
     # -------------------------------------------------------------------------------------------------
     # Process command line parameters from the REMAINS returned from the standard handler
@@ -1586,7 +1739,7 @@ processcliremains () {
         OPT="$1"
         
         # testing
-        echo 'OPT = '${OPT}
+        echo `${dtzs}`${dtzsep} 'OPT = '${OPT}
         #
             
         # Detect argument termination
@@ -1642,11 +1795,11 @@ processcliremains () {
     
     export CLIparm_local1=${CLIparm_local1}
     
-    return 0
+    return ${error_return}
 }
 
 #
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2021-01-31
+# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2026-02-13
 
 # -------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------
@@ -1656,76 +1809,80 @@ processcliremains () {
 # dumpcliparmparselocalresults
 # -------------------------------------------------------------------------------------------------
 
-# MODIFIED 2020-09-30 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# MODIFIED 2026-02-13 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #
 
 dumpcliparmparselocalresults () {
+    
+    error_return=0
     
     #
     # Testing - Dump acquired local values
     #
     #
     workoutputfile=/var/tmp/workoutputfile.2.${DATEDTGS}.txt
-    echo > ${workoutputfile}
+    echo `${dtzs}`${dtzsep} > ${workoutputfile}
     
     # Screen width template for sizing, default width of 80 characters assumed
     #
     #              1111111111222222222233333333334444444444555555555566666666667777777777888888888899999999990
     #    01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
     
-    echo 'Local CLI Parameters :' >> ${workoutputfile}
-    echo >> ${workoutputfile}
+    echo `${dtzs}`${dtzsep} 'Local CLI Parameters :' >> ${workoutputfile}
+    echo `${dtzs}`${dtzsep} >> ${workoutputfile}
     
-    #echo 'CLIparm_local1          = '${CLIparm_local1} >> ${workoutputfile}
-    #echo 'CLIparm_local2          = '$CLIparm_local2 >> ${workoutputfile}
+    #echo `${dtzs}`${dtzsep} 'CLIparm_local1          = '${CLIparm_local1} >> ${workoutputfile}
+    #echo `${dtzs}`${dtzsep} 'CLIparm_local2          = '$CLIparm_local2 >> ${workoutputfile}
     
     #                  1111111111222222222233333333334444444444555555555566666666667777777777888888888899999999990
     #       01234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890
     
-    echo  >> ${workoutputfile}
-    echo 'LOCALREMAINS            = '${LOCALREMAINS} >> ${workoutputfile}
+    echo `${dtzs}`${dtzsep} >> ${workoutputfile}
+    echo `${dtzs}`${dtzsep} 'LOCALREMAINS            = '${LOCALREMAINS} >> ${workoutputfile}
     
     if ${APISCRIPTVERBOSE} ; then
         # Verbose mode ON
         
-        echo | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
         cat ${workoutputfile} | tee -a -i ${logfilepath}
-        echo | tee -a -i ${logfilepath}
-        for i ; do echo - $i | tee -a -i ${logfilepath} ; done
-        echo | tee -a -i ${logfilepath}
-        echo 'CLI parms - number :  '"$#"' parms :  >'"$@"'<' | tee -a -i ${logfilepath}
-        echo | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
+        for i ; do echo `${dtzs}`${dtzsep} - $i | tee -a -i ${logfilepath} ; done
+        echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} 'CLI parms - number :  '"$#"' parms :  >'"$@"'<' | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
         
         if ! ${NOWAIT} ; then
             read -t ${WAITTIME} -n 1 -p "Any key to continue.  Automatic continue after ${WAITTIME} seconds : " anykey
             echo
         fi
         
-        echo | tee -a -i ${logfilepath}
-        echo "End of local execution" | tee -a -i ${logfilepath}
-        echo | tee -a -i ${logfilepath}
-        echo '--------------------------------------------------------------------------' | tee -a -i ${logfilepath}
-        echo | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} "End of local execution" | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} '--------------------------------------------------------------------------' | tee -a -i ${logfilepath}
+        echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
     
     else
         # Verbose mode OFF
         
-        echo >> ${logfilepath}
+        echo `${dtzs}`${dtzsep} >> ${logfilepath}
         cat ${workoutputfile} >> ${logfilepath}
-        echo >> ${logfilepath}
-        for i ; do echo - $i >> ${logfilepath} ; done
-        echo >> ${logfilepath}
-        echo 'CLI parms - number :  '"$#"' parms :  >'"$@"'<' >> ${logfilepath}
-        echo >> ${logfilepath}
+        echo `${dtzs}`${dtzsep} >> ${logfilepath}
+        for i ; do echo `${dtzs}`${dtzsep} - $i >> ${logfilepath} ; done
+        echo `${dtzs}`${dtzsep} >> ${logfilepath}
+        echo `${dtzs}`${dtzsep} 'CLI parms - number :  '"$#"' parms :  >'"$@"'<' >> ${logfilepath}
+        echo `${dtzs}`${dtzsep} >> ${logfilepath}
         
     fi
     
     rm ${workoutputfile}
+    
+    return ${error_return}
 }
 
 
 #
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2020-09-30
+# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2026-02-13
 
 
 # -------------------------------------------------------------------------------------------------
@@ -1736,11 +1893,13 @@ dumpcliparmparselocalresults () {
 # dumprawcliremains
 # -------------------------------------------------------------------------------------------------
 
-# MODIFIED 2021-10-21 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# MODIFIED 2026-02-13 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #
 
 dumprawcliremains () {
     #
+    error_return=0
+    
     if ${APISCRIPTVERBOSE} ; then
         # Verbose mode ON
         
@@ -1774,11 +1933,12 @@ dumprawcliremains () {
         echo `${dtzs}`${dtzsep} >> ${logfilepath}
         
     fi
-
+    
+    return ${error_return}
 }
 
 #
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2021-10-21
+# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ MODIFIED 2026-02-13
 
 # -------------------------------------------------------------------------------------------------
 # -------------------------------------------------------------------------------------------------
@@ -2148,58 +2308,10 @@ GetGaiaVersionAndInstallationType "$@"
 # =================================================================================================
 
 
-# REMOVED 2020-11-16 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
-#
-
-# =================================================================================================
-# =================================================================================================
-# START:  Setup Login Parameters and Mgmt_CLI handler procedures
-# =================================================================================================
-
-
-# Moved to mgmt_cli_api_operations.subscript.common.${APISubscriptsLevel}.v${APISubscriptsVersion}.sh script
-#
-#HandleMgmtCLIPublish
-#HandleMgmtCLILogout
-#HandleMgmtCLILogin
-#SetupLogin2MgmtCLI
-#Login2MgmtCLI
-
-
-# =================================================================================================
-# END:  Setup Login Parameters and Mgmt_CLI handler procedures
-# =================================================================================================
-# =================================================================================================
-
-#
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ REMOVED 2020-11-16
-
-# =================================================================================================
-# =================================================================================================
-# START:  Setup CLI Parameter based values
-# =================================================================================================
-
 # =================================================================================================
 # =================================================================================================
 # START:  Common Procedures
 # -------------------------------------------------------------------------------------------------
-
-
-# REMOVED 2020-11-16 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
-#
-
-# Moved to script_output_paths_and_folders_API_scripts.subscript.common.${APISubscriptsLevel}.v${APISubscriptsVersion}.sh script
-#
-#localrootscriptconfiguration
-#HandleRootScriptConfiguration
-#HandleLaunchInHomeFolder
-#ShowFinalOutputAndLogPaths
-#ConfigureRootPath
-#ConfigureLogPath
-#ConfigureCommonCLIParameterValues
-
-#
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ REMOVED 2020-11-16
 
 
 # -------------------------------------------------------------------------------------------------
@@ -2873,6 +2985,8 @@ if ${script_dump_standard} ; then
 fi
 
 
+# -------------------------------------------------------------------------------------------------
+
 
 # =================================================================================================
 # START:  Import objects from csv file input
@@ -3119,10 +3233,34 @@ ConfigureMgmtCLIOperationalParametersExport () {
         export MgmtCLI_IgnoreErr_OpParms='ignore-warnings true '${MgmtCLI_IgnoreErr_OpParms}
     fi
     
+    # MODIFIED 20260709 -
     if ${APIobjectusesdetailslevel} ; then
+        echo `${dtzs}`${dtzsep} 'Object uses details-level' >> ${logfilepath}
+        echo `${dtzs}`${dtzsep} 'Current working details-level ="'${WorkingAPICLIdetaillvl}'"' >> ${logfilepath}
         #export MgmtCLI_Show_OpParms='details-level "'${WorkingAPICLIdetaillvl}'" '${MgmtCLI_IgnoreErr_OpParms}' '${MgmtCLI_Base_OpParms}
-        export MgmtCLI_Show_OpParms='details-level "'${WorkingAPICLIdetaillvl}'" '${MgmtCLI_Base_OpParms}
+        #export MgmtCLI_Show_OpParms='details-level "'${WorkingAPICLIdetaillvl}'" '${MgmtCLI_Base_OpParms}
+        if [ "${WorkingAPICLIdetaillvl}" = "standard" ] ; then
+            echo `${dtzs}`${dtzsep} 'Handle working details-level ="standard"' >> ${logfilepath}
+            if ${APIobjectcandetailslevelstandard} ; then
+                export MgmtCLI_Show_OpParms='details-level "'${WorkingAPICLIdetaillvl}'" '${MgmtCLI_Base_OpParms}
+            else
+                export MgmtCLI_Show_OpParms='details-level "full" '${MgmtCLI_Base_OpParms}
+            fi
+        elif [ x"${WorkingAPICLIdetaillvl}" = x"full" ] ; then
+            echo `${dtzs}`${dtzsep} 'Handle working details-level ="full"' >> ${logfilepath}
+            if ${APIobjectcandetailslevelfull} ; then
+                export MgmtCLI_Show_OpParms='details-level "'${WorkingAPICLIdetaillvl}'" '${MgmtCLI_Base_OpParms}
+            else
+                export MgmtCLI_Show_OpParms='details-level "standard" '${MgmtCLI_Base_OpParms}
+            fi
+        else
+            # Not sure what the deal is but we don't have a recognized value for the ${WorkingAPICLIdetaillvl} set, so not using it
+            echo `${dtzs}`${dtzsep} 'Handle whatever this is' >> ${logfilepath}
+            export MgmtCLI_Show_OpParms=${MgmtCLI_Base_OpParms}
+        fi
+        
     else
+        echo `${dtzs}`${dtzsep} 'Object does not use details-level' >> ${logfilepath}
         #export MgmtCLI_Show_OpParms=${MgmtCLI_IgnoreErr_OpParms}' '${MgmtCLI_Base_OpParms}
         export MgmtCLI_Show_OpParms=${MgmtCLI_Base_OpParms}
     fi
@@ -3158,7 +3296,7 @@ ConfigureMgmtCLIOperationalParametersExport () {
 # ClearObjectDefinitionData
 # -------------------------------------------------------------------------------------------------
 
-# MODIFIED 2023-03-08:01 - \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# MODIFIED 2026-07-07:01 - \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #
 
 # The ClearObjectDefinitionData clear the data associated with objects to zero and start clean.
@@ -3235,6 +3373,10 @@ ClearObjectDefinitionData () {
     #export APIobjecttypehastags=true
     #export APIobjecttypehasmeta=true
     #export APIobjecttypeimportname=true
+    
+    #export APIobjectcandetailslevel=true
+    #export APIobjectcandetailslevelfull=true
+    #export APIobjectcandetailslevelstandard=true
     
     #export APIobjectCSVFileHeaderAbsoluteBase=false
     #export APIobjectCSVJQparmsAbsoluteBase=false
@@ -3358,6 +3500,10 @@ ClearObjectDefinitionData () {
     export APIobjecttypehasmeta=
     export APIobjecttypeimportname=
     
+    export APIobjectcandetailslevel=
+    export APIobjectcandetailslevelfull=
+    export APIobjectcandetailslevelstandard=
+    
     export APIobjectCSVFileHeaderAbsoluteBase=
     export APIobjectCSVJQparmsAbsoluteBase=
     
@@ -3377,7 +3523,7 @@ ClearObjectDefinitionData () {
 }
 
 #
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ - MODIFIED 2023-03-08:01
+# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ - MODIFIED 2026-07-07:01
 
 
 # -------------------------------------------------------------------------------------------------
@@ -3388,7 +3534,7 @@ ClearObjectDefinitionData () {
 # DumpObjectDefinitionData
 # -------------------------------------------------------------------------------------------------
 
-# MODIFIED 2023-03-08:01 - \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
+# MODIFIED 20260709:01 - \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/
 #
 
 # The DumpObjectDefinitionData dump the content of the current object definition data to terminal and/or log.
@@ -3456,27 +3602,31 @@ DumpObjectDefinitionData () {
         printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectdoupdate' "${APIobjectdoupdate}" | tee -a -i ${logfilepath}
         printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectdodelete' "${APIobjectdodelete}" | tee -a -i ${logfilepath}
         
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectusesdetailslevel' "${APIobjectusesdetailslevel}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcanignorewarning' "${APIobjectcanignorewarning}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcanignoreerror' "${APIobjectcanignoreerror}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcansetifexists' "${APIobjectcansetifexists}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectderefgrpmem' "${APIobjectderefgrpmem}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasname' "${APIobjecttypehasname}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasuid' "${APIobjecttypehasuid}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasdomain' "${APIobjecttypehasdomain}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehastags' "${APIobjecttypehastags}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasmeta' "${APIobjecttypehasmeta}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypeimportname' "${APIobjecttypeimportname}" >> ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectusesdetailslevel' "${APIobjectusesdetailslevel}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcanignorewarning' "${APIobjectcanignorewarning}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcanignoreerror' "${APIobjectcanignoreerror}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcansetifexists' "${APIobjectcansetifexists}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectderefgrpmem' "${APIobjectderefgrpmem}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasname' "${APIobjecttypehasname}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasuid' "${APIobjecttypehasuid}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasdomain' "${APIobjecttypehasdomain}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehastags' "${APIobjecttypehastags}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasmeta' "${APIobjecttypehasmeta}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypeimportname' "${APIobjecttypeimportname}" | tee -a -i ${logfilepath}
         
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectCSVFileHeaderAbsoluteBase' "${APIobjectCSVFileHeaderAbsoluteBase}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectCSVJQparmsAbsoluteBase' "${APIobjectCSVJQparmsAbsoluteBase}" >> ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcandetailslevel' "${APIobjectcandetailslevel}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcandetailslevelfull' "${APIobjectcandetailslevelfull}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcandetailslevelstandard' "${APIobjectcandetailslevelstandard}" | tee -a -i ${logfilepath}
         
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectCSVexportWIP' "${APIobjectCSVexportWIP}" >> ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectCSVFileHeaderAbsoluteBase' "${APIobjectCSVFileHeaderAbsoluteBase}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectCSVJQparmsAbsoluteBase' "${APIobjectCSVJQparmsAbsoluteBase}" | tee -a -i ${logfilepath}
         
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'AugmentExportedFields' "${AugmentExportedFields}" >> ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectCSVexportWIP' "${APIobjectCSVexportWIP}" | tee -a -i ${logfilepath}
         
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'CSVFileHeader' "${CSVFileHeader}" >> ${logfilepath}
-        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'CSVJQparms' "${CSVJQparms}" >> ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'AugmentExportedFields' "${AugmentExportedFields}" | tee -a -i ${logfilepath}
+        
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'CSVFileHeader' "${CSVFileHeader}" | tee -a -i ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'CSVJQparms' "${CSVJQparms}" | tee -a -i ${logfilepath}
         
         # +-------------------------------------------------------------------------------------------------
         # +-------------------------------------------------------------------------------------------------
@@ -3550,6 +3700,10 @@ DumpObjectDefinitionData () {
         printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypehasmeta' "${APIobjecttypehasmeta}" >> ${logfilepath}
         printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjecttypeimportname' "${APIobjecttypeimportname}" >> ${logfilepath}
         
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcandetailslevel' "${APIobjectcandetailslevel}" >> ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcandetailslevelfull' "${APIobjectcandetailslevelfull}" >> ${logfilepath}
+        printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectcandetailslevelstandard' "${APIobjectcandetailslevelstandard}" >> ${logfilepath}
+        
         printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectCSVFileHeaderAbsoluteBase' "${APIobjectCSVFileHeaderAbsoluteBase}" >> ${logfilepath}
         printf "`${dtzs}`${dtzsep}%-40s = %s\n" 'APIobjectCSVJQparmsAbsoluteBase' "${APIobjectCSVJQparmsAbsoluteBase}" >> ${logfilepath}
         
@@ -3574,7 +3728,7 @@ DumpObjectDefinitionData () {
 }
 
 #
-# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ - MODIFIED 2023-03-08:01
+# /\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ - MODIFIED 20260709:01
 
 
 # -------------------------------------------------------------------------------------------------
@@ -4678,6 +4832,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -4733,6 +4891,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -4811,6 +4973,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -4866,6 +5032,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -4923,6 +5093,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -4978,6 +5152,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -5035,6 +5213,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -5090,6 +5272,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -5147,6 +5333,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -5202,6 +5392,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -5259,6 +5453,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -5314,6 +5512,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -5371,6 +5573,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -5426,6 +5632,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -5483,6 +5693,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -5538,6 +5752,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -5595,6 +5813,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -5650,6 +5872,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -5707,6 +5933,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -5762,6 +5992,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -5819,6 +6053,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -5875,6 +6113,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -5930,6 +6172,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -6008,6 +6254,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -6058,6 +6308,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -6107,6 +6361,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -6164,6 +6422,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -6219,6 +6481,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -6276,6 +6542,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -6332,6 +6602,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -6387,6 +6661,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -6470,6 +6748,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -6520,6 +6802,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -6569,6 +6855,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -6647,6 +6937,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -6702,6 +6996,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -6759,6 +7057,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -6808,6 +7110,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -6864,6 +7170,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -6942,6 +7252,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -7019,6 +7333,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -7069,6 +7387,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -7118,6 +7440,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -7175,6 +7501,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -7252,6 +7582,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -7302,6 +7636,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -7351,6 +7689,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -7408,6 +7750,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -7463,6 +7809,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -7520,6 +7870,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -7597,6 +7951,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -7652,6 +8010,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -7701,6 +8063,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -7758,6 +8124,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -7835,6 +8205,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -7885,6 +8259,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -7934,6 +8312,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -7991,6 +8373,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -8046,6 +8432,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -8103,6 +8493,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -8158,6 +8552,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -8215,6 +8613,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -8271,6 +8673,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -8326,6 +8732,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -8395,6 +8805,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -8450,6 +8864,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -8528,6 +8946,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -8577,6 +8999,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -8634,6 +9060,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -8690,6 +9120,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -8739,6 +9173,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -8796,6 +9234,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -8851,6 +9293,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -8929,6 +9375,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=false
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -8984,6 +9434,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=false
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -9041,6 +9495,10 @@ export APIobjecttypehastags=false
 export APIobjecttypehasmeta=false
 export APIobjecttypeimportname=false
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -9090,6 +9548,10 @@ export APIobjecttypehasdomain=false
 export APIobjecttypehastags=false
 export APIobjecttypehasmeta=false
 export APIobjecttypeimportname=false
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -9168,6 +9630,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -9224,6 +9690,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -9276,7 +9746,7 @@ echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
 echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
 echo `${dtzs}`${dtzsep} '*------------------------------------------------------------------------------------------------*' | tee -a -i ${logfilepath}
 echo `${dtzs}`${dtzsep} '*------------------------------------------------------------------------------------------------*' | tee -a -i ${logfilepath}
-echo `${dtzs}`${dtzsep} 'Data Center Objectsö' | tee -a -i ${logfilepath}
+echo `${dtzs}`${dtzsep} 'Data Center Objects' | tee -a -i ${logfilepath}
 echo `${dtzs}`${dtzsep} '*------------------------------------------------------------------------------------------------*' | tee -a -i ${logfilepath}
 echo `${dtzs}`${dtzsep} '*------------------------------------------------------------------------------------------------*' | tee -a -i ${logfilepath}
 echo `${dtzs}`${dtzsep} | tee -a -i ${logfilepath}
@@ -9327,6 +9797,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -9430,6 +9904,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -9485,6 +9963,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -9891,6 +10373,10 @@ export APIobjecttypehastags=false
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=false
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=true
 export APIobjectCSVJQparmsAbsoluteBase=true
 
@@ -10012,6 +10498,10 @@ export APIobjecttypehastags=false
 export APIobjecttypehasmeta=false
 export APIobjecttypeimportname=false
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=true
 export APIobjectCSVJQparmsAbsoluteBase=true
 
@@ -10099,6 +10589,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=false
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=false
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=true
 export APIobjectCSVJQparmsAbsoluteBase=true
@@ -10275,6 +10769,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -10951,6 +11449,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -11004,6 +11506,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -11059,6 +11565,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -11112,6 +11622,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -11167,6 +11681,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -11221,6 +11739,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -11273,6 +11795,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -11346,6 +11872,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -11448,6 +11978,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -11515,6 +12049,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -11632,6 +12170,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -11732,6 +12274,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -12451,6 +12997,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -12531,6 +13081,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -12656,6 +13210,10 @@ export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
 
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
+
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
 
@@ -12741,6 +13299,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false
@@ -12894,6 +13456,10 @@ export APIobjecttypehasdomain=true
 export APIobjecttypehastags=true
 export APIobjecttypehasmeta=true
 export APIobjecttypeimportname=true
+
+export APIobjectcandetailslevel=true
+export APIobjectcandetailslevelfull=true
+export APIobjectcandetailslevelstandard=true
 
 export APIobjectCSVFileHeaderAbsoluteBase=false
 export APIobjectCSVJQparmsAbsoluteBase=false

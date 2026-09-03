@@ -1,0 +1,5221 @@
+{
+  "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+  "name" : "Default Layer",
+  "rulebase" : [ {
+    "uid" : "19d644ad-471a-4eb7-83bb-9e3de334c8cc",
+    "name" : "Exempt Check Point Infra",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 1,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "752f51a3-7d31-472d-b7d8-556896169b21",
+      "name" : "CP_Mgmt_GWs_CORE_G3",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "pink"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "876fce8c-7382-4831-b7f8-1e99f365dd0e",
+      "name" : "https_CP_SPLAT_4434",
+      "type" : "service-tcp",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "port" : "4434",
+      "icon" : "Protocols/HTTP",
+      "color" : "firebrick"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321873300,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321873300,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "55a418fa-f564-4379-a2b5-0c09c6454bcb",
+    "name" : "Exempt Internal to Check Point Infra",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 2,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "f500ba73-4876-4a0b-a56c-1909f2944c94",
+      "name" : "All_Networks_INTERNAL_DMZ_LAB",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "752f51a3-7d31-472d-b7d8-556896169b21",
+      "name" : "CP_Mgmt_GWs_CORE_G3",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "pink"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "876fce8c-7382-4831-b7f8-1e99f365dd0e",
+      "name" : "https_CP_SPLAT_4434",
+      "type" : "service-tcp",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "port" : "4434",
+      "icon" : "Protocols/HTTP",
+      "color" : "firebrick"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321875012,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321875012,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "d2d39861-dde1-48a0-82f3-2a38dbb723d3",
+    "name" : "Exempt Check Point Infra - Other",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 3,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "034362a7-cada-449d-8e4f-9be957d2c1c5",
+      "name" : "CP_Mgmt_GWs_ALL_OTHER",
+      "type" : "group-with-exclusion",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "pink"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "876fce8c-7382-4831-b7f8-1e99f365dd0e",
+      "name" : "https_CP_SPLAT_4434",
+      "type" : "service-tcp",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "port" : "4434",
+      "icon" : "Protocols/HTTP",
+      "color" : "firebrick"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321875820,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321875820,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "d4002909-5d2e-4c23-860e-474838709fe6",
+    "name" : "Exempt Internal to Check Point Infra - Other",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 4,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "f500ba73-4876-4a0b-a56c-1909f2944c94",
+      "name" : "All_Networks_INTERNAL_DMZ_LAB",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "034362a7-cada-449d-8e4f-9be957d2c1c5",
+      "name" : "CP_Mgmt_GWs_ALL_OTHER",
+      "type" : "group-with-exclusion",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "pink"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "876fce8c-7382-4831-b7f8-1e99f365dd0e",
+      "name" : "https_CP_SPLAT_4434",
+      "type" : "service-tcp",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "port" : "4434",
+      "icon" : "Protocols/HTTP",
+      "color" : "firebrick"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321876595,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321876595,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "5413af1d-10e9-47bb-8671-dca1a8acf72c",
+    "name" : "Check Point Services ByPass Dynamic Object",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 5,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "f500ba73-4876-4a0b-a56c-1909f2944c94",
+      "name" : "All_Networks_INTERNAL_DMZ_LAB",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "083e3d26-a7e1-403f-beb7-0a52ae40bd32",
+      "name" : "CheckPoint_Online_Services",
+      "type" : "dynamic-object",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "NetworkObjects/dynamicObject",
+      "color" : "pink"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624813522081,
+        "iso-8601" : "2021-06-27T12:05-0500"
+      },
+      "last-modifier" : "administrator",
+      "creation-time" : {
+        "posix" : 1624813522081,
+        "iso-8601" : "2021-06-27T12:05-0500"
+      },
+      "creator" : "administrator"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "1c22327a-a70c-4cdf-b0f7-130fdf86e049",
+    "name" : "Check Point Services ByPass",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 6,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "f500ba73-4876-4a0b-a56c-1909f2944c94",
+      "name" : "All_Networks_INTERNAL_DMZ_LAB",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "f313f3fc-3e39-45c7-86af-63e2def47e26",
+      "name" : "Check Point Services",
+      "type" : "updatable-object",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "@app/cp_cp_checkpoint",
+      "color" : "black"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624813568284,
+        "iso-8601" : "2021-06-27T12:06-0500"
+      },
+      "last-modifier" : "administrator",
+      "creation-time" : {
+        "posix" : 1624813568284,
+        "iso-8601" : "2021-06-27T12:06-0500"
+      },
+      "creator" : "administrator"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "2b875856-25ea-4fab-8a58-9744afc16955",
+    "name" : "Access Own Domains as Site",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 7,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "f500ba73-4876-4a0b-a56c-1909f2944c94",
+      "name" : "All_Networks_INTERNAL_DMZ_LAB",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "5943f25f-b971-46e5-8e1c-ec2a12afd304",
+      "name" : "Servers_DMZ_Web_Servers",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "125322d9-74aa-4893-b1ef-c5152bcb8c75",
+      "name" : "HTTPx_Beasley_Special_Ports",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "7efbf10f-643a-4b0d-95bb-ea1ceed831f9",
+      "name" : "beasleybros",
+      "type" : "application-site",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "Objects/application",
+      "color" : "crete blue"
+    }, {
+      "uid" : "8582cc51-b5e7-4477-bb47-53938c42686b",
+      "name" : "ericjbeasley",
+      "type" : "application-site",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "Objects/application",
+      "color" : "crete blue"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321877423,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321877423,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "0dfc3f1a-f2ca-4970-b76f-bde60534d6c5",
+    "name" : "Web Servers Internal Traffic",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 8,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "f500ba73-4876-4a0b-a56c-1909f2944c94",
+      "name" : "All_Networks_INTERNAL_DMZ_LAB",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "5943f25f-b971-46e5-8e1c-ec2a12afd304",
+      "name" : "Servers_DMZ_Web_Servers",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "125322d9-74aa-4893-b1ef-c5152bcb8c75",
+      "name" : "HTTPx_Beasley_Special_Ports",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321878090,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321878090,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "199a1c45-57c8-4270-9dfc-ab3dec955149",
+    "name" : "Internet Access to DMZ Web Server Sites",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 9,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "f99b1488-7510-11e2-8668-87656188709b",
+      "name" : "Internet",
+      "type" : "Internet",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "NetworkObjects/internet",
+      "color" : "none"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "5943f25f-b971-46e5-8e1c-ec2a12afd304",
+      "name" : "Servers_DMZ_Web_Servers",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "125322d9-74aa-4893-b1ef-c5152bcb8c75",
+      "name" : "HTTPx_Beasley_Special_Ports",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "7efbf10f-643a-4b0d-95bb-ea1ceed831f9",
+      "name" : "beasleybros",
+      "type" : "application-site",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "Objects/application",
+      "color" : "crete blue"
+    }, {
+      "uid" : "8582cc51-b5e7-4477-bb47-53938c42686b",
+      "name" : "ericjbeasley",
+      "type" : "application-site",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "Objects/application",
+      "color" : "crete blue"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321878921,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321878921,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "c84763e0-625d-456b-9582-c7918ca78cc5",
+    "name" : "Web Servers Internet Inbound Inspection",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 10,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "f99b1488-7510-11e2-8668-87656188709b",
+      "name" : "Internet",
+      "type" : "Internet",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "NetworkObjects/internet",
+      "color" : "none"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "5943f25f-b971-46e5-8e1c-ec2a12afd304",
+      "name" : "Servers_DMZ_Web_Servers",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "125322d9-74aa-4893-b1ef-c5152bcb8c75",
+      "name" : "HTTPx_Beasley_Special_Ports",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321879577,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321879577,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "192b18ac-4c06-4b28-bc15-5a562f951170",
+    "name" : "Webservers Outbound",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 11,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "5943f25f-b971-46e5-8e1c-ec2a12afd304",
+      "name" : "Servers_DMZ_Web_Servers",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "f99b1488-7510-11e2-8668-87656188709b",
+      "name" : "Internet",
+      "type" : "Internet",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "NetworkObjects/internet",
+      "color" : "none"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "125322d9-74aa-4893-b1ef-c5152bcb8c75",
+      "name" : "HTTPx_Beasley_Special_Ports",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321880401,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321880401,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "3be637e4-ed29-40da-aed4-4dc2e9833d94",
+    "name" : "Internal VMware Traffic",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 12,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "78b176a7-1221-4fb8-81be-d98110bdaaba",
+      "name" : "All_Networks_INTERNAL",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "blue"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "cfdfb166-dd22-469d-8621-7654bdada977",
+      "name" : "HTTPS_Exclude_VMWare_Servers",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orange"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "cd84c2cb-0351-4ef7-9ab7-7f63275fd56f",
+      "name" : "https_vmware_port_05480",
+      "type" : "service-tcp",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "port" : "5480",
+      "icon" : "Protocols/HTTP",
+      "color" : "orange"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321880987,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321880987,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "8597bee9-b29b-44e4-9e02-c27414221561",
+    "name" : "Internal Traffic",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 13,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "78b176a7-1221-4fb8-81be-d98110bdaaba",
+      "name" : "All_Networks_INTERNAL",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "blue"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "c50720e8-59cd-4c89-8d3b-995021f181b3",
+      "name" : "HTTPS_Exclude_Computers",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "6099440c-8c6a-449b-bd05-09499fa78286",
+      "name" : "HTTPS_Exclude_Computers_Demo",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "forest green"
+    }, {
+      "uid" : "e95feba7-ad6c-4c6d-910e-d98601db637e",
+      "name" : "HTTPS_Exclude_Devices",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "15ef6b90-0002-44ba-abe4-42744d10db21",
+      "name" : "HTTPS_Exclude_Infrastructure",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "23eefa3c-6a5f-437d-b290-403e0c2bb9e2",
+      "name" : "HTTPS_Exclude_Networks",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "776a6981-5e60-4188-87e4-fbac95ec342f",
+      "name" : "HTTPS_Exclude_Servers",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321881969,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321881969,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "d7508cd6-c251-48ef-b90c-46c4381f0805",
+    "name" : "Internal Operations",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 14,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "78b176a7-1221-4fb8-81be-d98110bdaaba",
+      "name" : "All_Networks_INTERNAL",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "blue"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "78b176a7-1221-4fb8-81be-d98110bdaaba",
+      "name" : "All_Networks_INTERNAL",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "blue"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321882641,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321882641,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "0cca4390-4fda-4e00-b926-660c4656fce2",
+    "name" : "Core Server Traffic Outbound",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 15,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "b25d8505-507f-4f25-ae46-e4cee04f5d19",
+      "name" : "Servers_Beasley_AD_DCs",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "blue"
+    }, {
+      "uid" : "eeb8b65d-210b-4ba3-910e-ba221687b5d5",
+      "name" : "Servers_Beasley_CAs",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "blue"
+    }, {
+      "uid" : "f427ac77-fac6-45e9-97a5-33b59fd12e95",
+      "name" : "Servers_Beasley_Enterprise_Services",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "blue"
+    }, {
+      "uid" : "0170e1a5-591d-4095-9d70-bf4bf8d1e86e",
+      "name" : "Servers_Linux",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "sea green"
+    }, {
+      "uid" : "0c7fa4a0-be46-4178-b880-5315e75b3d66",
+      "name" : "Servers_Beasley_CORE",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "blue"
+    }, {
+      "uid" : "190b61d7-a022-476e-86d9-a308179312fc",
+      "name" : "Servers_CORE_Workers",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "blue"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "f99b1488-7510-11e2-8668-87656188709b",
+      "name" : "Internet",
+      "type" : "Internet",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "NetworkObjects/internet",
+      "color" : "none"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1670019246358,
+        "iso-8601" : "2022-12-02T16:14-0600"
+      },
+      "last-modifier" : "administrator",
+      "creation-time" : {
+        "posix" : 1624321883406,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "7c878eef-f14e-4c30-b984-ac3b05b40355",
+    "name" : "Exempt Kaspersky",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 16,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "13384f70-ec70-42d0-a8af-a5c9383df012",
+      "name" : "Kaspersky_Systems",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "khaki"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "41cabb22-a58e-4272-a149-313b81c8e346",
+      "name" : "Kaspersky_Corp_Hosts",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "khaki"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321884104,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321884104,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "7bc9a82d-706e-4b7e-a46a-ffb045ccb750",
+    "name" : "Exempt Infrastructure",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 17,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "15ef6b90-0002-44ba-abe4-42744d10db21",
+      "name" : "HTTPS_Exclude_Infrastructure",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "902016f4-4e8d-439a-b8c0-60b1586e8270",
+      "name" : "HTTPS_Beasley_Special_Ports",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321884750,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321884750,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "318a3dc9-f6c0-4c55-a2b1-6a27c9dfed9c",
+    "name" : "Exempt Servers",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 18,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "776a6981-5e60-4188-87e4-fbac95ec342f",
+      "name" : "HTTPS_Exclude_Servers",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "902016f4-4e8d-439a-b8c0-60b1586e8270",
+      "name" : "HTTPS_Beasley_Special_Ports",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321885362,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321885362,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "a88b3cfd-31e5-414a-ad94-abf9f4aeeef3",
+    "name" : "Exempt Devices",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 19,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "e95feba7-ad6c-4c6d-910e-d98601db637e",
+      "name" : "HTTPS_Exclude_Devices",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "902016f4-4e8d-439a-b8c0-60b1586e8270",
+      "name" : "HTTPS_Beasley_Special_Ports",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321886095,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321886095,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "c07935da-2a8c-4515-bd8e-fe9b87bb22b1",
+    "name" : "Exempt Computers",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 20,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "6099440c-8c6a-449b-bd05-09499fa78286",
+      "name" : "HTTPS_Exclude_Computers_Demo",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "forest green"
+    }, {
+      "uid" : "c50720e8-59cd-4c89-8d3b-995021f181b3",
+      "name" : "HTTPS_Exclude_Computers",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "902016f4-4e8d-439a-b8c0-60b1586e8270",
+      "name" : "HTTPS_Beasley_Special_Ports",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321886731,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321886731,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "c78e7ca3-5732-446e-82f4-51bf793768ba",
+    "name" : "Exempt Networks",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 21,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "23eefa3c-6a5f-437d-b290-403e0c2bb9e2",
+      "name" : "HTTPS_Exclude_Networks",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "902016f4-4e8d-439a-b8c0-60b1586e8270",
+      "name" : "HTTPS_Beasley_Special_Ports",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321887392,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321887392,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "47ec6a0b-44dc-499f-ad03-097dca420b7b",
+    "name" : "Well Known Services that need HTTPS Bypass",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 22,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "f500ba73-4876-4a0b-a56c-1909f2944c94",
+      "name" : "All_Networks_INTERNAL_DMZ_LAB",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "147c8b68-b3fe-4d07-8cec-88f301a5890d",
+      "name" : "HTTPS services - recommended bypass",
+      "type" : "updatable-object",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "@app/cp_httpsi_recommended.ico",
+      "color" : "black"
+    }, {
+      "uid" : "d7c5a3c6-ea5e-4b54-9c66-d4615c7a691c",
+      "name" : "Okta Services",
+      "type" : "updatable-object",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "@app/cp_okt_okt",
+      "color" : "black"
+    }, {
+      "uid" : "7fb2ba4f-b37a-4443-92e3-c2ea6ed5bd6d",
+      "name" : "Webex Services",
+      "type" : "updatable-object",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "@app/cp_wb_webex",
+      "color" : "black"
+    }, {
+      "uid" : "61bfa719-3b75-4a32-814c-b8c0dff6b4c5",
+      "name" : "Zoom Services",
+      "type" : "updatable-object",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "@app/cp_zm_zoom",
+      "color" : "black"
+    }, {
+      "uid" : "46e92756-5234-45c5-8cad-4c04dbb442f0",
+      "name" : "Dropbox Services",
+      "type" : "updatable-object",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "@app/cp_db_dropbox",
+      "color" : "black"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1670019451899,
+        "iso-8601" : "2022-12-02T16:17-0600"
+      },
+      "last-modifier" : "administrator",
+      "creation-time" : {
+        "posix" : 1624321888144,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "365d3835-38cf-4c6b-a016-5aa9fa49868a",
+    "name" : "Well Known Optional Services that need HTTPS Bypass",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 23,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "f500ba73-4876-4a0b-a56c-1909f2944c94",
+      "name" : "All_Networks_INTERNAL_DMZ_LAB",
+      "type" : "group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "09c2085a-39ae-4eb2-80ed-75fbb3abc223",
+      "name" : "HTTPS services - optional bypass",
+      "type" : "updatable-object",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "@app/cp_httpsi_optional.ico",
+      "color" : "black"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1670019456448,
+        "iso-8601" : "2022-12-02T16:17-0600"
+      },
+      "last-modifier" : "administrator",
+      "creation-time" : {
+        "posix" : 1624321888987,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "b8a24ec8-3b18-489d-8e3e-a59269f2d7c2",
+    "name" : "Lab Exceptions",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 24,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "03a90e5c-a8b3-4452-b4c8-b4b8eac63baf",
+      "name" : "netw_vmLAN-SBT-LAB_DISTOPIA",
+      "type" : "network",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "subnet4" : "192.168.101.0",
+      "mask-length4" : 24,
+      "subnet-mask" : "255.255.255.0",
+      "icon" : "NetworkObjects/network",
+      "color" : "red"
+    }, {
+      "uid" : "91e421c7-d578-411d-ac9b-c1870eb0ab97",
+      "name" : "netw_vmLAN-SBT-LAB_DMZ",
+      "type" : "network",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "subnet4" : "192.168.102.0",
+      "mask-length4" : 24,
+      "subnet-mask" : "255.255.255.0",
+      "icon" : "NetworkObjects/network",
+      "color" : "red"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "f99b1488-7510-11e2-8668-87656188709b",
+      "name" : "Internet",
+      "type" : "Internet",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "NetworkObjects/internet",
+      "color" : "none"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    }, {
+      "uid" : "902016f4-4e8d-439a-b8c0-60b1586e8270",
+      "name" : "HTTPS_Beasley_Special_Ports",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321889756,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321889756,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "09872729-ddc8-4ab2-b775-b90aa7c756b4",
+    "name" : "Exempt Destinations",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 25,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "f99b1488-7510-11e2-8668-87656188709b",
+      "name" : "Internet",
+      "type" : "Internet",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "NetworkObjects/internet",
+      "color" : "none"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "00fa9e44-4080-0f65-e053-08241dc22da2",
+      "name" : "Financial Services",
+      "type" : "application-site-category",
+      "domain" : {
+        "uid" : "8bf4ac51-2df7-40e1-9bce-bedbedbedbed",
+        "name" : "APPI Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Objects/category",
+      "color" : "black"
+    }, {
+      "uid" : "00fa9e44-4087-0f65-e053-08241dc22da2",
+      "name" : "Health",
+      "type" : "application-site-category",
+      "domain" : {
+        "uid" : "8bf4ac51-2df7-40e1-9bce-bedbedbedbed",
+        "name" : "APPI Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Objects/category",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321890721,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321890721,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "ce794a60-3ab9-40ab-8218-e6d8bbbd8d48",
+    "name" : "Apple Services",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 26,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "f99b1488-7510-11e2-8668-87656188709b",
+      "name" : "Internet",
+      "type" : "Internet",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "NetworkObjects/internet",
+      "color" : "none"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "125f63b1-15c8-4144-ae2b-7f0b290b8376",
+      "name" : "Apple-Services",
+      "type" : "application-site",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "Objects/application",
+      "color" : "crete blue"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321891429,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321891429,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "5e173e36-09f8-483d-b4a0-81b5832bec0b",
+    "name" : "Microsoft Activation Sites",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 27,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "f99b1488-7510-11e2-8668-87656188709b",
+      "name" : "Internet",
+      "type" : "Internet",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "NetworkObjects/internet",
+      "color" : "none"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "122140d7-7694-4c4c-bc46-fa3a3251ae84",
+      "name" : "Microsoft_Activation",
+      "type" : "application-site",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "Objects/application",
+      "color" : "turquoise"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321891966,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321891966,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "9c9c113a-cc3d-41bb-9697-b558ae850f84",
+    "name" : "Check Point as Site",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 28,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "f99b1488-7510-11e2-8668-87656188709b",
+      "name" : "Internet",
+      "type" : "Internet",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "NetworkObjects/internet",
+      "color" : "none"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "20da75e4-5beb-40d7-847c-3f1e7a61315b",
+      "name" : "checkpoint.com",
+      "type" : "application-site",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "Objects/application",
+      "color" : "pink"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321892621,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321892621,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "1ba7cfdc-894d-40e2-8e0d-5f7d861ff015",
+    "name" : "DropBox",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 29,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "f99b1488-7510-11e2-8668-87656188709b",
+      "name" : "Internet",
+      "type" : "Internet",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "NetworkObjects/internet",
+      "color" : "none"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "4bb12267-8147-442a-8628-cba83370efa7",
+      "name" : "DropBox_Websites",
+      "type" : "application-site",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "Objects/application",
+      "color" : "firebrick"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "e9cec0eb-a48d-49f9-a6f9-42e2224d39e3",
+      "name" : "Bypass",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsBypass",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321893222,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321893222,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "1f294015-3322-4e12-b33a-60fadbaa6cc7",
+    "name" : "Inspected Special Traffic",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 30,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "f99b1488-7510-11e2-8668-87656188709b",
+      "name" : "Internet",
+      "type" : "Internet",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "NetworkObjects/internet",
+      "color" : "none"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "125322d9-74aa-4893-b1ef-c5152bcb8c75",
+      "name" : "HTTPx_Beasley_Special_Ports",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "General/group",
+      "color" : "orchid"
+    }, {
+      "uid" : "cd84c2cb-0351-4ef7-9ab7-7f63275fd56f",
+      "name" : "https_vmware_port_05480",
+      "type" : "service-tcp",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "port" : "5480",
+      "icon" : "Protocols/HTTP",
+      "color" : "orange"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "f9c18167-91eb-4892-b6a6-2e5665abf199",
+      "name" : "Inspect",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsInspect",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321893761,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321893761,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "Explicit rule to log use of these ports with SSL Inspection",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  }, {
+    "uid" : "2f114b00-f19d-4b97-9978-3d92607a9a52",
+    "name" : "Predefined End-Rule",
+    "type" : "https-rule",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "rule-number" : 31,
+    "layer" : {
+      "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+      "name" : "Default Layer",
+      "type" : "https-layer",
+      "domain" : {
+        "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+        "name" : "SMC User",
+        "domain-type" : "domain"
+      },
+      "icon" : "ApplicationFirewall/rulebase",
+      "color" : "black"
+    },
+    "source" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "source-negate" : false,
+    "destination" : [ {
+      "uid" : "f99b1488-7510-11e2-8668-87656188709b",
+      "name" : "Internet",
+      "type" : "Internet",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "NetworkObjects/internet",
+      "color" : "none"
+    } ],
+    "destination-negate" : false,
+    "service" : [ {
+      "uid" : "7f9275f0-4382-4222-b4cd-06d2c5aa3222",
+      "name" : "HTTPS default services",
+      "type" : "service-group",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/group",
+      "color" : "black"
+    } ],
+    "service-negate" : false,
+    "site-category" : [ {
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "name" : "Any",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "site-category-negate" : false,
+    "action" : {
+      "uid" : "f9c18167-91eb-4892-b6a6-2e5665abf199",
+      "name" : "Inspect",
+      "type" : "RulebaseAction",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Actions/actionsInspect",
+      "color" : "none"
+    },
+    "track" : {
+      "uid" : "6c488338-8eec-4103-ad21-cd461ac2c477",
+      "name" : "Log",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "Track/tracksLog",
+      "color" : "none"
+    },
+    "blade" : [ {
+      "uid" : "97aeb368-9aea-11d5-bd16-0090272ccb30",
+      "name" : "All",
+      "type" : "CpmiAnyObject",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "black"
+    } ],
+    "certificate" : {
+      "uid" : "56844f13-2e49-4be9-8571-a071c1b6a8ba",
+      "name" : "Outbound Certificate",
+      "type" : "CpmiHttpsCertRefHolder",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "subject_user_certificate",
+      "color" : "black"
+    },
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1624321894244,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1624321894244,
+        "iso-8601" : "2021-06-21T19:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "comments" : "",
+    "enabled" : true,
+    "install-on" : [ {
+      "uid" : "213f0a22-49da-4719-94b3-f2d74623f3fb",
+      "name" : "Policy HTTPS Targets",
+      "type" : "Global",
+      "domain" : {
+        "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+        "name" : "Check Point Data",
+        "domain-type" : "data domain"
+      },
+      "icon" : "General/globalsAny",
+      "color" : "none"
+    } ],
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "not_supported"
+    }
+  } ],
+  "from" : 1,
+  "to" : 31,
+  "total" : 31
+}

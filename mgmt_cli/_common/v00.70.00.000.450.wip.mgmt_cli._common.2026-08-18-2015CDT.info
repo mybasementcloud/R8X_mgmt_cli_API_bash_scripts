@@ -1,0 +1,125 @@
+#!/bin/bash
+#
+# (C) 2016-2026+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
+#
+# ALL SCRIPTS ARE PROVIDED AS IS WITHOUT EXPRESS OR IMPLIED WARRANTY OF FUNCTION OR POTENTIAL FOR 
+# DAMAGE Or ABUSE.  AUTHOR DOES NOT ACCEPT ANY RESPONSIBILITY FOR THE USE OF THESE SCRIPTS OR THE 
+# RESULTS OF USING THESE SCRIPTS.  USING THESE SCRIPTS STIPULATES A CLEAR UNDERSTANDING OF RESPECTIVE
+# TECHNOLOGIES AND UNDERLYING PROGRAMMING CONCEPTS AND STRUCTURES AND IMPLIES CORRECT IMPLEMENTATION
+# OF RESPECTIVE BASELINE TECHNOLOGIES FOR PLATFORM UTILIZING THE SCRIPTS.  THIRD PARTY LIMITATIONS
+# APPLY WITHIN THE SPECIFICS THEIR RESPECTIVE UTILIZATION AGREEMENTS AND LICENSES.  AUTHOR DOES NOT
+# AUTHORIZE RESALE, LEASE, OR CHARGE FOR UTILIZATION OF THESE SCRIPTS BY ANY THIRD PARTY.
+#
+# AUTHOR REQUIRES ALL UTILIZATION FOR TRAINING OF AI OF ANY TYPE TO BE REQUESTED IN WRITING AND
+# APPROVED IN WRITING VERIFIABLY BEFORE ANY SUCH AI TRAINING SHALL COMMENCE.
+#
+#
+# -#- Start Making Changes Here -#- 
+#
+# SCRIPT Base Template for API CLI Operations with command line parameters
+#
+#
+ScriptVersion=00.70.00
+ScriptRevision=000
+ScriptSubRevision=450
+ScriptDate=2026-08-19
+TemplateVersion=00.70.00
+APISubscriptsLevel=020
+APISubscriptsVersion=00.70.00
+APISubscriptsRevision=000
+
+#
+{ "file_meta_info" : {
+	"filetype" : "solution_info.api_scripts",
+	"fileversion" : "10.00.00",
+	"filerevision" : "000",
+	"filesubrevision" : "450",
+	"filedate" : "2026-08-19",
+	"fileinformationlevel" : "000",
+	"MinCMDTemplateVersion" : "10.00.00"
+	}, 
+"solution_info" : {
+	"ScriptSeries" : "\"devops.mgmt_cli - R8X mgmt_cli API bash Script - _Common Scripts\"",
+	"ScriptSeriesShort" : "devops.mgmt_cli._common"
+	},
+"CMD_template_script_details" : { 
+	"ScriptType" : {
+		"Language" : "Windows_CMD",
+		"Extension" : "CMD"
+		},
+	"TemplateDate" : "2026-08-19",
+	"TemplateVersion" : "10.00.00",
+	"TemplateRevision" : "000",
+	"TemplateSubRevision" : "600",
+	"TemplateTweak" : "600"
+	},
+"CMD_script_details" : { 
+	"ScriptType" : {
+		"Language" : "Windows_CMD",
+		"Extension" : "CMD"
+		},
+	"CMDScriptDate" : "2026-08-19",
+	"CMDScriptVersion" : "10.00.00",
+	"CMDScriptRevision" : "000",
+	"CMDScriptSubRevision" : "000",
+	"CMDScriptTweak" : "000",
+	"CMDTemplateVersion" : "10.00.00",
+	"CMDTemplateRevision" : "000"
+	},
+"script_details" : { 
+	"ScriptType" : {
+		"Language" : "bash",
+		"Extension" : "sh"
+		},
+	"ScriptDate" : "2026-08-19",
+	"ScriptVersion" : "00.70.00",
+	"ScriptRevision" : "000",
+	"ScriptSubRevision" : "450",
+	"ScriptTweak" : "000",
+	"TemplateVersion" : "00.70.00",
+	"TemplateLevel" : "@NA",
+	"SubScriptsLevel" : "@NA",
+	"SubScriptsVersion" : "@NA"
+	},
+"api_script_details" : {
+	"ScriptType" : {
+		"Language" : "bash",
+		"Extension" : "sh"
+		},
+	"APIScriptDate" : "2026-08-19",
+	"APIScriptVersion" : "00.70.00",
+	"APIScriptRevision" : "000",
+	"APIScriptSubRevision" : "450",
+	"APIScriptTweak" : "000",
+	"APITemplateVersion" : "00.70.00",
+	"APITemplateRevision" : "000",
+	"APISubScriptsLevel" : "020",
+	"APISubScriptsVersion" : "00.70.00",
+	"APISubScriptsRevision" : "000"
+	}
+}
+#"
+#
+
+export APIScriptVersion=v${ScriptVersion}
+export APIScriptTemplateVersion=v${TemplateVersion}
+
+export APIScriptVersionX=v${ScriptVersion//./x}
+export APIScriptTemplateVersionX=v${TemplateVersion//./x}
+
+export APIActionsScriptVersion=v${ScriptVersion}
+export APIActionScriptTemplateVersion=v${TemplateVersion}
+export APIExpectedActionScriptsVersion=v${ScriptVersion}
+
+export APIActionsScriptVersionX=v${ScriptVersion//./x}
+export APIActionScriptTemplateVersionX=v${TemplateVersion//./x}
+export APIExpectedActionScriptsVersionX=v${ScriptVersion//./x}
+
+export APISubscriptsScriptVersion=v${ScriptVersion}
+export APISubscriptsScriptTemplateVersion=v${TemplateVersion}
+export APIExpectedAPISubscriptsVersion=v${APISubscriptsVersion}
+
+export APISubscriptsScriptVersionX=v${ScriptVersion//./x}
+export APISubscriptsScriptTemplateVersionX=v${TemplateVersion//./x}
+export APIExpectedAPISubscriptsVersionX=v${APISubscriptsVersion//./x}
+

@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# (C) 2016-2024+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
+# (C) 2016-2026+ Eric James Beasley, @mybasementcloud, https://github.com/mybasementcloud/R8X_mgmt_cli_API_bash_scripts
 #
 # ALL SCRIPTS ARE PROVIDED AS IS WITHOUT EXPRESS OR IMPLIED WARRANTY OF FUNCTION OR POTENTIAL FOR 
 # DAMAGE Or ABUSE.  AUTHOR DOES NOT ACCEPT ANY RESPONSIBILITY FOR THE USE OF THESE SCRIPTS OR THE 
@@ -10,6 +10,9 @@
 # APPLY WITHIN THE SPECIFICS THEIR RESPECTIVE UTILIZATION AGREEMENTS AND LICENSES.  AUTHOR DOES NOT
 # AUTHORIZE RESALE, LEASE, OR CHARGE FOR UTILIZATION OF THESE SCRIPTS BY ANY THIRD PARTY.
 #
+# AUTHOR REQUIRES ALL UTILIZATION FOR TRAINING OF AI OF ANY TYPE TO BE REQUESTED IN WRITING AND
+# APPROVED IN WRITING VERIFIABLY BEFORE ANY SUCH AI TRAINING SHALL COMMENCE.
+#
 #
 # -#- Start Making Changes Here -#- 
 #
@@ -18,8 +21,8 @@
 #
 ScriptVersion=00.70.00
 ScriptRevision=000
-ScriptSubRevision=100
-ScriptDate=2024-05-30
+ScriptSubRevision=450
+ScriptDate=2026-08-19
 TemplateVersion=00.70.00
 APISubscriptsLevel=020
 APISubscriptsVersion=00.70.00
@@ -31,8 +34,8 @@ APISubscriptsRevision=000
 	"filetype" : "solution_info.api_scripts",
 	"fileversion" : "08.01.00",
 	"filerevision" : "000",
-	"filesubrevision" : "000",
-	"filedate" : "2024-05-30",
+	"filesubrevision" : "450",
+	"filedate" : "2026-08-19",
 	"fileinformationlevel" : "000",
 	"MinCMDTemplateVersion" : "08.01.00"
 	}, 
@@ -45,24 +48,24 @@ APISubscriptsRevision=000
 		"Language" : "Windows_CMD",
 		"Extension" : "CMD"
 		},
-	"TemplateDate" : "2024-05-30",
-	"TemplateVersion" : "08.01.00",
+	"TemplateDate" : "2024-12-17",
+	"TemplateVersion" : "08.02.00",
 	"TemplateRevision" : "000",
 	"TemplateSubRevision" : "000",
-	"TemplateTweak" : "100"
+	"TemplateTweak" : "400"
 	},
 "CMD_script_details" : { 
 	"ScriptType" : {
 		"Language" : "Windows_CMD",
 		"Extension" : "CMD"
 		},
-	"ScriptDate" : "2024-05-30",
-	"ScriptVersion" : "08.01.00",
-	"ScriptRevision" : "000",
-	"ScriptSubRevision" : "000",
-	"ScriptTweak" : "100",
-	"TemplateVersion" : "08.01.00",
-	"TemplateRevision" : "000"
+	"CMDScriptDate" : "2024-11-08",
+	"CMDScriptVersion" : "08.02.00",
+	"CMDScriptRevision" : "000",
+	"CMDScriptSubRevision" : "000",
+	"CMDScriptTweak" : "400",
+	"CMDTemplateVersion" : "08.02.00",
+	"CMDTemplateRevision" : "000"
 	},
 "script_details" : { 
 	"ScriptType" : {

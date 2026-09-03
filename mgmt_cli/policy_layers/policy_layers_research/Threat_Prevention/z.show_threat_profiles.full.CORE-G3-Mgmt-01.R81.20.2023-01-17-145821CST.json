@@ -1,0 +1,2836 @@
+{
+  "profiles" : [ {
+    "uid" : "eb39a60d-c454-49f5-a28c-a89aa5bd2e09",
+    "name" : "Basic",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+      "name" : "Check Point Data",
+      "domain-type" : "data domain"
+    },
+    "active-protections-performance-impact" : "medium",
+    "active-protections-severity" : "High",
+    "confidence-level-low" : "Inactive",
+    "confidence-level-medium" : "Inactive",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 5000000,
+      "max-links" : 50
+    },
+    "zero-phishing" : false,
+    "threat-emulation" : false,
+    "threat-extraction" : false,
+    "anti-virus" : false,
+    "anti-bot" : false,
+    "overrides" : [ ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Protocol",
+      "uid" : "8259b9d8-62c6-f247-80d4-da4047f137cb",
+      "values" : [ {
+        "name" : "HTTP",
+        "uid" : "2ea1aa92-c229-9040-9119-f8c65bd49394"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      } ]
+    }, {
+      "name" : "Protected Asset",
+      "uid" : "dc9d2116-59d7-c345-a7f6-b15678d7a996",
+      "values" : [ {
+        "name" : "CLIENT",
+        "uid" : "5f21aad1-d6d1-4a35-bf1c-ddfe320adcac"
+      } ]
+    }, {
+      "name" : "Protection Tuning",
+      "uid" : "58d65d86-ab73-604c-a741-1175e3b64374",
+      "values" : [ {
+        "name" : "Configurable",
+        "uid" : "59d26c4d-386c-4d06-a5b9-9d68a9b254c7"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Provides reliable protection on a variety of non-HTTP protocols for servers, with minimal performance impact.",
+    "color" : "black",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1669069545236,
+        "iso-8601" : "2022-11-21T16:25-0600"
+      },
+      "last-modifier" : "System",
+      "creation-time" : {
+        "posix" : 1669069545236,
+        "iso-8601" : "2022-11-21T16:25-0600"
+      },
+      "creator" : "System"
+    },
+    "read-only" : true,
+    "available-actions" : {
+      "edit" : "false",
+      "delete" : "false",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "277fbdb3-3b4c-4077-80ab-1a99fb8e276b",
+    "name" : "CORE_CP-Infra_Recommended",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 4096,
+      "max-links" : 10
+    },
+    "zero-phishing" : false,
+    "threat-emulation" : false,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ {
+      "protection" : "IPv6 In IPv4 Tunneling",
+      "protection-uid" : "2b2355b3-105a-1d46-8d3b-2573fbc5b9bc",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    }, {
+      "protection" : "DNS Tunneling",
+      "protection-uid" : "66940570-e14a-6147-879f-87f207ec1c7c",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    } ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Rare",
+        "uid" : "221a358f-9f79-40e4-8ada-71b171d60cc7"
+      }, {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Product",
+      "uid" : "14226706-c84e-4f49-b429-e219858015a8",
+      "values" : [ {
+        "name" : "Check Point",
+        "uid" : "ca96c4ca-0dad-bd49-8cc2-40da99930a86"
+      } ]
+    }, {
+      "name" : "Vendor",
+      "uid" : "4a289aba-1703-d040-8d4f-fb286b55badb",
+      "values" : [ {
+        "name" : "Check Point",
+        "uid" : "c7eaf4e7-5d38-394a-a77b-eff6f7b4771a"
+      } ]
+    }, {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Recommended Protections for ericjbeasley.net",
+    "color" : "pink",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1623036173435,
+        "iso-8601" : "2021-06-06T22:22-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1623036173435,
+        "iso-8601" : "2021-06-06T22:22-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "46525e8b-516b-47ad-bd01-72b90962657e",
+    "name" : "CORE_DMZ_Web_Servers_Recommended",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 4096,
+      "max-links" : 10
+    },
+    "zero-phishing" : true,
+    "threat-emulation" : true,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ {
+      "protection" : "Windows Print Spooler Remote Code Execution (CVE-2021-34527)",
+      "protection-uid" : "b7dc2e14-2146-a94a-a97e-efcd7d760612",
+      "protection-external-info" : [ "CVE-2021-34527" ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    }, {
+      "protection" : "IPv6 In IPv4 Tunneling",
+      "protection-uid" : "2b2355b3-105a-1d46-8d3b-2573fbc5b9bc",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    }, {
+      "protection" : "DNS Tunneling",
+      "protection-uid" : "66940570-e14a-6147-879f-87f207ec1c7c",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    } ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Rare",
+        "uid" : "221a358f-9f79-40e4-8ada-71b171d60cc7"
+      }, {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      } ]
+    }, {
+      "name" : "Product",
+      "uid" : "14226706-c84e-4f49-b429-e219858015a8",
+      "values" : [ {
+        "name" : "SCADA",
+        "uid" : "8c42ce6f-57ca-e149-9060-c50a6002530a"
+      } ]
+    }, {
+      "name" : "Vendor",
+      "uid" : "4a289aba-1703-d040-8d4f-fb286b55badb",
+      "values" : [ {
+        "name" : "SCADA",
+        "uid" : "53695892-5e6d-134a-b6fb-1a9c0b70e165"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      } ]
+    }, {
+      "name" : "Vendor",
+      "uid" : "4a289aba-1703-d040-8d4f-fb286b55badb",
+      "values" : [ {
+        "name" : "Microsoft",
+        "uid" : "907c7332-6604-344b-af71-54c332411c40"
+      }, {
+        "name" : "Microsoft RPC",
+        "uid" : "72263c39-926a-fe4d-a8e1-a23fe4c26cea"
+      } ]
+    }, {
+      "name" : "Product",
+      "uid" : "14226706-c84e-4f49-b429-e219858015a8",
+      "values" : [ {
+        "name" : "Microsoft RPC",
+        "uid" : "23485d3c-5d55-c341-a978-59cc3aeef022"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "DMZ Web Servers Recommended Protections for ericjbeasley.net",
+    "color" : "orchid",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1623036244142,
+        "iso-8601" : "2021-06-06T22:24-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1623036244142,
+        "iso-8601" : "2021-06-06T22:24-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "99199342-7d68-447a-9132-b58624b4dd6f",
+    "name" : "CORE_G3_Common_from_Strict",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : true,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 5000000,
+      "max-links" : 50
+    },
+    "zero-phishing" : true,
+    "threat-emulation" : true,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      } ]
+    }, {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      } ]
+    }, {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Protections for CORE G3 (ericjbeasley.net) Check Point Infrastructure based on Strict",
+    "color" : "crete blue",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1621644229466,
+        "iso-8601" : "2021-05-21T19:43-0500"
+      },
+      "last-modifier" : "administrator",
+      "creation-time" : {
+        "posix" : 1621644229466,
+        "iso-8601" : "2021-05-21T19:43-0500"
+      },
+      "creator" : "administrator"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "e3749acf-5c12-4a30-9979-2d814b76af15",
+    "name" : "CORE_G3_CP_Infra_from_Strict",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 5000000,
+      "max-links" : 50
+    },
+    "zero-phishing" : false,
+    "threat-emulation" : false,
+    "threat-extraction" : false,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Rare",
+        "uid" : "221a358f-9f79-40e4-8ada-71b171d60cc7"
+      }, {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      } ]
+    }, {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Product",
+      "uid" : "14226706-c84e-4f49-b429-e219858015a8",
+      "values" : [ {
+        "name" : "Check Point",
+        "uid" : "ca96c4ca-0dad-bd49-8cc2-40da99930a86"
+      } ]
+    }, {
+      "name" : "Vendor",
+      "uid" : "4a289aba-1703-d040-8d4f-fb286b55badb",
+      "values" : [ {
+        "name" : "Check Point",
+        "uid" : "c7eaf4e7-5d38-394a-a77b-eff6f7b4771a"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      } ]
+    }, {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Protections for CORE G3 (ericjbeasley.net) Check Point Infrastructure based on Strict",
+    "color" : "pink",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1621643002045,
+        "iso-8601" : "2021-05-21T19:23-0500"
+      },
+      "last-modifier" : "administrator",
+      "creation-time" : {
+        "posix" : 1621643002045,
+        "iso-8601" : "2021-05-21T19:23-0500"
+      },
+      "creator" : "administrator"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "ae90a6de-5d6c-4ddf-857e-66a5c3904e6f",
+    "name" : "CORE_G3_Strict_Hardcore_from_Strict",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Prevent",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 5000000,
+      "max-links" : 50
+    },
+    "zero-phishing" : true,
+    "threat-emulation" : true,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      } ]
+    }, {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      } ]
+    }, {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Protections for CORE G3 (ericjbeasley.net) Check Point Infrastructure based on Strict",
+    "color" : "crete blue",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1621646280362,
+        "iso-8601" : "2021-05-21T20:18-0500"
+      },
+      "last-modifier" : "administrator",
+      "creation-time" : {
+        "posix" : 1621646280362,
+        "iso-8601" : "2021-05-21T20:18-0500"
+      },
+      "creator" : "administrator"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "59aecd28-388e-4383-8cc6-f870830367d1",
+    "name" : "CORE_Linux_Workstations",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 4096,
+      "max-links" : 10
+    },
+    "zero-phishing" : true,
+    "threat-emulation" : true,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ {
+      "protection" : "IPv6 In IPv4 Tunneling",
+      "protection-uid" : "2b2355b3-105a-1d46-8d3b-2573fbc5b9bc",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    }, {
+      "protection" : "DNS Tunneling",
+      "protection-uid" : "66940570-e14a-6147-879f-87f207ec1c7c",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    } ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      } ]
+    }, {
+      "name" : "Vendor",
+      "uid" : "4a289aba-1703-d040-8d4f-fb286b55badb",
+      "values" : [ {
+        "name" : "Linux",
+        "uid" : "92995ae9-ef75-644a-a094-103b9ebb5999"
+      } ]
+    }, {
+      "name" : "Product",
+      "uid" : "14226706-c84e-4f49-b429-e219858015a8",
+      "values" : [ {
+        "name" : "Linux",
+        "uid" : "58b145a5-26b1-6b44-833d-e0f36927d190"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Protections for Linux OS Workstations in ericjbeasley.net",
+    "color" : "sea green",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1623036318967,
+        "iso-8601" : "2021-06-06T22:25-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1623036318967,
+        "iso-8601" : "2021-06-06T22:25-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "d1eff7f3-069a-4d9b-9c7e-e0136ccb4759",
+    "name" : "CORE_MAIL_Servers_Recommended",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 4096,
+      "max-links" : 10
+    },
+    "zero-phishing" : true,
+    "threat-emulation" : true,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ {
+      "protection" : "IPv6 In IPv4 Tunneling",
+      "protection-uid" : "2b2355b3-105a-1d46-8d3b-2573fbc5b9bc",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    }, {
+      "protection" : "DNS Tunneling",
+      "protection-uid" : "66940570-e14a-6147-879f-87f207ec1c7c",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    } ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      } ]
+    }, {
+      "name" : "Product",
+      "uid" : "14226706-c84e-4f49-b429-e219858015a8",
+      "values" : [ {
+        "name" : "SCADA",
+        "uid" : "8c42ce6f-57ca-e149-9060-c50a6002530a"
+      } ]
+    }, {
+      "name" : "Vendor",
+      "uid" : "4a289aba-1703-d040-8d4f-fb286b55badb",
+      "values" : [ {
+        "name" : "SCADA",
+        "uid" : "53695892-5e6d-134a-b6fb-1a9c0b70e165"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      } ]
+    }, {
+      "name" : "Vendor",
+      "uid" : "4a289aba-1703-d040-8d4f-fb286b55badb",
+      "values" : [ {
+        "name" : "Microsoft",
+        "uid" : "907c7332-6604-344b-af71-54c332411c40"
+      }, {
+        "name" : "Microsoft RPC",
+        "uid" : "72263c39-926a-fe4d-a8e1-a23fe4c26cea"
+      } ]
+    }, {
+      "name" : "Product",
+      "uid" : "14226706-c84e-4f49-b429-e219858015a8",
+      "values" : [ {
+        "name" : "Microsoft RPC",
+        "uid" : "23485d3c-5d55-c341-a978-59cc3aeef022"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "DMZ Web Servers Recommended Protections for ericjbeasley.net",
+    "color" : "orchid",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1623036412508,
+        "iso-8601" : "2021-06-06T22:26-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1623036412508,
+        "iso-8601" : "2021-06-06T22:26-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "3e5c0b35-cf2a-4244-ac59-303cb6219096",
+    "name" : "CORE_Microsoft_Workstations",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : true,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : true,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 4096,
+      "max-links" : 10
+    },
+    "zero-phishing" : true,
+    "threat-emulation" : true,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ {
+      "protection" : "IPv6 In IPv4 Tunneling",
+      "protection-uid" : "2b2355b3-105a-1d46-8d3b-2573fbc5b9bc",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    }, {
+      "protection" : "DNS Tunneling",
+      "protection-uid" : "66940570-e14a-6147-879f-87f207ec1c7c",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    } ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      } ]
+    }, {
+      "name" : "Vendor",
+      "uid" : "4a289aba-1703-d040-8d4f-fb286b55badb",
+      "values" : [ {
+        "name" : "Microsoft",
+        "uid" : "907c7332-6604-344b-af71-54c332411c40"
+      }, {
+        "name" : "Microsoft RPC",
+        "uid" : "72263c39-926a-fe4d-a8e1-a23fe4c26cea"
+      } ]
+    }, {
+      "name" : "Product",
+      "uid" : "14226706-c84e-4f49-b429-e219858015a8",
+      "values" : [ {
+        "name" : "Microsoft RPC",
+        "uid" : "23485d3c-5d55-c341-a978-59cc3aeef022"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Protections for Microsoft OS Workstations in ericjbeasley.net",
+    "color" : "navy blue",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1623036498050,
+        "iso-8601" : "2021-06-06T22:28-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1623036498050,
+        "iso-8601" : "2021-06-06T22:28-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "bfb5f165-f8a2-4a83-b030-eb46edd78941",
+    "name" : "CORE_NO-TEX_Recommended",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 4096,
+      "max-links" : 10
+    },
+    "zero-phishing" : false,
+    "threat-emulation" : false,
+    "threat-extraction" : false,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ {
+      "protection" : "DNS Tunneling",
+      "protection-uid" : "66940570-e14a-6147-879f-87f207ec1c7c",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    }, {
+      "protection" : "IPv6 In IPv4 Tunneling",
+      "protection-uid" : "2b2355b3-105a-1d46-8d3b-2573fbc5b9bc",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    } ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Recommended Protections for ericjbeasley.net",
+    "color" : "blue",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1623036582094,
+        "iso-8601" : "2021-06-06T22:29-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1623036582094,
+        "iso-8601" : "2021-06-06T22:29-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "b18b0bb6-cef9-4a65-b447-9d9b8f1741ac",
+    "name" : "CORE_Private_Cloud_Recommended",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 4096,
+      "max-links" : 10
+    },
+    "zero-phishing" : false,
+    "threat-emulation" : false,
+    "threat-extraction" : false,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ {
+      "protection" : "DNS Tunneling",
+      "protection-uid" : "66940570-e14a-6147-879f-87f207ec1c7c",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    }, {
+      "protection" : "IPv6 In IPv4 Tunneling",
+      "protection-uid" : "2b2355b3-105a-1d46-8d3b-2573fbc5b9bc",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    } ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      } ]
+    }, {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      } ]
+    }, {
+      "name" : "Vendor",
+      "uid" : "4a289aba-1703-d040-8d4f-fb286b55badb",
+      "values" : [ {
+        "name" : "VMWare",
+        "uid" : "a3a943a4-1413-fd40-a030-07e0ffdb8010"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Recommended Protections for ericjbeasley.net",
+    "color" : "blue",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1623036664873,
+        "iso-8601" : "2021-06-06T22:31-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1623036664873,
+        "iso-8601" : "2021-06-06T22:31-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "252f8644-01ed-49b4-9d00-3d485cdfb6e3",
+    "name" : "CORE_Recommended",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 4096,
+      "max-links" : 10
+    },
+    "zero-phishing" : true,
+    "threat-emulation" : true,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ {
+      "protection" : "IPv6 In IPv4 Tunneling",
+      "protection-uid" : "2b2355b3-105a-1d46-8d3b-2573fbc5b9bc",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    }, {
+      "protection" : "DNS Tunneling",
+      "protection-uid" : "66940570-e14a-6147-879f-87f207ec1c7c",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    } ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Recommended Protections for ericjbeasley.net",
+    "color" : "blue",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1623036747008,
+        "iso-8601" : "2021-06-06T22:32-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1623036747008,
+        "iso-8601" : "2021-06-06T22:32-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "f8f230b0-9151-450c-b232-b71fa2a2ab1a",
+    "name" : "CORE_SECURED_Strict",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Prevent",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 4096,
+      "max-links" : 10
+    },
+    "zero-phishing" : true,
+    "threat-emulation" : true,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ {
+      "protection" : "IPv6 In IPv4 Tunneling",
+      "protection-uid" : "2b2355b3-105a-1d46-8d3b-2573fbc5b9bc",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    }, {
+      "protection" : "DNS Tunneling",
+      "protection-uid" : "66940570-e14a-6147-879f-87f207ec1c7c",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    } ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      }, {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      }, {
+        "name" : "Rare",
+        "uid" : "221a358f-9f79-40e4-8ada-71b171d60cc7"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Provide very wide coverage for all products and protocols, with noticeable performance impact.",
+    "color" : "red",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1623036842249,
+        "iso-8601" : "2021-06-06T22:34-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1623036842249,
+        "iso-8601" : "2021-06-06T22:34-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "a4c84268-0a78-4213-b068-c3a11b2730ef",
+    "name" : "CORE_Strict_Hardcore",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Prevent",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 4096,
+      "max-links" : 10
+    },
+    "zero-phishing" : true,
+    "threat-emulation" : true,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ {
+      "protection" : "IPv6 In IPv4 Tunneling",
+      "protection-uid" : "2b2355b3-105a-1d46-8d3b-2573fbc5b9bc",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    }, {
+      "protection" : "Windows Print Spooler Remote Code Execution (CVE-2021-34527)",
+      "protection-uid" : "b7dc2e14-2146-a94a-a97e-efcd7d760612",
+      "protection-external-info" : [ "CVE-2021-34527" ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    }, {
+      "protection" : "DNS Tunneling",
+      "protection-uid" : "66940570-e14a-6147-879f-87f207ec1c7c",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Prevent",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    } ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Rare",
+        "uid" : "221a358f-9f79-40e4-8ada-71b171d60cc7"
+      }, {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Recommended Protections for ericjbeasley.net",
+    "color" : "blue",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1623036935226,
+        "iso-8601" : "2021-06-06T22:35-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1623036935226,
+        "iso-8601" : "2021-06-06T22:35-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "dc94d514-8996-4d7a-b9b6-9de9739afd4d",
+    "name" : "CORE_to_CORE_Internal_from_Optimized",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Medium or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 5000000,
+      "max-links" : 50
+    },
+    "zero-phishing" : true,
+    "threat-emulation" : true,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      }, {
+        "name" : "Rare",
+        "uid" : "221a358f-9f79-40e4-8ada-71b171d60cc7"
+      } ]
+    }, {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Provides excellent protection for all common network products and protocols against recent or popular attacks.",
+    "color" : "crete blue",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1670198596524,
+        "iso-8601" : "2022-12-04T18:03-0600"
+      },
+      "last-modifier" : "administrator",
+      "creation-time" : {
+        "posix" : 1670196786846,
+        "iso-8601" : "2022-12-04T17:33-0600"
+      },
+      "creator" : "administrator"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "1f08fd3f-39b3-424c-8f48-e00f608b70ba",
+    "name" : "CORE_to_CORE_Other_from_Optimized",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 5000000,
+      "max-links" : 50
+    },
+    "zero-phishing" : true,
+    "threat-emulation" : true,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      }, {
+        "name" : "Rare",
+        "uid" : "221a358f-9f79-40e4-8ada-71b171d60cc7"
+      } ]
+    }, {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Provides excellent protection for all common network products and protocols against recent or popular attacks.",
+    "color" : "crete blue",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1670198958303,
+        "iso-8601" : "2022-12-04T18:09-0600"
+      },
+      "last-modifier" : "administrator",
+      "creation-time" : {
+        "posix" : 1670198958303,
+        "iso-8601" : "2022-12-04T18:09-0600"
+      },
+      "creator" : "administrator"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "a4adb043-9abe-418d-98d9-6c25d19057c4",
+    "name" : "DISTOPIA_TP_Recommended",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Detect",
+    "confidence-level-high" : "Detect",
+    "ips" : false,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 4096,
+      "max-links" : 10
+    },
+    "zero-phishing" : false,
+    "threat-emulation" : true,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ ],
+    "use-extended-attributes" : false,
+    "extended-attributes-to-deactivate" : [ ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Any",
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "values" : [ {
+        "name" : "Any",
+        "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Recommended Protections for ericjbeasley.net",
+    "color" : "forest green",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1623037213740,
+        "iso-8601" : "2021-06-06T22:40-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1623037213740,
+        "iso-8601" : "2021-06-06T22:40-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "35410bc4-f85c-47ee-94b0-f7c2775958ca",
+    "name" : "EXTERNAL_to_CORE_from_Strict",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 5000000,
+      "max-links" : 50
+    },
+    "zero-phishing" : true,
+    "threat-emulation" : true,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      } ]
+    }, {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      }, {
+        "name" : "Rare",
+        "uid" : "221a358f-9f79-40e4-8ada-71b171d60cc7"
+      } ]
+    }, {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Provide very wide coverage for all products and protocols, with noticeable performance impact.",
+    "color" : "orchid",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1670208744378,
+        "iso-8601" : "2022-12-04T20:52-0600"
+      },
+      "last-modifier" : "administrator",
+      "creation-time" : {
+        "posix" : 1670208744378,
+        "iso-8601" : "2022-12-04T20:52-0600"
+      },
+      "creator" : "administrator"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "97dc4b09-c622-4810-bc23-a1257839763c",
+    "name" : "Multimedia_and_IOT_NO-TEX_Recommended",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 4096,
+      "max-links" : 10
+    },
+    "zero-phishing" : false,
+    "threat-emulation" : false,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ {
+      "protection" : "DNS Tunneling",
+      "protection-uid" : "66940570-e14a-6147-879f-87f207ec1c7c",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    }, {
+      "protection" : "IPv6 In IPv4 Tunneling",
+      "protection-uid" : "2b2355b3-105a-1d46-8d3b-2573fbc5b9bc",
+      "protection-external-info" : [ ],
+      "default" : {
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "override" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      },
+      "final" : {
+        "action" : "Detect",
+        "track" : "log",
+        "capture-packets" : false
+      }
+    } ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      }, {
+        "name" : "Rare",
+        "uid" : "221a358f-9f79-40e4-8ada-71b171d60cc7"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      } ]
+    }, {
+      "name" : "Vendor",
+      "uid" : "4a289aba-1703-d040-8d4f-fb286b55badb",
+      "values" : [ {
+        "name" : "Apple",
+        "uid" : "fce1c19a-e780-5343-9184-93c91929db33"
+      } ]
+    }, {
+      "name" : "Product",
+      "uid" : "14226706-c84e-4f49-b429-e219858015a8",
+      "values" : [ {
+        "name" : "Apple ID",
+        "uid" : "ee5fdf6e-5cf5-2c47-aafe-321c1ca157e3"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Recommended Protections for ericjbeasley.net",
+    "color" : "blue",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1623037309640,
+        "iso-8601" : "2021-06-06T22:41-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1623037309640,
+        "iso-8601" : "2021-06-06T22:41-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "9797931f-71e8-4673-b470-c30939696839",
+    "name" : "Multimedia_and_IOT_TEX_ONLY",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Medium or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Detect",
+    "confidence-level-high" : "Detect",
+    "ips" : false,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 4096,
+      "max-links" : 10
+    },
+    "zero-phishing" : false,
+    "threat-emulation" : true,
+    "threat-extraction" : true,
+    "anti-virus" : false,
+    "anti-bot" : false,
+    "overrides" : [ ],
+    "use-extended-attributes" : false,
+    "extended-attributes-to-deactivate" : [ ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Any",
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "values" : [ {
+        "name" : "Any",
+        "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "TEX Protection for Multimedia and IOT - Detect Only",
+    "color" : "blue",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1623037413853,
+        "iso-8601" : "2021-06-06T22:43-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1623037413853,
+        "iso-8601" : "2021-06-06T22:43-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "fa1aa324-a8cc-4dbd-bc04-f31fdb8abf61",
+    "name" : "Optimized",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+      "name" : "Check Point Data",
+      "domain-type" : "data domain"
+    },
+    "active-protections-performance-impact" : "medium",
+    "active-protections-severity" : "Medium or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 5000000,
+      "max-links" : 50
+    },
+    "zero-phishing" : true,
+    "threat-emulation" : true,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      }, {
+        "name" : "Rare",
+        "uid" : "221a358f-9f79-40e4-8ada-71b171d60cc7"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Provides excellent protection for all common network products and protocols against recent or popular attacks.",
+    "color" : "black",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1669069545501,
+        "iso-8601" : "2022-11-21T16:25-0600"
+      },
+      "last-modifier" : "System",
+      "creation-time" : {
+        "posix" : 1669069545501,
+        "iso-8601" : "2022-11-21T16:25-0600"
+      },
+      "creator" : "System"
+    },
+    "read-only" : true,
+    "available-actions" : {
+      "edit" : "false",
+      "delete" : "false",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "caf8b711-d762-4c1e-82d5-6af2549b2869",
+    "name" : "Strict",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "a0bbbc99-adef-4ef8-bb6d-defdefdefdef",
+      "name" : "Check Point Data",
+      "domain-type" : "data domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 5000000,
+      "max-links" : 50
+    },
+    "zero-phishing" : true,
+    "threat-emulation" : true,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ ],
+    "use-extended-attributes" : false,
+    "extended-attributes-to-deactivate" : [ ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Any",
+      "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30",
+      "values" : [ {
+        "name" : "Any",
+        "uid" : "97aeb369-9aea-11d5-bd16-0090272ccb30"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Provide very wide coverage for all products and protocols, with noticeable performance impact.",
+    "color" : "black",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1669069545921,
+        "iso-8601" : "2022-11-21T16:25-0600"
+      },
+      "last-modifier" : "System",
+      "creation-time" : {
+        "posix" : 1669069545921,
+        "iso-8601" : "2022-11-21T16:25-0600"
+      },
+      "creator" : "System"
+    },
+    "read-only" : true,
+    "available-actions" : {
+      "edit" : "false",
+      "delete" : "false",
+      "clone" : "true"
+    }
+  }, {
+    "uid" : "577e5a78-af4b-4b7e-b5a9-8ff74c9bddc3",
+    "name" : "Z-ParkingLot_Recommended",
+    "type" : "threat-profile",
+    "domain" : {
+      "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+      "name" : "SMC User",
+      "domain-type" : "domain"
+    },
+    "active-protections-performance-impact" : "high",
+    "active-protections-severity" : "Low or above",
+    "confidence-level-low" : "Detect",
+    "confidence-level-medium" : "Prevent",
+    "confidence-level-high" : "Prevent",
+    "ips" : true,
+    "ips-settings" : {
+      "newly-updated-protections" : "active",
+      "exclude-protection-with-performance-impact" : false,
+      "exclude-protection-with-severity" : false
+    },
+    "malicious-mail-policy-settings" : {
+      "email-action" : "allow",
+      "remove-attachments-and-links" : true,
+      "malicious-attachments-text" : "Malicious email attachment '$filename$' removed by Check Point.",
+      "failed-to-scan-attachments-text" : "Email attachment '$filename$' failed to be scanned and removed by Check Point.",
+      "malicious-links-text" : "[Check Point] Malicious link: $neutralized_url$ [Check Point]",
+      "add-x-header-to-email" : false,
+      "add-email-subject-prefix" : false,
+      "email-subject-prefix-text" : "Attachment was found malicious. It is recommended not to open this mail.",
+      "add-customized-text-to-email-body" : false,
+      "email-body-customized-text" : "[Check Point]<BR>The following verdicts were determined by Check Point:<BR>$verdicts$<BR>[Check Point]",
+      "send-copy" : false
+    },
+    "scan-malicious-links" : {
+      "max-bytes" : 4096,
+      "max-links" : 10
+    },
+    "zero-phishing" : true,
+    "threat-emulation" : true,
+    "threat-extraction" : true,
+    "anti-virus" : true,
+    "anti-bot" : true,
+    "overrides" : [ ],
+    "use-extended-attributes" : true,
+    "extended-attributes-to-deactivate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Scarce",
+        "uid" : "c47278ad-34a2-114f-88e8-66818e156c85"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Obsolete",
+        "uid" : "cd6eb868-7c11-42fb-b47d-ca4d9212eb7b"
+      } ]
+    } ],
+    "extended-attributes-to-activate" : [ {
+      "name" : "Product Prevalence",
+      "uid" : "fa6e6f33-a2fb-f449-8809-fac2eba59c18",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "eefa53c8-86ca-5c46-8d68-9a174a786de2"
+      } ]
+    }, {
+      "name" : "Threat Prevalence",
+      "uid" : "eb5720e4-a7ae-fa44-91f4-af2f779e8aef",
+      "values" : [ {
+        "name" : "Common",
+        "uid" : "b36d1847-1dd8-9740-ae38-1fc9aa2f6747"
+      } ]
+    } ],
+    "use-indicators" : true,
+    "indicator-overrides" : [ ],
+    "comments" : "Recommended Protections for ericjbeasley.net",
+    "color" : "red",
+    "icon" : "Profiles/profile",
+    "tags" : [ ],
+    "meta-info" : {
+      "lock" : "unlocked",
+      "validation-state" : "ok",
+      "last-modify-time" : {
+        "posix" : 1623037517500,
+        "iso-8601" : "2021-06-06T22:45-0500"
+      },
+      "last-modifier" : "WEB_API",
+      "creation-time" : {
+        "posix" : 1623037517500,
+        "iso-8601" : "2021-06-06T22:45-0500"
+      },
+      "creator" : "WEB_API"
+    },
+    "read-only" : false,
+    "available-actions" : {
+      "edit" : "true",
+      "delete" : "true",
+      "clone" : "true"
+    }
+  } ],
+  "from" : 1,
+  "to" : 23,
+  "total" : 23
+}

@@ -1,39 +1,51 @@
 { "file_meta_info" : {
 	"filetype" : "solution_info.api_scripts",
-	"fileversion" : "07.00.00",
+	"fileversion" : "09.00.00",
 	"filerevision" : "000",
 	"filesubrevision" : "000",
-	"filedate" : "2023-01-17",
+	"filedate" : "2024-12-19",
 	"fileinformationlevel" : "000",
-	"MinCMDTemplateVersion" : "07.00.00"
+	"MinCMDTemplateVersion" : "09.00.00"
 	}, 
 "solution_info" : {
-	"ScriptSeries" : "\"R8X-API-scripts-4-policy-import-export\"",
-	"ScriptSeriesShort" : "devops.dev - Policy_and_Layers"
+	"ScriptSeries" : "\"devops.mgmt_cli.objects - R8X mgmt_cli API bash Script - Policy and Layers Examples\"",
+	"ScriptSeriesShort" : "devops.mgmt_cli.policy_and_layer"
+	},
+"CMD_template_script_details" : { 
+	"ScriptType" : {
+		"Language" : "Windows_CMD",
+		"Extension" : "CMD"
+		},
+	"TemplateDate" : "2024-12-19",
+	"TemplateVersion" : "09.00.00",
+	"TemplateRevision" : "000",
+	"TemplateSubRevision" : "000",
+	"TemplateTweak" : "000"
 	},
 "CMD_script_details" : { 
 	"ScriptType" : {
 		"Language" : "Windows_CMD",
 		"Extension" : "CMD"
 		},
-	"ScriptDate" : "2023-01-17",
-	"ScriptVersion" : "07.00.00",
-	"ScriptRevision" : "000",
-	"ScriptSubRevision" : "000",
-	"ScriptTweak" : "000",
-	"TemplateVersion" : "07.00.00"
+	"CMDScriptDate" : "2024-12-19",
+	"CMDScriptVersion" : "09.00.00",
+	"CMDScriptRevision" : "000",
+	"CMDScriptSubRevision" : "000",
+	"CMDScriptTweak" : "000",
+	"CMDTemplateVersion" : "09.00.00",
+	"CMDTemplateRevision" : "000"
 	},
 "script_details" : { 
 	"ScriptType" : {
 		"Language" : "bash",
 		"Extension" : "sh"
 		},
-	"ScriptDate" : "2023-01-17",
-	"ScriptVersion" : "00.00.10",
+	"ScriptDate" : "2024-12-19",
+	"ScriptVersion" : "00.70.00",
 	"ScriptRevision" : "000",
-	"ScriptSubRevision" : "000",
+	"ScriptSubRevision" : "100",
 	"ScriptTweak" : "000",
-	"TemplateVersion" : "00.60.12",
+	"TemplateVersion" : "00.70.00",
 	"TemplateLevel" : "@NA",
 	"SubScriptsLevel" : "@NA",
 	"SubScriptsVersion" : "@NA"
@@ -43,14 +55,15 @@
 		"Language" : "bash",
 		"Extension" : "sh"
 		},
-	"ScriptDate" : "2023-01-17",
-	"ScriptVersion" : "00.00.10",
-	"ScriptRevision" : "000",
-	"ScriptSubRevision" : "000",
-	"ScriptTweak" : "000",
-	"TemplateVersion" : "00.60.12",
-	"APISubScriptsLevel" : "010",
-	"APISubScriptsVersion" : "00.60.12",
-	"APISubScriptsRevision" : "100"
+	"APIScriptDate" : "2024-12-19",
+	"APIScriptVersion" : "00.70.00",
+	"APIScriptRevision" : "000",
+	"APIScriptSubRevision" : "225",
+	"APIScriptTweak" : "000",
+	"APITemplateVersion" : "00.70.00",
+	"APITemplateRevision" : "000",
+	"APISubScriptsLevel" : "020",
+	"APISubScriptsVersion" : "00.70.00",
+	"APISubScriptsRevision" : "000"
 	}
 }

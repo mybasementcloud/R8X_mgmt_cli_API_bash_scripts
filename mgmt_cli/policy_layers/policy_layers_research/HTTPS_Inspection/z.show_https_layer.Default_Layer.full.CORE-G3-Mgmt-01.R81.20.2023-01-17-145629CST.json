@@ -1,0 +1,35 @@
+{
+  "uid" : "c03ebca5-9eed-4d6e-82e8-15ed49281ca0",
+  "name" : "Default Layer",
+  "type" : "https-layer",
+  "domain" : {
+    "uid" : "41e821a0-3720-11e3-aa6e-0800200c9fde",
+    "name" : "SMC User",
+    "domain-type" : "domain"
+  },
+  "shared" : true,
+  "comments" : "",
+  "color" : "black",
+  "icon" : "ApplicationFirewall/rulebase",
+  "tags" : [ ],
+  "meta-info" : {
+    "lock" : "unlocked",
+    "validation-state" : "ok",
+    "last-modify-time" : {
+      "posix" : 1603022467075,
+      "iso-8601" : "2020-10-18T07:01-0500"
+    },
+    "last-modifier" : "System",
+    "creation-time" : {
+      "posix" : 1603022467075,
+      "iso-8601" : "2020-10-18T07:01-0500"
+    },
+    "creator" : "System"
+  },
+  "read-only" : false,
+  "available-actions" : {
+    "edit" : "true",
+    "delete" : "false",
+    "clone" : "false"
+  }
+}
