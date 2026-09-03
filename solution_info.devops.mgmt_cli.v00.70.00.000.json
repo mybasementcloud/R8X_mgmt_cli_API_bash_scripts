@@ -1,0 +1,69 @@
+{ "file_meta_info" : {
+	"filetype" : "solution_info.api_scripts",
+	"fileversion" : "10.00.00",
+	"filerevision" : "000",
+	"filesubrevision" : "450",
+	"filedate" : "2026-08-19",
+	"fileinformationlevel" : "000",
+	"MinCMDTemplateVersion" : "10.00.00"
+	}, 
+"solution_info" : {
+	"ScriptSeries" : "\"devops.mgmt_cli - R8X mgmt_cli API bash Script - Main\"",
+	"ScriptSeriesShort" : "devops.mgmt_cli"
+	},
+"CMD_template_script_details" : { 
+	"ScriptType" : {
+		"Language" : "Windows_CMD",
+		"Extension" : "CMD"
+		},
+	"TemplateDate" : "2026-08-19",
+	"TemplateVersion" : "10.00.00",
+	"TemplateRevision" : "000",
+	"TemplateSubRevision" : "600",
+	"TemplateTweak" : "600"
+	},
+"CMD_script_details" : { 
+	"ScriptType" : {
+		"Language" : "Windows_CMD",
+		"Extension" : "CMD"
+		},
+	"CMDScriptDate" : "2026-08-19",
+	"CMDScriptVersion" : "10.00.00",
+	"CMDScriptRevision" : "000",
+	"CMDScriptSubRevision" : "000",
+	"CMDScriptTweak" : "000",
+	"CMDTemplateVersion" : "10.00.00",
+	"CMDTemplateRevision" : "000"
+	},
+"script_details" : { 
+	"ScriptType" : {
+		"Language" : "bash",
+		"Extension" : "sh"
+		},
+	"ScriptDate" : "2026-08-19",
+	"ScriptVersion" : "00.70.00",
+	"ScriptRevision" : "000",
+	"ScriptSubRevision" : "450",
+	"ScriptTweak" : "000",
+	"TemplateVersion" : "00.70.00",
+	"TemplateLevel" : "@NA",
+	"SubScriptsLevel" : "@NA",
+	"SubScriptsVersion" : "@NA"
+	},
+"api_script_details" : {
+	"ScriptType" : {
+		"Language" : "bash",
+		"Extension" : "sh"
+		},
+	"APIScriptDate" : "2026-08-19",
+	"APIScriptVersion" : "00.70.00",
+	"APIScriptRevision" : "000",
+	"APIScriptSubRevision" : "450",
+	"APIScriptTweak" : "000",
+	"APITemplateVersion" : "00.70.00",
+	"APITemplateRevision" : "000",
+	"APISubScriptsLevel" : "020",
+	"APISubScriptsVersion" : "00.70.00",
+	"APISubScriptsRevision" : "000"
+	}
+}
